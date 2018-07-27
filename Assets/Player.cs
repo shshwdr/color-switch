@@ -1,28 +1,50 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
     public List<Color> colorList;
     public float jumpForce = 10f;
     public Rigidbody2D rb;
     public SpriteRenderer sr;
+    public MainGameView gameView;
+    public Vector3 originPosition;
+
+    public bool cheatDontDie;
+
+    public bool isGameOver;
     GameColor gameColor;
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         SetRandomColor();
-
+        originPosition = transform.position;
+        Debug.Log(originPosition);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        if (isGameOver)
+        {
+            return;
+        }
+        //if (!canBeSeenByCamera())
+        //{
+        //    GameOver();
+        //}
 		if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
         {
             rb.velocity = Vector2.up * jumpForce;
         }
 	}
+
+    private bool canBeSeenByCamera()
+    {
+
+        return GetComponent<Renderer>().isVisible;
+    }
 
     void SetRandomColor()
     {
@@ -34,6 +56,10 @@ public class Player : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        if (isGameOver)
+        {
+            return;
+        }
         Debug.Log(col);
         if (col.tag == "colorChanger")
         {
@@ -47,7 +73,7 @@ public class Player : MonoBehaviour {
                 GameColor c = script.gameColor;
                 if(c!=gameColor)
                 {
-                    Debug.Log("game over");
+                    GameOver();
                 }
                 //gameColor = c;
                 //Debug.Log(c);
@@ -58,5 +84,22 @@ public class Player : MonoBehaviour {
             }
         }
 
+    }
+
+    void GameOver()
+    {
+        if (cheatDontDie)
+        {
+            return;
+        }
+        gameView.GameOver();
+        isGameOver = true;
+    }
+
+    public void Restart()
+    {
+        gameView.Restart();
+        isGameOver = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
