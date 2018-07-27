@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FolowTarget : MonoBehaviour {
-
+    public Transform player;
 	// Use this for initialization
 	void Start () {
 		
@@ -11,6 +11,9 @@ public class FolowTarget : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (player.position.y > transform.position.y)
+        {
+            transform.position = new Vector3(transform.position.x, player.position.y, transform.position.z);
+        }
 	}
 }

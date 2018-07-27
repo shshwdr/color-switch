@@ -26,7 +26,7 @@ public class Player : MonoBehaviour {
 
     void SetRandomColor()
     {
-        GameColor c = (GameColor) Random.Range(0, 3);
+        GameColor c = (GameColor) Random.Range(0, 4);
         gameColor = c;
         Debug.Log((int)c);
         sr.color = colorList[(int)c];
@@ -35,13 +35,28 @@ public class Player : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log(col);
-        GameColorManager script = col.gameObject.GetComponent<GameColorManager>();
-        if (script)
+        if (col.tag == "colorChanger")
         {
-            GameColor c = script.gameColor;
-            gameColor = c;
-            Debug.Log(c);
-            sr.color = colorList[(int)c];
+            SetRandomColor();
+            Destroy(col.gameObject);
+        }else
+        {
+            GameColorManager script = col.gameObject.GetComponent<GameColorManager>();
+            if (script)
+            {
+                GameColor c = script.gameColor;
+                if(c!=gameColor)
+                {
+                    Debug.Log("game over");
+                }
+                //gameColor = c;
+                //Debug.Log(c);
+                //sr.color = colorList[(int)c];
+            } else
+            {
+                Debug.LogError("item is not color changer and does not have colorManager on it");
+            }
         }
+
     }
 }
