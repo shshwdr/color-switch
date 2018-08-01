@@ -14,6 +14,7 @@ sysinfo.txt
 *.unitypackage
 Packages/
 ProjectSettings/
+*.meta
  
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
