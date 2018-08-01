@@ -9,8 +9,13 @@ public class CSUtil : MonoBehaviour {
         Debug.Log("(color switch)" + message.ToString());
     }
 
-	// Use this for initialization
-	void Start () {
+    public static void ERROR(object message)
+    {
+        Debug.LogError("(color switch)" + message.ToString());
+    }
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	

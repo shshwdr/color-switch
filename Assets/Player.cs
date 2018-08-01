@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
     public List<Color> colorList;
     public float jumpForce = 10f;
     public Rigidbody2D rb;
@@ -15,17 +16,19 @@ public class Player : MonoBehaviour {
 
     public bool isGameOver;
     GameColor gameColor;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         SetRandomColor();
         originPosition = transform.position;
         CSUtil.LOG(originPosition);
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         if (isGameOver)
         {
             return;
@@ -34,11 +37,11 @@ public class Player : MonoBehaviour {
         //{
         //    GameOver();
         //}
-		if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
-        {
-            rb.velocity = Vector2.up * jumpForce;
-        }
-	}
+        //if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
+        //      {
+        //          rb.velocity = Vector2.up * jumpForce;
+        //      }
+    }
 
     private bool canBeSeenByCamera()
     {
@@ -48,9 +51,14 @@ public class Player : MonoBehaviour {
 
     void SetRandomColor()
     {
-        GameColor c = (GameColor) Random.Range(0, 4);
+        GameColor c = (GameColor)Random.Range(0, 4);
+        ChangeColor(c);
+    }
+
+    void ChangeColor(GameColor c)
+    {
         gameColor = c;
-        Debug.Log((int)c);
+        CSUtil.LOG("changed color to "+(int)c);
         sr.color = colorList[(int)c];
     }
 
@@ -61,28 +69,37 @@ public class Player : MonoBehaviour {
             return;
         }
         Debug.Log(col);
-        if (col.tag == "colorChanger")
+        GameColorManager script = col.gameObject.GetComponent<GameColorManager>();
+        CirclePart cp = col.gameObject.GetComponent<CirclePart>();
+        if (script && cp)
         {
-            SetRandomColor();
-            Destroy(col.gameObject);
-        }else
-        {
-            GameColorManager script = col.gameObject.GetComponent<GameColorManager>();
-            if (script)
+            GameColor c = script.gameColor;
+            if (cp.willChange)
             {
-                GameColor c = script.gameColor;
-                if(c!=gameColor)
+                ChangeColor(c);
+            }
+            else
+            {
+                if (c != gameColor)
                 {
                     GameOver();
                 }
-                //gameColor = c;
-                //Debug.Log(c);
-                //sr.color = colorList[(int)c];
-            } else
-            {
-                Debug.LogError("item is not color changer and does not have colorManager on it");
+                else
+                {
+                    //achievement
+                }
             }
+            
+            //gameColor = c;
+            //Debug.Log(c);
+            //sr.color = colorList[(int)c];
         }
+        else
+        {
+            CSUtil.ERROR("item is not color changer and does not have colorManager on it");
+
+        }
+
 
     }
 
