@@ -22,12 +22,15 @@
 ///
 
 
-public static class testResources
+public static class GPGSIds
 {
-        public const string achievement_test1 = "CgkIh5WhgoYQEAIQAQ"; // <GPGSID>
-        public const string achievement_test2 = "CgkIh5WhgoYQEAIQAg"; // <GPGSID>
-        public const string achievement_test3 = "CgkIh5WhgoYQEAIQAw"; // <GPGSID>
-        public const string achievement_test4 = "CgkIh5WhgoYQEAIQBA"; // <GPGSID>
+        public const string leaderboard_how_many_times_have_you_changed_color = "CgkIh5WhgoYQEAIQBw"; // <GPGSID>
+        public const string leaderboard_how_long_have_you_moved = "CgkIh5WhgoYQEAIQBg"; // <GPGSID>
+        public const string achievement_sturbborn = "CgkIh5WhgoYQEAIQAw"; // <GPGSID>
+        public const string achievement_rotator = "CgkIh5WhgoYQEAIQBA"; // <GPGSID>
+        public const string achievement_change_color = "CgkIh5WhgoYQEAIQAQ"; // <GPGSID>
+        public const string achievement_i_am_a_little_blue = "CgkIh5WhgoYQEAIQAg"; // <GPGSID>
+        public const string achievement_i_learned_a_thing_or_two = "CgkIh5WhgoYQEAIQBQ"; // <GPGSID>
 
 }
 

@@ -21,7 +21,7 @@ public class Player : MonoBehaviour {
         sr = GetComponent<SpriteRenderer>();
         SetRandomColor();
         originPosition = transform.position;
-        Debug.Log(originPosition);
+        CSUtil.LOG(originPosition);
 	}
 	
 	// Update is called once per frame
