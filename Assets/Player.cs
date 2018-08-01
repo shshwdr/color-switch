@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour
+public class Player : InstanceBehavior
 {
     public List<Color> colorList;
     public float jumpForce = 10f;
@@ -96,7 +96,8 @@ public class Player : MonoBehaviour
         }
         else
         {
-            CSUtil.ERROR("item is not color changer and does not have colorManager on it");
+            //hit on wholeCircle
+            //CSUtil.ERROR("item is not color changer and does not have colorManager on it");
 
         }
 
@@ -118,5 +119,10 @@ public class Player : MonoBehaviour
         gameView.Restart();
         isGameOver = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void MoveToTarget(Vector3 target)
+    {
+        transform.position = new Vector3(target.x, target.y, transform.position.z);
     }
 }
