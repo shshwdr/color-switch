@@ -16,6 +16,7 @@ public class Player : Singleton<Player>
 
     public bool isGameOver;
     GameColor gameColor;
+    Moveable moveable;
     // Use this for initialization
     void Start()
     {
@@ -24,6 +25,7 @@ public class Player : Singleton<Player>
         SetRandomColor();
         originPosition = transform.position;
         CSUtil.LOG(originPosition);
+        moveable = GetComponent<Moveable>();
     }
 
     // Update is called once per frame
@@ -112,6 +114,10 @@ public class Player : Singleton<Player>
         }
         gameView.GameOver();
         isGameOver = true;
+        moveable.KeepMoving(new Vector3(0, -1, 0));
+        CSUtil.LOG("game over");
+        //leaderboard update
+        //achievement: die
     }
 
     public void Restart()
@@ -123,6 +129,7 @@ public class Player : Singleton<Player>
 
     public void MoveToTarget(Vector3 target)
     {
-        transform.position = new Vector3(target.x, target.y, transform.position.z);
+        //transform.position = new Vector3(target.x, target.y, transform.position.z);
+        moveable.MoveTo(target);
     }
 }

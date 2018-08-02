@@ -14,13 +14,4 @@ public class CSUtil : MonoBehaviour {
         Debug.LogError("(color switch)" + message.ToString());
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
