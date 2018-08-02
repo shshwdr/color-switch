@@ -15,7 +15,7 @@ public class Player : Singleton<Player>
     public bool cheatDontDie;
 
     public bool isGameOver;
-    GameColor gameColor;
+    public GameColor gameColor;
     Moveable moveable;
     // Use this for initialization
     void Start()

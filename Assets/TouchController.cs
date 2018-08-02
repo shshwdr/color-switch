@@ -14,11 +14,14 @@ public class TouchController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-#if !UNITY_EDITOR
+        //#if !UNITY_EDITOR
         if (Input.touchCount == 1)
         {
-            // Your raycast handling
-            RaycastHit2D[] vHits = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position), Vector2.zero) ;
+            //Your raycast handling
+            Vector3 mousePosition = Input.GetTouch(0).position;
+            CSUtil.LOG("screen touched " + mousePosition);
+            mousePosition = new Vector3(mousePosition.x, mousePosition.y, 10);
+            RaycastHit2D[] vHits = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(mousePosition), Vector2.zero);
             foreach (RaycastHit2D vhit in vHits)
             {
                 if (vhit.transform.tag == "wholeCircle")
@@ -27,12 +30,15 @@ public class TouchController : MonoBehaviour
                 }
             }
         }
-#endif
+        //#endif
 
         if (Input.GetMouseButtonDown(0))
         {
             // Your raycast handling
-            RaycastHit2D[] vHits = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            Vector3 mousePosition = Input.mousePosition;
+            CSUtil.LOG("mouse click " + mousePosition);
+            mousePosition = new Vector3(mousePosition.x, mousePosition.y, 10);
+            RaycastHit2D[] vHits = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(mousePosition), Vector2.zero);
             foreach (RaycastHit2D vhit in vHits)
             {
                 if (vhit.transform.tag == "wholeCircle")
@@ -42,5 +48,5 @@ public class TouchController : MonoBehaviour
             }
         }
     }
-
+    
 }
