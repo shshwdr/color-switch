@@ -30,7 +30,7 @@ public class GameColorManager : MonoBehaviour {
             //    break;
             default:
                 sr.sprite = ResourceManager.Instance.circleSprite[(int)gameColor];
-                transform.Rotate(new Vector3(0, 0, ((int)gameColor - index) * 90));
+                transform.Rotate(new Vector3(0, 0, ( - index) * 90));
                 //CSUtil.ERROR("game color is an invalid value");
                 break;
 
