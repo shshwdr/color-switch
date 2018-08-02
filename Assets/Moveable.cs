@@ -21,12 +21,12 @@ public class Moveable : MonoBehaviour {
             direction = move.normalized;
             speed = move.magnitude / moveTime;
             isMoving = true;
-            CSUtil.LOG("start moving, direction: " + direction + "speed: " + speed);
+            //CSUtil.LOG("start moving, direction: " + direction + "speed: " + speed);
             
         } else
         {
             //achievement: don't too rush
-            CSUtil.LOG("is moving");
+            //CSUtil.LOG("is moving");
         }
     }
 
@@ -42,7 +42,7 @@ public class Moveable : MonoBehaviour {
             transform.position = transform.position + direction * speed * Time.deltaTime;
             if (CSMath.Vector3Equal(transform.position, target))
             {
-                CSUtil.LOG("Arrive target" + target);
+                //CSUtil.LOG("Arrive target" + target);
                 isMoving = false;
                 transform.position = target;
                 //achivement: keep jumping

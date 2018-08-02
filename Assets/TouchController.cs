@@ -14,6 +14,7 @@ public class TouchController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+#if !UNITY_EDITOR
         if (Input.touchCount == 1)
         {
             // Your raycast handling
@@ -26,5 +27,20 @@ public class TouchController : MonoBehaviour
                 }
             }
         }
+#endif
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Your raycast handling
+            RaycastHit2D[] vHits = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            foreach (RaycastHit2D vhit in vHits)
+            {
+                if (vhit.transform.tag == "wholeCircle")
+                {
+                    (Player.Instance).MoveToTarget(vhit.transform.position);
+                }
+            }
+        }
     }
+
 }
