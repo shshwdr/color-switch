@@ -22,7 +22,7 @@ public class TouchController : MonoBehaviour
             {
                 if (vhit.transform.tag == "wholeCircle")
                 {
-                    ((Player)(Player.Instance)).MoveToTarget(vhit.transform.position);
+                    (Player.Instance).MoveToTarget(vhit.transform.position);
                 }
             }
         }

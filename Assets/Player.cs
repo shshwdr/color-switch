@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Player : InstanceBehavior
+public class Player : Singleton<Player>
 {
     public List<Color> colorList;
     public float jumpForce = 10f;
