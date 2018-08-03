@@ -359,7 +359,9 @@ MonoBehaviour:
   sr: {fileID: 0}
   gameView: {fileID: 334318574}
   originPosition: {x: 0, y: 0, z: 0}
+  shouldDestroyPart: 1
   cheatDontDie: 1
+  decideByTheFirstHit: 1
   isGameOver: 0
   gameColor: 0
 --- !u!212 &58888521

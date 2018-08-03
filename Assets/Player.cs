@@ -11,12 +11,15 @@ public class Player : Singleton<Player>
     public SpriteRenderer sr;
     public MainGameView gameView;
     public Vector3 originPosition;
-
+    public bool shouldDestroyPart;
     public bool cheatDontDie;
+    public bool decideByTheFirstHit;
 
     public bool isGameOver;
     public GameColor gameColor;
     Moveable moveable;
+
+    HashSet<GameObject> hittedCircle;
     // Use this for initialization
     void Start()
     {
@@ -26,6 +29,7 @@ public class Player : Singleton<Player>
         originPosition = transform.position;
         CSUtil.LOG(originPosition);
         moveable = GetComponent<Moveable>();
+        hittedCircle = new HashSet<GameObject>();
     }
 
     // Update is called once per frame
@@ -71,6 +75,10 @@ public class Player : Singleton<Player>
             return;
         }
         Debug.Log(col);
+        if (decideByTheFirstHit&&hittedCircle.Contains(col.transform.parent.gameObject))
+        {
+            return;
+        }
         GameColorManager script = col.gameObject.GetComponent<GameColorManager>();
         CirclePart cp = col.gameObject.GetComponent<CirclePart>();
         if (script && cp)
@@ -91,7 +99,14 @@ public class Player : Singleton<Player>
                     //achievement
                 }
             }
-            
+            if(shouldDestroyPart)
+            {
+                Destroy(col.gameObject);
+            }
+            if (decideByTheFirstHit)
+            {
+                hittedCircle.Add(col.transform.parent.gameObject);
+            }
             //gameColor = c;
             //Debug.Log(c);
             //sr.color = colorList[(int)c];
@@ -133,9 +148,14 @@ public class Player : Singleton<Player>
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void MoveToTarget(Vector3 target)
+    public bool MoveToTarget(Vector3 target)
     {
         //transform.position = new Vector3(target.x, target.y, transform.position.z);
-        moveable.MoveTo(target);
+        if (decideByTheFirstHit)
+        {
+            hittedCircle.Clear();
+        }
+        return moveable.MoveTo(target);
+        
     }
 }

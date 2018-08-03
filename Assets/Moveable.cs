@@ -11,7 +11,7 @@ public class Moveable : MonoBehaviour {
     bool isMoving;
 
 
-    public void MoveTo(Vector3 t)
+    public bool MoveTo(Vector3 t)
     {
         if (!isMoving)
         {
@@ -23,11 +23,13 @@ public class Moveable : MonoBehaviour {
             speed = move.magnitude / moveTime;
             isMoving = true;
             //CSUtil.LOG("start moving, direction: " + direction + "speed: " + speed);
-            
+            return true;
+
         } else
         {
             //achievement: don't too rush
             //CSUtil.LOG("is moving");
+            return false;
         }
     }
 

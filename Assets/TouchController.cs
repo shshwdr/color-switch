@@ -44,8 +44,10 @@ public class TouchController : MonoBehaviour
             {
                 if (vhit.transform.tag == "wholeCircle")
                 {
-                    lastPosition = Player.Instance.transform.position;
-                    Player.Instance.MoveToTarget(vhit.transform.position);
+                    if (Player.Instance.MoveToTarget(vhit.transform.position))
+                    {
+                        lastPosition = Player.Instance.transform.position;
+                    }
                 }
             }
         }
