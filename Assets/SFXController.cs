@@ -2,33 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SFXController : MonoBehaviour {
+public class SFXController : Singleton<SFXController> {
     AudioSource audioSource;
 
     public AudioClip gameover;
     public AudioClip buttonClick;
     public AudioClip swoosh;
 
-    private static SFXController THE_INSTANCE;
-
-    public SFXController()
-    {
-        THE_INSTANCE = this;
-
-    }
-
-    //void Awake()
-    //{
-    //    DontDestroyOnLoad(gameObject);
-    //}
-
-    public static SFXController Instance
-    {
-        get
-        {
-            return THE_INSTANCE;
-        }
-    }
     // Use this for initialization
     void Start()
     {
@@ -42,8 +22,20 @@ public class SFXController : MonoBehaviour {
         audioSource.Play();
     }
 
-	// Update is called once per frame
-	void Update () {
+    public void GameOver()
+    {
+        audioSource.clip = gameover;
+        audioSource.Play();
+    }
+
+    public void Swoosh()
+    {
+        audioSource.clip = swoosh;
+        audioSource.Play();
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 

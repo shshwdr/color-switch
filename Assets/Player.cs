@@ -22,7 +22,7 @@ public class Player : Singleton<Player>
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        SetRandomColor();
+        ChangeColor(GameColor.yellow);
         originPosition = transform.position;
         CSUtil.LOG(originPosition);
         moveable = GetComponent<Moveable>();
@@ -108,8 +108,14 @@ public class Player : Singleton<Player>
 
     void GameOver()
     {
+        if (isGameOver)
+        {
+            return;
+        }
+        SFXController.Instance.GameOver();
         if (cheatDontDie)
         {
+            moveable.StopMoving();
             return;
         }
         gameView.GameOver();

@@ -5,6 +5,7 @@ using UnityEngine;
 public class TouchController : MonoBehaviour
 {
 
+    Vector3 lastPosition;
     // Use this for initialization
     void Start()
     {
@@ -43,8 +44,17 @@ public class TouchController : MonoBehaviour
             {
                 if (vhit.transform.tag == "wholeCircle")
                 {
-                    (Player.Instance).MoveToTarget(vhit.transform.position);
+                    lastPosition = Player.Instance.transform.position;
+                    Player.Instance.MoveToTarget(vhit.transform.position);
                 }
+            }
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            //TODO: add a cheat class for this
+            if(Player.Instance.cheatDontDie)
+            {
+                Player.Instance.transform.position = lastPosition;
             }
         }
     }

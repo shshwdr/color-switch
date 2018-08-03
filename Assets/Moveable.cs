@@ -10,6 +10,7 @@ public class Moveable : MonoBehaviour {
     public float moveTime = 0.5f;
     bool isMoving;
 
+
     public void MoveTo(Vector3 t)
     {
         if (!isMoving)
@@ -55,5 +56,10 @@ public class Moveable : MonoBehaviour {
         target = CSMath.Vector3Inf;
         direction = dir.normalized;
         speed = sp;
+    }
+
+    public void StopMoving()
+    {
+        isMoving = false;
     }
 }

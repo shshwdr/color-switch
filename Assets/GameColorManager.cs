@@ -11,6 +11,12 @@ public class GameColorManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         sr = GetComponent<SpriteRenderer>();
+        GameColorManager parent = transform.parent. GetComponent<GameColorManager>();
+        //if parent is a color part, follow it's color
+        if (parent)
+        {
+            gameColor = parent.gameColor;
+        }
         switch (gameColor)
         {
             case GameColor.none:
