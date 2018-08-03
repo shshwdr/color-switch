@@ -42,12 +42,22 @@ public class TouchController : MonoBehaviour
             RaycastHit2D[] vHits = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(mousePosition), Vector2.zero);
             foreach (RaycastHit2D vhit in vHits)
             {
-                if (vhit.transform.tag == "wholeCircle")
+                WholeCircle wc = vhit.transform.GetComponent<WholeCircle>();
+                if (wc)
                 {
-                    if (Player.Instance.MoveToTarget(vhit.transform.position))
+                    if (wc.isActive())
                     {
-                        lastPosition = Player.Instance.transform.position;
+                        if (Player.Instance.MoveToTarget(vhit.transform.position))
+                        {
+                            lastPosition = Player.Instance.transform.position;
+                        }
                     }
+                    else
+                    {
+                        CSUtil.LOG("this circle is invisible!");
+                        //achievement: invisible target
+                    }
+                
                 }
             }
         }
@@ -57,6 +67,7 @@ public class TouchController : MonoBehaviour
             if(Player.Instance.cheatDontDie)
             {
                 Player.Instance.transform.position = lastPosition;
+                Player.Instance.resetHittedPart();
             }
         }
     }

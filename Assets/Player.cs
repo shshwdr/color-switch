@@ -20,6 +20,7 @@ public class Player : Singleton<Player>
     Moveable moveable;
 
     HashSet<GameObject> hittedCircle;
+    List<GameObject> hittedPart;
     // Use this for initialization
     void Start()
     {
@@ -30,6 +31,7 @@ public class Player : Singleton<Player>
         CSUtil.LOG(originPosition);
         moveable = GetComponent<Moveable>();
         hittedCircle = new HashSet<GameObject>();
+        hittedPart = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -99,9 +101,10 @@ public class Player : Singleton<Player>
                     //achievement
                 }
             }
-            if(shouldDestroyPart)
+            if (shouldDestroyPart)
             {
-                Destroy(col.gameObject);
+                col.gameObject.SetActive(false);
+                hittedPart.Add(col.gameObject);
             }
             if (decideByTheFirstHit)
             {
@@ -151,11 +154,30 @@ public class Player : Singleton<Player>
     public bool MoveToTarget(Vector3 target)
     {
         //transform.position = new Vector3(target.x, target.y, transform.position.z);
+        if (shouldDestroyPart)
+        {
+            foreach (GameObject go in hittedPart)
+            {
+                Destroy(go);
+            }
+            hittedPart.Clear();
+        }
         if (decideByTheFirstHit)
         {
-            hittedCircle.Clear();
+                hittedCircle.Clear();
         }
-        return moveable.MoveTo(target);
-        
+        return moveable.MoveTo(target);    
+    }
+
+    public void resetHittedPart()
+    {
+        if (shouldDestroyPart)
+        {
+            foreach (GameObject go in hittedPart)
+            {
+                go.SetActive(true);
+            }
+            hittedPart.Clear();
+        }
     }
 }

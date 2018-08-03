@@ -15,6 +15,18 @@ public class WholeCircle : MonoBehaviour {
             }
         }
 	}
+
+    public bool isActive()
+    {
+        foreach(Transform trans in transform)
+        {
+            if (trans.gameObject.activeSelf)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
