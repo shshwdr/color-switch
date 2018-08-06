@@ -1815,6 +1815,14 @@ MonoBehaviour:
   - {fileID: 21300002, guid: 16459f1651cf5c344b9eff3afeba2371, type: 3}
   - {fileID: 21300006, guid: 16459f1651cf5c344b9eff3afeba2371, type: 3}
   - {fileID: 21300004, guid: 16459f1651cf5c344b9eff3afeba2371, type: 3}
+  itemSprite:
+  - {fileID: 21300000, guid: 6625f0044138514489284252d07628ee, type: 3}
+  - {fileID: 21300000, guid: b6e0607bc5630c84897e52bc24cbde38, type: 3}
+  - {fileID: 21300010, guid: 47e79a6e4aca02247a196c7b0bf0a857, type: 3}
+  - {fileID: 21300012, guid: 47e79a6e4aca02247a196c7b0bf0a857, type: 3}
+  - {fileID: 21300000, guid: 47e79a6e4aca02247a196c7b0bf0a857, type: 3}
+  - {fileID: 21300014, guid: 47e79a6e4aca02247a196c7b0bf0a857, type: 3}
+  - {fileID: 21300000, guid: 653cd0f99dbd121418a01a46470e578a, type: 3}
 --- !u!4 &558296354
 Transform:
   m_ObjectHideFlags: 0
@@ -2472,6 +2480,21 @@ Prefab:
       propertyPath: m_Name
       value: smallCircle (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 114986708091389360, guid: 716b765d7cf92c84db1ff36ac228d478,
+        type: 2}
+      propertyPath: gameColor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114127808926035978, guid: 716b765d7cf92c84db1ff36ac228d478,
+        type: 2}
+      propertyPath: gameColor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114629609933985528, guid: 716b765d7cf92c84db1ff36ac228d478,
+        type: 2}
+      propertyPath: gameColor
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 716b765d7cf92c84db1ff36ac228d478, type: 2}
   m_IsPrefabParent: 0
@@ -2845,6 +2868,93 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1216395253}
+--- !u!1 &1415780873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1415780875}
+  - component: {fileID: 1415780874}
+  - component: {fileID: 1415780876}
+  m_Layer: 0
+  m_Name: item
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1415780874
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1415780873}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300010, guid: 47e79a6e4aca02247a196c7b0bf0a857, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.27, y: 1.27}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+--- !u!4 &1415780875
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1415780873}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.97, y: 3.64, z: 15.125673}
+  m_LocalScale: {x: 0.3, y: 0.29999995, z: 1.5}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1415780876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1415780873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2e09d54cb9df64d98041251f9b0cb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: 0
 --- !u!1 &1492317465
 GameObject:
   m_ObjectHideFlags: 0
