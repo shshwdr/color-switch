@@ -416,7 +416,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 58888517}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: -1.27, z: 1}
   m_LocalScale: {x: 1.5, y: 1.5, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1137,8 +1137,8 @@ MonoBehaviour:
   originGenerateCircleRate: 0.2
   multiplierWhenDidntGenerateLastTime: 2
   rateToGenerateNumber:
-  - 3
-  - 2
+  - 8
+  - 4
   - 1
   originGenerateChangeCircleRate: 0.1
   multiplierWHenDidntGenerateChangeCircle: 1.8
@@ -2898,11 +2898,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4457291867550660, guid: 716b765d7cf92c84db1ff36ac228d478, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.1
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4457291867550660, guid: 716b765d7cf92c84db1ff36ac228d478, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.2
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4457291867550660, guid: 716b765d7cf92c84db1ff36ac228d478, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2931,17 +2931,17 @@ Prefab:
     - target: {fileID: 114986708091389360, guid: 716b765d7cf92c84db1ff36ac228d478,
         type: 2}
       propertyPath: gameColor
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114127808926035978, guid: 716b765d7cf92c84db1ff36ac228d478,
         type: 2}
       propertyPath: gameColor
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114629609933985528, guid: 716b765d7cf92c84db1ff36ac228d478,
         type: 2}
       propertyPath: gameColor
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4457291867550660, guid: 716b765d7cf92c84db1ff36ac228d478, type: 2}
       propertyPath: m_LocalScale.x

@@ -77,7 +77,7 @@ public class Player : Singleton<Player>
             return;
         }
         Debug.Log(col);
-        if (decideByTheFirstHit&&hittedCircle.Contains(col.transform.parent.gameObject))
+        if (decideByTheFirstHit&& col.transform.parent&&hittedCircle.Contains(col.transform.parent.gameObject))
         {
             return;
         }
