@@ -416,7 +416,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 58888517}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.27, z: 1}
+  m_LocalPosition: {x: 0, y: 0.02, z: 1}
   m_LocalScale: {x: 1.5, y: 1.5, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -448,7 +448,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &117519499
 Transform:
   m_ObjectHideFlags: 0
@@ -1134,6 +1134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circlePrefab: {fileID: 1663070843685644, guid: 716b765d7cf92c84db1ff36ac228d478,
     type: 2}
+  startY: 6
   originGenerateCircleRate: 0.2
   multiplierWhenDidntGenerateLastTime: 2
   rateToGenerateNumber:
@@ -1142,6 +1143,11 @@ MonoBehaviour:
   - 1
   originGenerateChangeCircleRate: 0.1
   multiplierWHenDidntGenerateChangeCircle: 1.8
+  rateOfNumberOfColorOfBlockCircle:
+  - 1
+  - 1
+  - 1
+  - 1
 --- !u!1 &503674831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1985,6 +1991,10 @@ Prefab:
       propertyPath: gameColor
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1663070843685644, guid: 716b765d7cf92c84db1ff36ac228d478, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 716b765d7cf92c84db1ff36ac228d478, type: 2}
   m_IsPrefabParent: 0
@@ -2072,6 +2082,10 @@ Prefab:
         type: 2}
       propertyPath: gameColor
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1663070843685644, guid: 716b765d7cf92c84db1ff36ac228d478, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 716b765d7cf92c84db1ff36ac228d478, type: 2}
@@ -2252,6 +2266,10 @@ Prefab:
       propertyPath: gameColor
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1663070843685644, guid: 716b765d7cf92c84db1ff36ac228d478, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 716b765d7cf92c84db1ff36ac228d478, type: 2}
   m_IsPrefabParent: 0
@@ -2412,7 +2430,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4457291867550660, guid: 716b765d7cf92c84db1ff36ac228d478, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 19.53
+      value: 4.9
       objectReference: {fileID: 0}
     - target: {fileID: 4457291867550660, guid: 716b765d7cf92c84db1ff36ac228d478, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2902,7 +2920,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4457291867550660, guid: 716b765d7cf92c84db1ff36ac228d478, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.01
+      value: 5.57
       objectReference: {fileID: 0}
     - target: {fileID: 4457291867550660, guid: 716b765d7cf92c84db1ff36ac228d478, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3047,6 +3065,10 @@ Prefab:
       propertyPath: gameColor
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1663070843685644, guid: 716b765d7cf92c84db1ff36ac228d478, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 716b765d7cf92c84db1ff36ac228d478, type: 2}
   m_IsPrefabParent: 0
@@ -3135,6 +3157,10 @@ Prefab:
       propertyPath: gameColor
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1663070843685644, guid: 716b765d7cf92c84db1ff36ac228d478, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 716b765d7cf92c84db1ff36ac228d478, type: 2}
   m_IsPrefabParent: 0
@@ -3157,7 +3183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1746120300
 Transform:
   m_ObjectHideFlags: 0

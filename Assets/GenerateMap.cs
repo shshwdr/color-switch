@@ -5,7 +5,7 @@ using UnityEngine;
 public class GenerateMap : MonoBehaviour {
     public GameObject circlePrefab;
 
-    float startY = 0.0f;//y will increate
+    public float startY = 0.0f;//y will increate
     float mapWidth = 1.0f;
     float currentGeneratedY;
 
@@ -37,12 +37,14 @@ public class GenerateMap : MonoBehaviour {
     void Start () {
         screenWidth = Screen.width;
         screenHeight = Screen.height;
-        currentGeneratedY = startY;
 
         heightScale = 9f;
         widthScale = 3f;
 
-        foreach(float f in rateToGenerateNumber)
+
+        currentGeneratedY = startY /heightScale;
+
+        foreach (float f in rateToGenerateNumber)
         {
             sumOfGenerateNum += f;
         }
@@ -133,7 +135,23 @@ public class GenerateMap : MonoBehaviour {
                         {
                             rand = Random.Range(0, 4);
                             GameColor c = (GameColor)rand;
-
+                            wc.SetColor(new GameColor[]{ c,c,c,c});
+                        }
+                        else if (rand <= rateOfNumberOfColorOfBlockCircle[0]+ rateOfNumberOfColorOfBlockCircle[1])//2 color
+                        {
+                            rand = Random.Range(0, 4);
+                            GameColor c = (GameColor)rand;
+                            int rand2 = Random.Range(0, 3);
+                            GameColor c2 = (GameColor)((rand+rand2)%4);
+                            wc.SetColor(new GameColor[] { c, c, c2,c2 });
+                        }
+                        else if (rand <= rateOfNumberOfColorOfBlockCircle[0] + rateOfNumberOfColorOfBlockCircle[1]+rateOfNumberOfColorOfBlockCircle[2])//1 color
+                        {
+                            rand = Random.Range(0, 4);
+                            GameColor c1 = (GameColor)((rand + 1) % 4);
+                            GameColor c2 = (GameColor)((rand + 2) % 4);
+                            GameColor c3 = (GameColor)((rand + 3) % 4);
+                            wc.SetColor(new GameColor[] { c1,c2,c3,c3 });
                         }
                     }
 

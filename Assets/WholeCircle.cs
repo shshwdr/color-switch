@@ -27,6 +27,17 @@ public class WholeCircle : MonoBehaviour {
         }
         return false;
     }
+
+    public void SetColor(GameColor[] colors)
+    {
+        CirclePart[] parts = GetComponentsInChildren<CirclePart>();
+        
+        for(int i = 0;i<4;i++)
+        {
+            GameColorManager gm = parts[i].GetComponent<GameColorManager>();
+            gm.gameColor = colors[i];
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {

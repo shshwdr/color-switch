@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CSMath : MonoBehaviour {
 
-	public static bool Vector3Equal(Vector3 v1,Vector3 v2, float eps = 0.1f)
+	public static bool Vector3Equal(Vector3 v1,Vector3 v2, float eps = 0.2f)
     {
         float dis = Vector3.Distance(v1, v2);
         if (dis <= eps)
