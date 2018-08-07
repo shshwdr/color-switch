@@ -6,7 +6,8 @@ public class GameItem : MonoBehaviour {
 
 	static public void GetItem(GameItemEnum itemEnum)
     {
-        CSUtil.LOG("get item " + itemEnum);
+        int rand;
+        //CSUtil.LOG("get item " + itemEnum);
         switch (itemEnum)
         {
             case GameItemEnum.smallBall:
@@ -18,6 +19,8 @@ public class GameItem : MonoBehaviour {
             case GameItemEnum.heart:
                 break;
             case GameItemEnum.gold:
+                rand = Random.Range(1, 5);
+                CurrencyManager.Instance.AddCurrencyAmount(CSConstant.GOLD, rand);
                 break;
             case GameItemEnum.randomColor:
                 GameColor c = (GameColor)Random.Range(0, 4);
@@ -39,7 +42,7 @@ public class GameItem : MonoBehaviour {
             case GameItemEnum.screenSpeedup:
                 break;
             case GameItemEnum.random:
-                int rand = Random.Range(0, (int)GameItemEnum.random);
+                rand = Random.Range(0, (int)GameItemEnum.random);
                 GetItem((GameItemEnum)rand);
                 break;
         }

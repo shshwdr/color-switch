@@ -156,7 +156,7 @@ public class Player : Singleton<Player>
         gameView.GameOver();
         isGameOver = true;
         moveable.KeepMoving(new Vector3(0, -1, 0));
-        CSUtil.LOG("game over");
+        //CSUtil.LOG("game over");
         //leaderboard update
         //achievement: die
     }

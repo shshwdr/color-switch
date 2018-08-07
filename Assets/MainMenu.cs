@@ -30,7 +30,7 @@ public class MainMenu : MonoBehaviour {
     {
         if (success)
         {
-            CSUtil.LOG("signed in");
+            //CSUtil.LOG("signed in");
             signInButtonText.text = "Sign out";
             authStatus.text = "";
             //authStatus.text = "Signed in as " + Social.localUser.userName;
@@ -38,7 +38,7 @@ public class MainMenu : MonoBehaviour {
         }
         else
         {
-            CSUtil.LOG("sign in failed");
+            //CSUtil.LOG("sign in failed");
             signInButtonText.text = "Sign in";
             authStatus.text = "Signed in failed";
             UpdateGooglePlayButtons(false);
@@ -55,14 +55,14 @@ public class MainMenu : MonoBehaviour {
     {
         if (success)
         {
-            CSUtil.LOG("sign out succeed");
+            //CSUtil.LOG("sign out succeed");
             signInButtonText.text = "Sign in";
             authStatus.text = "Signed out";
             UpdateGooglePlayButtons(false);
         }
         else
         {
-            CSUtil.LOG("why would sign out failed???");
+            //CSUtil.LOG("why would sign out failed???");
         }
     }
 
@@ -73,13 +73,13 @@ public class MainMenu : MonoBehaviour {
 
     public void PlayGame()
     {
-        CSUtil.LOG("play button clicked");
+        //CSUtil.LOG("play button clicked");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void SignIn()
     {
-        CSUtil.LOG("signin button clicked");
+        //CSUtil.LOG("signin button clicked");
         if (!GooglePlayManager.Instance.isAutenticated())
         {
             GooglePlayManager.Instance.SignIn(SignInCallback);

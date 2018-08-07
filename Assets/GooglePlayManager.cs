@@ -55,10 +55,10 @@ public class GooglePlayManager : MonoBehaviour {
 
     public void SignIn(Action<bool> callback)
     {
-        CSUtil.LOG("signin called in googleplayManager");
+        //CSUtil.LOG("signin called in googleplayManager");
         if (!PlayGamesPlatform.Instance.localUser.authenticated)
         {
-            CSUtil.LOG("start authenticate");
+            //CSUtil.LOG("start authenticate");
             PlayGamesPlatform.Instance.Authenticate(callback, false);
         }
         else
@@ -79,7 +79,7 @@ public class GooglePlayManager : MonoBehaviour {
         }
         else
         {
-            CSUtil.LOG("can't show achievement, not logged in");
+            //CSUtil.LOG("can't show achievement, not logged in");
         }
     }
 
@@ -91,7 +91,7 @@ public class GooglePlayManager : MonoBehaviour {
         }
         else
         {
-            CSUtil.LOG("can't show leaderboard");
+            //CSUtil.LOG("can't show leaderboard");
         }
     }
 }

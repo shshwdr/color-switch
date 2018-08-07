@@ -14,18 +14,18 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                 THE_INSTANCE = (T)FindObjectOfType(typeof(T));
                 if (FindObjectsOfType(typeof(T)).Length > 1)
                 {
-                    CSUtil.ERROR("singleton there should never be more than 1 singleton" + typeof(T));
+                    //CSUtil.ERROR("singleton there should never be more than 1 singleton" + typeof(T));
                 }
                 else if (!THE_INSTANCE)
                 {
                     GameObject go = new GameObject();
                     THE_INSTANCE = go.AddComponent<T>();
                     DontDestroyOnLoad(go);
-                    CSUtil.LOG("singleton " + typeof(T) + " create");
+                    //CSUtil.LOG("singleton " + typeof(T) + " create");
                 }
                 else
                 {
-                    CSUtil.LOG("singleton " + typeof(T) + " has been created");
+                    //CSUtil.LOG("singleton " + typeof(T) + " has been created");
                 }
             }
             return THE_INSTANCE;

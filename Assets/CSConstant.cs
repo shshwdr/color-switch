@@ -6,4 +6,5 @@ public class CSConstant : MonoBehaviour {
 
     public static string SFXVolumePref = "SFX Volume Pref";
     public static string BGVolumePref = "BG Volume Pref";
+    public static string GOLD = "gold";
 }

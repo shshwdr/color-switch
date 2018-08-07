@@ -20,7 +20,7 @@ public class GameViewController : MonoBehaviour
 
     public void BackToMainMenu()
     {
-        CSUtil.LOG("back to main menu button clicked");
+        //CSUtil.LOG("back to main menu button clicked");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
 
     }
