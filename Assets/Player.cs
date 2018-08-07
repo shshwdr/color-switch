@@ -15,12 +15,17 @@ public class Player : Singleton<Player>
     public bool cheatDontDie;
     public bool decideByTheFirstHit;
 
+    float originScale;
+    int currentScaleLevel= 2;
+    float[] scaleLevels = { 0.3f, 0.7f, 1f, 1.2f, 1.5f };
+
     public bool isGameOver;
     public GameColor gameColor;
     Moveable moveable;
 
     HashSet<GameObject> hittedCircle;
     List<GameObject> hittedPart;
+    GameObject gottenItem;
     // Use this for initialization
     void Start()
     {
@@ -32,6 +37,7 @@ public class Player : Singleton<Player>
         moveable = GetComponent<Moveable>();
         hittedCircle = new HashSet<GameObject>();
         hittedPart = new List<GameObject>();
+        originScale = transform.localScale.x;
     }
 
     // Update is called once per frame
@@ -86,6 +92,14 @@ public class Player : Singleton<Player>
         if (script && cp)
         {
             GameColor c = script.gameColor;
+            //get item if exist
+            GameItemManager item = col.transform.parent.GetComponentInChildren<GameItemManager>();
+            if (item && item.gameObject.activeSelf)
+            {
+                GameItem.GetItem(item.itemEnum);
+                item.gameObject.SetActive(false);
+                gottenItem = item.gameObject;
+            }
             if (cp.willChange)
             {
                 ChangeColor(c);
@@ -162,6 +176,7 @@ public class Player : Singleton<Player>
             }
             hittedPart.Clear();
         }
+        Destroy(gottenItem);
         if (decideByTheFirstHit)
         {
                 hittedCircle.Clear();
@@ -179,5 +194,17 @@ public class Player : Singleton<Player>
             }
             hittedPart.Clear();
         }
+        gottenItem.SetActive(true);
+    }
+
+    public void MinishBall()
+    {
+        currentScaleLevel = Mathf.Max(0, currentScaleLevel - 1);
+        float scale = scaleLevels[currentScaleLevel]*originScale;
+        gameObject.transform.localScale = new Vector3(scale, scale, scale);
+    }
+    public void EnlargeBall()
+    {
+
     }
 }
