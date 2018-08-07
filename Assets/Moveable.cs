@@ -7,7 +7,13 @@ public class Moveable : MonoBehaviour {
     Vector3 direction;
     Vector3 target;
     float speed;
-    public float moveTime = 0.5f;
+    public float originMoveTime = 0.5f;
+
+    float currentMoveTime;
+    int currentMoveTimeIndex = 2;
+
+    public float[] moveTimeArray = { 0.3f, 0.4f, 0.5f, 0.6f, 0.7f };
+
     bool isMoving;
 
 
@@ -20,7 +26,7 @@ public class Moveable : MonoBehaviour {
             Vector3 move = target - transform.position;
             
             direction = move.normalized;
-            speed = move.magnitude / moveTime;
+            speed = move.magnitude / currentMoveTime;
             isMoving = true;
             //CSUtil.LOG("start moving, direction: " + direction + "speed: " + speed);
             return true;
@@ -33,9 +39,20 @@ public class Moveable : MonoBehaviour {
         }
     }
 
+    public void Slowdown()
+    {
+        currentMoveTimeIndex = Mathf.Min(4, currentMoveTimeIndex + 1);
+        currentMoveTime = moveTimeArray[currentMoveTimeIndex];
+    }
+
+    public void Speedup() {
+        currentMoveTimeIndex = Mathf.Max(0, currentMoveTimeIndex - 1);
+        currentMoveTime = moveTimeArray[currentMoveTimeIndex];
+    }
+
 	// Use this for initialization
 	void Start () {
-		
+        currentMoveTime = originMoveTime;
 	}
 	
 	// Update is called once per frame

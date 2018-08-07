@@ -26,6 +26,10 @@ public class Player : Singleton<Player>
     HashSet<GameObject> hittedCircle;
     List<GameObject> hittedPart;
     GameObject gottenItem;
+
+
+    //items
+    bool willTransportNext;
     // Use this for initialization
     void Start()
     {
@@ -69,7 +73,7 @@ public class Player : Singleton<Player>
         ChangeColor(c);
     }
 
-    void ChangeColor(GameColor c)
+    public void ChangeColor(GameColor c)
     {
         gameColor = c;
         CSUtil.LOG("changed color to "+(int)c);
@@ -92,14 +96,7 @@ public class Player : Singleton<Player>
         if (script && cp)
         {
             GameColor c = script.gameColor;
-            //get item if exist
-            GameItemManager item = col.transform.parent.GetComponentInChildren<GameItemManager>();
-            if (item && item.gameObject.activeSelf)
-            {
-                GameItem.GetItem(item.itemEnum);
-                item.gameObject.SetActive(false);
-                gottenItem = item.gameObject;
-            }
+            
             if (cp.willChange)
             {
                 ChangeColor(c);
@@ -124,9 +121,15 @@ public class Player : Singleton<Player>
             {
                 hittedCircle.Add(col.transform.parent.gameObject);
             }
-            //gameColor = c;
-            //Debug.Log(c);
-            //sr.color = colorList[(int)c];
+
+            //get item if exist
+            GameItemManager item = col.transform.parent.GetComponentInChildren<GameItemManager>();
+            if (item && item.gameObject.activeSelf)
+            {
+                GameItem.GetItem(item.itemEnum);
+                item.gameObject.SetActive(false);
+                gottenItem = item.gameObject;
+            }
         }
         else
         {
@@ -167,7 +170,12 @@ public class Player : Singleton<Player>
 
     public bool MoveToTarget(Vector3 target)
     {
-        //transform.position = new Vector3(target.x, target.y, transform.position.z);
+        if (willTransportNext)
+        {
+            willTransportNext = false;
+            transform.position = new Vector3(target.x, target.y, transform.position.z);
+            //achievement
+        }
         if (shouldDestroyPart)
         {
             foreach (GameObject go in hittedPart)
@@ -204,6 +212,28 @@ public class Player : Singleton<Player>
         gameObject.transform.localScale = new Vector3(scale, scale, scale);
     }
     public void EnlargeBall()
+    {
+        currentScaleLevel = Mathf.Min(4, currentScaleLevel + 1);
+        float scale = scaleLevels[currentScaleLevel] * originScale;
+        gameObject.transform.localScale = new Vector3(scale, scale, scale);
+    }
+
+    public void Transport()
+    {
+        willTransportNext = true;
+    }
+
+    public void SlowDown()
+    {
+        moveable.Slowdown();
+    }
+
+    public void Speedup()
+    {
+        moveable.Speedup();
+    }
+
+    public void Bomb()
     {
 
     }
