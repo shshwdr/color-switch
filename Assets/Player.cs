@@ -30,6 +30,11 @@ public class Player : Singleton<Player>
 
     //items
     bool willTransportNext;
+
+    public float hp = 3;
+    public float maxHP = 6;
+
+
     // Use this for initialization
     void Start()
     {
@@ -105,7 +110,11 @@ public class Player : Singleton<Player>
             {
                 if (c != gameColor)
                 {
-                    GameOver();
+                    lossHP();
+                    if (isDead())
+                    {
+                        GameOver();
+                    }
                 }
                 else
                 {
@@ -236,5 +245,20 @@ public class Player : Singleton<Player>
     public void Bomb()
     {
 
+    }
+
+    public void gainHP(float gainedHP = 1)
+    {
+        hp = Mathf.Min(hp + gainedHP, maxHP);
+    }
+
+    public void lossHP(float gainedHP = 1)
+    {
+        hp = Mathf.Max(hp - gainedHP, 0);
+    }
+    
+    public bool isDead()
+    {
+        return hp <= 0.1f;
     }
 }

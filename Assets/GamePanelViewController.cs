@@ -19,5 +19,6 @@ public class GamePanelViewController : MonoBehaviour {
 	void Update () {
         //temp!
         goldAmountText.text = CurrencyManager.Instance.GetCurrencyAount(CSConstant.GOLD).ToString();
+        heartAmountText.text = ((int)Player.Instance.hp).ToString();
 	}
 }

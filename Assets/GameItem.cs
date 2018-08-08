@@ -17,6 +17,7 @@ public class GameItem : MonoBehaviour {
                 Player.Instance.EnlargeBall();
                 break;
             case GameItemEnum.heart:
+                Player.Instance.gainHP();
                 break;
             case GameItemEnum.gold:
                 rand = Random.Range(1, 5);
