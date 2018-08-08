@@ -7,6 +7,7 @@ public class GameItem : MonoBehaviour {
 	static public void GetItem(GameItemEnum itemEnum)
     {
         int rand;
+        FollowTarget ft = Camera.main.GetComponent<FollowTarget>();
         //CSUtil.LOG("get item " + itemEnum);
         switch (itemEnum)
         {
@@ -40,8 +41,10 @@ public class GameItem : MonoBehaviour {
                 Player.Instance.Speedup();
                 break;
             case GameItemEnum.screenSlowDown:
+                ft.Slowdown();
                 break;
             case GameItemEnum.screenSpeedup:
+                ft.Speedup();
                 break;
             case GameItemEnum.random:
                 rand = Random.Range(0, (int)GameItemEnum.random);
