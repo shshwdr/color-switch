@@ -34,6 +34,8 @@ public class Player : Singleton<Player>
     public float hp = 3;
     public float maxHP = 6;
 
+    public bool gameStarted = false;
+
 
     // Use this for initialization
     void Start()
@@ -179,6 +181,7 @@ public class Player : Singleton<Player>
 
     public bool MoveToTarget(Vector3 target)
     {
+        gameStarted = true;
         if (willTransportNext)
         {
             willTransportNext = false;
