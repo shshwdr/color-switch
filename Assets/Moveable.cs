@@ -74,6 +74,7 @@ public class Moveable : MonoBehaviour {
     {
         target = CSMath.Vector3Inf;
         direction = dir.normalized;
+        isMoving = true;
         speed = sp;
     }
 

@@ -179,6 +179,11 @@ public class Player : Singleton<Player>
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void OnBecameInvisible()
+    {
+        GameOver();
+    }
+
     public bool MoveToTarget(Vector3 target)
     {
         gameStarted = true;
