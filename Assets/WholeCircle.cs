@@ -28,6 +28,14 @@ public class WholeCircle : MonoBehaviour {
         return false;
     }
 
+    public void DeactiveChildren()
+    {
+        foreach (Transform trans in transform)
+        {
+            trans.gameObject.SetActive(false);
+        }
+    }
+
     public void SetColor(GameColor[] colors)
     {
         CirclePart[] parts = GetComponentsInChildren<CirclePart>();

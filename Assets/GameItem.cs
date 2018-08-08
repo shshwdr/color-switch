@@ -28,6 +28,7 @@ public class GameItem : MonoBehaviour {
                 Player.Instance.ChangeColor(c);
                 break;
             case GameItemEnum.bomb:
+                Player.Instance.Bomb();
                 break;
             case GameItemEnum.transport:
                 Player.Instance.Transport();

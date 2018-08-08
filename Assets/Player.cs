@@ -244,7 +244,9 @@ public class Player : Singleton<Player>
 
     public void Bomb()
     {
-
+        GameObject go = hittedPart[hittedPart.Count - 1].transform.parent.gameObject;
+        WholeCircle wc = go.GetComponent<WholeCircle>();
+        wc.DeactiveChildren();
     }
 
     public void gainHP(float gainedHP = 1)
