@@ -8,6 +8,7 @@ public class ResourceManager : Singleton<ResourceManager> {
     public Sprite[] itemSprite;
     public GameObject[] ItemTextsPool;
     int currentItemTextIndex;
+    public GameObject ItemPrefab;
     public GameObject ItemText()
     {
         GameObject go = ItemTextsPool[currentItemTextIndex];

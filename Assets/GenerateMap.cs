@@ -65,6 +65,8 @@ public class GenerateMap : MonoBehaviour {
 
     void GenerateScreen(int hardness)
     {
+
+        List<GameObject> thisGeneratedList = new List<GameObject>();
         if (generatedList.Count > 4)
         {
             generatedList.RemoveRange(0, generatedList.Count - 4);
@@ -116,6 +118,7 @@ public class GenerateMap : MonoBehaviour {
                     WholeCircle wc = go.GetComponent<WholeCircle>();
                     Rotator rt = go.GetComponent<Rotator>();
                     generatedList.Add(go);
+                    thisGeneratedList.Add(go);
                     //decide if this circle is a change circle or block circle
                     float rateToGenerateWillChangeCircle = Mathf.Pow(multiplierWHenDidntGenerateChangeCircle, noChangeCircleNumber) * originGenerateChangeCircleRate;
                     rand = Random.Range(0, 1.0f);
@@ -165,6 +168,13 @@ public class GenerateMap : MonoBehaviour {
                 emptyLineNumber++;
             }
         }
+        int rand3 = Random.Range(0, thisGeneratedList.Count);
+        GameObject go2 = thisGeneratedList[rand3];
+        GameObject item = Instantiate(ResourceManager.Instance.ItemPrefab, Vector3.zero, Quaternion.identity, go2.transform);
+        item.transform.localPosition = Vector3.zero;
+        GameItemManager itemManager = item.GetComponent<GameItemManager>();
+        itemManager.itemEnum = (GameItemEnum)Random.Range(0, (int)GameItemEnum.random+1);
+
     }
     
 }
