@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameViewController : MonoBehaviour
 {
-
+    public GameObject pausePanel;
+    public GameObject helpPanel;
     // Use this for initialization
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -21,7 +21,29 @@ public class GameViewController : MonoBehaviour
     public void BackToMainMenu()
     {
         //CSUtil.LOG("back to main menu button clicked");
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
 
     }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        pausePanel.SetActive(true);
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1;
+        pausePanel.SetActive(false);
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1;
+        pausePanel.SetActive(false);
+        Player.Instance.Restart();
+    }
+
+
 }
