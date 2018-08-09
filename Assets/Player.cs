@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class Player : Singleton<Player>
 {
@@ -142,10 +141,8 @@ public class Player : Singleton<Player>
 
                 //put this into itemTextClass
                 GameObject go = ResourceManager.Instance.ItemText();
-                go.SetActive(true);
-                TextMeshProUGUI text = go.GetComponentInChildren<TextMeshProUGUI>();
-                text.text = itemName;
-                go.transform.position = col.transform.parent.transform.position;
+                ItemText itemText = go.GetComponent<ItemText>();
+                itemText.Initialize(itemName, col.transform.parent.transform.position);
                 
                 item.gameObject.SetActive(false);
                 gottenItem = item.gameObject;
