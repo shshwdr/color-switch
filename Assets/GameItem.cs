@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameItem : MonoBehaviour {
 
-	static public void GetItem(GameItemEnum itemEnum)
+	static public string GetItem(GameItemEnum itemEnum)
     {
         int rand;
         FollowTarget ft = Camera.main.GetComponent<FollowTarget>();
@@ -48,8 +48,8 @@ public class GameItem : MonoBehaviour {
                 break;
             case GameItemEnum.random:
                 rand = Random.Range(0, (int)GameItemEnum.random);
-                GetItem((GameItemEnum)rand);
-                break;
+                return GetItem((GameItemEnum)rand);
         }
+        return itemEnum.ToString();
     }
 }

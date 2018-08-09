@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Player : Singleton<Player>
 {
@@ -137,7 +138,15 @@ public class Player : Singleton<Player>
             GameItemManager item = col.transform.parent.GetComponentInChildren<GameItemManager>();
             if (item && item.gameObject.activeSelf)
             {
-                GameItem.GetItem(item.itemEnum);
+                string itemName = GameItem.GetItem(item.itemEnum);
+
+                //put this into itemTextClass
+                GameObject go = ResourceManager.Instance.ItemText();
+                go.SetActive(true);
+                TextMeshProUGUI text = go.GetComponentInChildren<TextMeshProUGUI>();
+                text.text = itemName;
+                go.transform.position = col.transform.parent.transform.position;
+                
                 item.gameObject.SetActive(false);
                 gottenItem = item.gameObject;
             }
@@ -148,8 +157,11 @@ public class Player : Singleton<Player>
             //CSUtil.ERROR("item is not color changer and does not have colorManager on it");
 
         }
+    }
 
-
+    void ShowItemText(string text, GameObject circle)
+    {
+        //instantiate a text on circle
     }
 
     void GameOver()
