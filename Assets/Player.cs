@@ -27,6 +27,8 @@ public class Player : Singleton<Player>
     List<GameObject> hittedPart;
     GameObject gottenItem;
 
+    bool gotHurtInThisJump;
+
 
     //items
     bool willTransportNext;
@@ -112,7 +114,11 @@ public class Player : Singleton<Player>
             {
                 if (c != gameColor)
                 {
-                    lossHP();
+                    if (!gotHurtInThisJump)
+                    {
+                        gotHurtInThisJump = true;
+                        lossHP();
+                    }
                     if (isDead())
                     {
                         GameOver();
@@ -195,6 +201,7 @@ public class Player : Singleton<Player>
 
     public bool MoveToTarget(Vector3 target)
     {
+        gotHurtInThisJump = false;
         gameStarted = true;
         if (willTransportNext)
         {
