@@ -25,6 +25,7 @@ public class GameItem : MonoBehaviour {
                 CurrencyManager.Instance.AddCurrencyAmount(CSConstant.GOLD, rand);
                 break;
             case GameItemEnum.randomColor:
+                SFXController.Instance.PlaySFX(SFXEnum.possitive);
                 GameColor c = (GameColor)Random.Range(0, 4);
                 Player.Instance.ChangeColor(c);
                 break;
@@ -41,9 +42,11 @@ public class GameItem : MonoBehaviour {
                 Player.Instance.Speedup();
                 break;
             case GameItemEnum.screenSlowDown:
+                SFXController.Instance.PlaySFX(SFXEnum.possitive);
                 ft.Slowdown();
                 break;
             case GameItemEnum.screenSpeedup:
+                SFXController.Instance.PlaySFX(SFXEnum.negative);
                 ft.Speedup();
                 break;
             case GameItemEnum.random:

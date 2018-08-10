@@ -120,7 +120,7 @@ public class Player : Singleton<Player>
                         }
                         else
                         {
-                            SFXController.Instance.Wrong();
+                            SFXController.Instance.PlaySFX(SFXEnum.hitOnPart);
                         }
                     }
                 }
@@ -173,7 +173,7 @@ public class Player : Singleton<Player>
         {
             return;
         }
-        SFXController.Instance.GameOver();
+        SFXController.Instance.PlaySFX(SFXEnum.gameover);
         if (cheatDontDie)
         {
             moveable.StopMoving();
@@ -200,7 +200,7 @@ public class Player : Singleton<Player>
 
     public bool MoveToTarget(Vector3 target)
     {
-        SFXController.Instance.Swoosh();
+        SFXController.Instance.PlaySFX(SFXEnum.swoosh);
         gotHurtInThisJump = false;
         gameStarted = true;
         if (willTransportNext)
@@ -240,12 +240,14 @@ public class Player : Singleton<Player>
 
     public void MinishBall()
     {
+        SFXController.Instance.PlaySFX(SFXEnum.possitive);
         currentScaleLevel = Mathf.Max(0, currentScaleLevel - 1);
         float scale = scaleLevels[currentScaleLevel]*originScale;
         gameObject.transform.localScale = new Vector3(scale, scale, scale);
     }
     public void EnlargeBall()
     {
+        SFXController.Instance.PlaySFX(SFXEnum.negative);
         currentScaleLevel = Mathf.Min(4, currentScaleLevel + 1);
         float scale = scaleLevels[currentScaleLevel] * originScale;
         gameObject.transform.localScale = new Vector3(scale, scale, scale);
@@ -253,16 +255,19 @@ public class Player : Singleton<Player>
 
     public void Transport()
     {
+        SFXController.Instance.PlaySFX(SFXEnum.teleport);
         willTransportNext = true;
     }
 
     public void SlowDown()
     {
+        SFXController.Instance.PlaySFX(SFXEnum.negative);
         moveable.Slowdown();
     }
 
     public void Speedup()
     {
+        SFXController.Instance.PlaySFX(SFXEnum.possitive);
         moveable.Speedup();
     }
 
@@ -271,12 +276,13 @@ public class Player : Singleton<Player>
         GameObject go = hittedPart[hittedPart.Count - 1].transform.parent.gameObject;
         WholeCircle wc = go.GetComponent<WholeCircle>();
         wc.Bomb();
-        SFXController.Instance.Bomb();
+        SFXController.Instance.PlaySFX(SFXEnum.bomb);
         Camera.main.GetComponent<FollowTarget>().ShakeCamera();
     }
 
     public void gainHP(float gainedHP = 1)
     {
+        SFXController.Instance.PlaySFX(SFXEnum.possitive);
         hp = Mathf.Min(hp + gainedHP, maxHP);
     }
 

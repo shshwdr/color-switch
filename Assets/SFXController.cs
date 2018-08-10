@@ -1,15 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+public enum SFXEnum
+{
+    gameover,
+    buttonClick,
+    swoosh,
+    hitOnPart,
+    bomb,
+    teleport,
+    negative,
+    possitive,
+    gold,
+    coin,
+    purchase,
+    bubble,
+};
 
-public class SFXController : Singleton<SFXController> {
+public class SFXController : Singleton<SFXController>
+{
     AudioSource audioSource;
 
-    public AudioClip gameover;
-    public AudioClip buttonClick;
-    public AudioClip swoosh;
-    public AudioClip wrong;
-    public AudioClip bomb;
+   
+    public AudioClip[] clips;
 
     // Use this for initialization
     void Start()
@@ -20,38 +33,20 @@ public class SFXController : Singleton<SFXController> {
 
     public void ButtonClick()
     {
-        audioSource.clip = buttonClick;
+        audioSource.clip = clips[(int)SFXEnum.buttonClick];
         audioSource.Play();
     }
 
-    public void GameOver()
-    {
-        audioSource.clip = gameover;
-        audioSource.Play();
-    }
-
-    public void Swoosh()
-    {
-        audioSource.clip = swoosh;
-        audioSource.Play();
-    }
-
-    public void Wrong()
-    {
-        audioSource.clip = wrong;
-        audioSource.Play();
-    }
-
-    public void Bomb()
-    {
-        audioSource.clip = bomb;
+    public void PlaySFX(SFXEnum sfxEnum){
+        audioSource.clip = clips[(int)sfxEnum];
         audioSource.Play();
     }
 
     // Update is called once per frame
-    void Update () {
-		
-	}
+    void Update()
+    {
+
+    }
 
     public void ChangeVolume(float volume)
     {

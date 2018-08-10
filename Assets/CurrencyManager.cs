@@ -11,6 +11,7 @@ public class CurrencyManager : Singleton<CurrencyManager> {
 
     public void AddCurrencyAmount(string currencyIdentifier, int addValue)
     {
+        SFXController.Instance.PlaySFX(SFXEnum.coin);
         goldValue += addValue;
         SQLiteDatabaseManager.Instance.Updatevalue(CSConstant.GOLD, goldValue);
     }
