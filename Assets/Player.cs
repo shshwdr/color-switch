@@ -113,14 +113,15 @@ public class Player : Singleton<Player>
                     {
                         gotHurtInThisJump = true;
                         lossHP();
-                    }
-                    if (isDead())
-                    {
-                        GameOver();
-                    }
-                    else
-                    {
-                        SFXController.Instance.Wrong();
+                        Camera.main.GetComponent<FollowTarget>().ShakeCamera();
+                        if (isDead())
+                        {
+                            GameOver();
+                        }
+                        else
+                        {
+                            SFXController.Instance.Wrong();
+                        }
                     }
                 }
                 else
@@ -271,6 +272,7 @@ public class Player : Singleton<Player>
         WholeCircle wc = go.GetComponent<WholeCircle>();
         wc.Bomb();
         SFXController.Instance.Bomb();
+        Camera.main.GetComponent<FollowTarget>().ShakeCamera();
     }
 
     public void gainHP(float gainedHP = 1)
