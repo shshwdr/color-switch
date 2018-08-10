@@ -8,6 +8,8 @@ public class SFXController : Singleton<SFXController> {
     public AudioClip gameover;
     public AudioClip buttonClick;
     public AudioClip swoosh;
+    public AudioClip wrong;
+    public AudioClip bomb;
 
     // Use this for initialization
     void Start()
@@ -31,6 +33,18 @@ public class SFXController : Singleton<SFXController> {
     public void Swoosh()
     {
         audioSource.clip = swoosh;
+        audioSource.Play();
+    }
+
+    public void Wrong()
+    {
+        audioSource.clip = wrong;
+        audioSource.Play();
+    }
+
+    public void Bomb()
+    {
+        audioSource.clip = bomb;
         audioSource.Play();
     }
 

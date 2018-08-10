@@ -5,6 +5,7 @@ using UnityEngine;
 public class WholeCircle : MonoBehaviour {
     public bool shouldChangeChildren;
     public bool willChange;
+    public GameObject bombPrefab;
 	// Use this for initialization
 	void Start () {
 		if(shouldChangeChildren)
@@ -26,6 +27,17 @@ public class WholeCircle : MonoBehaviour {
             }
         }
         return false;
+    }
+
+    public void Bomb()
+    {
+        DeactiveChildren();
+        GameObject bomb = Instantiate(bombPrefab);
+        bomb.transform.parent = transform;
+        bomb.transform.localPosition = Vector3.zero;
+        AnimatorClipInfo[] clipInfo = bomb.GetComponentInChildren<Animator>().GetCurrentAnimatorClipInfo(0);
+        float clipLength = clipInfo[0].clip.length;
+        Destroy(bomb, clipLength);
     }
 
     public void DeactiveChildren()

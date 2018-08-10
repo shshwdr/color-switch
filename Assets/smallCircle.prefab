@@ -228,8 +228,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1663070843685644}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.48, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalPosition: {x: -0.02, y: 5.57, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.29999995, z: 1.5}
   m_Children:
   - {fileID: 4538589100875128}
   - {fileID: 4540176932420918}
@@ -715,6 +715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldChangeChildren: 1
   willChange: 1
+  bombPrefab: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 2}
 --- !u!114 &114236675494637436
 MonoBehaviour:
   m_ObjectHideFlags: 1

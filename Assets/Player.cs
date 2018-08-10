@@ -118,6 +118,10 @@ public class Player : Singleton<Player>
                     {
                         GameOver();
                     }
+                    else
+                    {
+                        SFXController.Instance.Wrong();
+                    }
                 }
                 else
                 {
@@ -195,6 +199,7 @@ public class Player : Singleton<Player>
 
     public bool MoveToTarget(Vector3 target)
     {
+        SFXController.Instance.Swoosh();
         gotHurtInThisJump = false;
         gameStarted = true;
         if (willTransportNext)
@@ -264,7 +269,8 @@ public class Player : Singleton<Player>
     {
         GameObject go = hittedPart[hittedPart.Count - 1].transform.parent.gameObject;
         WholeCircle wc = go.GetComponent<WholeCircle>();
-        wc.DeactiveChildren();
+        wc.Bomb();
+        SFXController.Instance.Bomb();
     }
 
     public void gainHP(float gainedHP = 1)
