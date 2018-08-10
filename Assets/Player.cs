@@ -38,6 +38,8 @@ public class Player : Singleton<Player>
 
     public bool gameStarted = false;
 
+    public float maxY = 0;
+
 
     // Use this for initialization
     void Start()
@@ -60,14 +62,7 @@ public class Player : Singleton<Player>
         {
             return;
         }
-        //if (!canBeSeenByCamera())
-        //{
-        //    GameOver();
-        //}
-        //if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
-        //      {
-        //          rb.velocity = Vector2.up * jumpForce;
-        //      }
+        maxY = Mathf.Max(maxY, transform.position.y);
     }
 
     private bool canBeSeenByCamera()
@@ -190,7 +185,6 @@ public class Player : Singleton<Player>
     public void Restart()
     {
         gameView.Restart();
-        isGameOver = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
