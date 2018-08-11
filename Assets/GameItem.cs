@@ -32,8 +32,8 @@ public class GameItem : MonoBehaviour {
             case GameItemEnum.bomb:
                 Player.Instance.Bomb();
                 break;
-            case GameItemEnum.transport:
-                Player.Instance.Transport();
+            case GameItemEnum.teleport:
+                Player.Instance.Teleport();
                 break;
             case GameItemEnum.ballSlowDown:
                 Player.Instance.SlowDown();

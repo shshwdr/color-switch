@@ -31,7 +31,9 @@ public class Player : Singleton<Player>
 
 
     //items
-    bool willTransportNext;
+    public GameObject targetObject;
+    public bool willTeleportNext;
+    public bool willTeleportThis;
 
     public float hp = 3;
     public float maxHP = 6;
@@ -95,6 +97,10 @@ public class Player : Singleton<Player>
         {
             return;
         }
+        if (willTeleportThis)
+        {
+            return;
+        }
         GameColorManager script = col.gameObject.GetComponent<GameColorManager>();
         CirclePart cp = col.gameObject.GetComponent<CirclePart>();
         if (script && cp)
@@ -141,24 +147,29 @@ public class Player : Singleton<Player>
 
             //get item if exist
             GameItemManager item = col.transform.parent.GetComponentInChildren<GameItemManager>();
-            if (item && item.gameObject.activeSelf)
-            {
-                string itemName = GameItem.GetItem(item.itemEnum);
-
-                //put this into itemTextClass
-                GameObject go = ResourceManager.Instance.ItemText();
-                ItemText itemText = go.GetComponent<ItemText>();
-                itemText.Initialize(itemName, col.transform.parent.transform.position);
-                
-                item.gameObject.SetActive(false);
-                gottenItem = item.gameObject;
-            }
+            UseItem(item);
         }
         else
         {
             //hit on wholeCircle
             //CSUtil.ERROR("item is not color changer and does not have colorManager on it");
 
+        }
+    }
+
+    void UseItem(GameItemManager item)
+    {
+        if (item && item.gameObject.activeSelf)
+        {
+            string itemName = GameItem.GetItem(item.itemEnum);
+
+            //put this into itemTextClass
+            GameObject go = ResourceManager.Instance.ItemText();
+            ItemText itemText = go.GetComponent<ItemText>();
+            itemText.Initialize(itemName, item.transform.position);
+
+            item.gameObject.SetActive(false);
+            gottenItem = item.gameObject;
         }
     }
 
@@ -198,16 +209,27 @@ public class Player : Singleton<Player>
         GameOver();
     }
 
-    public bool MoveToTarget(Vector3 target)
+    public bool MoveToTarget(GameObject target_object)
     {
-        SFXController.Instance.PlaySFX(SFXEnum.swoosh);
+        Vector3 target = target_object.transform.position;
+        targetObject = target_object;
         gotHurtInThisJump = false;
         gameStarted = true;
-        if (willTransportNext)
+        if (willTeleportNext)
         {
-            willTransportNext = false;
-            transform.position = new Vector3(target.x, target.y, transform.position.z);
+            willTeleportThis = willTeleportNext;
+            willTeleportNext = false;
+            ParticleEffectManager.Instance.playParticleEffect(transform.position, ParticleEffectEnum.teleport);
+            Vector3 teleportTarget = new Vector3(target.x, target.y, transform.position.z);
+            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0);
+
+            SFXController.Instance.PlaySFX(SFXEnum.teleport);
+            ParticleEffectManager.Instance.playParticleEffect(teleportTarget, ParticleEffectEnum.teleport);
+            //transform.position = teleportTarget;
             //achievement
+        } else
+        {
+            SFXController.Instance.PlaySFX(SFXEnum.swoosh);
         }
         if (shouldDestroyPart)
         {
@@ -253,10 +275,17 @@ public class Player : Singleton<Player>
         gameObject.transform.localScale = new Vector3(scale, scale, scale);
     }
 
-    public void Transport()
+    public void Teleport()
     {
-        SFXController.Instance.PlaySFX(SFXEnum.teleport);
-        willTransportNext = true;
+        willTeleportNext = true;
+    }
+    public void TeleportArrived()
+    {
+        Player.Instance.willTeleportThis = false;
+        //ParticleEffectManager.Instance.playParticleEffect(transform.position, ParticleEffectEnum.teleport);
+        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1);
+        GameItemManager item = targetObject.GetComponentInChildren<GameItemManager>();
+        UseItem(item);
     }
 
     public void SlowDown()

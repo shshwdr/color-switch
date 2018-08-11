@@ -523,6 +523,9 @@ MonoBehaviour:
   decideByTheFirstHit: 1
   isGameOver: 0
   gameColor: 0
+  targetObject: {fileID: 0}
+  willTeleportNext: 0
+  willTeleportThis: 0
   hp: 3
   maxHP: 6
   gameStarted: 0
@@ -1717,6 +1720,7 @@ GameObject:
   - component: {fileID: 334318574}
   - component: {fileID: 334318575}
   - component: {fileID: 334318576}
+  - component: {fileID: 334318577}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1787,6 +1791,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0582ccc30322b144e9b6d28c53200909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &334318577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 334318572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a211d4ef62b5c7f4899566a14161959b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleEffects:
+  - {fileID: 1960357365834416, guid: 52b5625ea1cb21b45813253651d31312, type: 2}
 --- !u!1 &339315331
 GameObject:
   m_ObjectHideFlags: 0
@@ -4580,7 +4597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba2e09d54cb9df64d98041251f9b0cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemEnum: 5
+  itemEnum: 6
 --- !u!212 &715781142
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5311,11 +5328,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 061783a6ecbc5244497d6b7ada5c3011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameover: {fileID: 8300000, guid: fae1923ec1334ab47b888d382df5cd02, type: 3}
-  buttonClick: {fileID: 8300000, guid: 4834633aa75c10c47b13dfcd3d6f998e, type: 3}
-  swoosh: {fileID: 8300000, guid: c2596c2dbfbe5ed4295915221d833e94, type: 3}
-  wrong: {fileID: 8300000, guid: d852b59307a8b814ebc2ddd0f0ded7bd, type: 3}
-  bomb: {fileID: 8300000, guid: 38e9acfb96a050844aa53aa119642a61, type: 3}
+  clips:
+  - {fileID: 8300000, guid: fae1923ec1334ab47b888d382df5cd02, type: 3}
+  - {fileID: 8300000, guid: 4834633aa75c10c47b13dfcd3d6f998e, type: 3}
+  - {fileID: 8300000, guid: c2596c2dbfbe5ed4295915221d833e94, type: 3}
+  - {fileID: 8300000, guid: 65c0fedbe96bf414ba1e8af772e02a05, type: 3}
+  - {fileID: 8300000, guid: 38e9acfb96a050844aa53aa119642a61, type: 3}
+  - {fileID: 8300000, guid: 6a6bd0fa8fa75944fab6d317e8179b66, type: 3}
+  - {fileID: 8300000, guid: d852b59307a8b814ebc2ddd0f0ded7bd, type: 3}
+  - {fileID: 8300000, guid: f87b6b977473a2541aadbf1161f0f397, type: 3}
+  - {fileID: 8300000, guid: 21ba35470bdbab64583fdd0ec3e0b457, type: 3}
+  - {fileID: 8300000, guid: 12abc037b2c0804418c3332eeac0fdf9, type: 3}
+  - {fileID: 8300000, guid: bc47021dbec39074e896a23c3b7254ec, type: 3}
 --- !u!82 &797231573
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7626,7 +7650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba2e09d54cb9df64d98041251f9b0cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemEnum: 5
+  itemEnum: 6
 --- !u!1 &1437957588
 GameObject:
   m_ObjectHideFlags: 0

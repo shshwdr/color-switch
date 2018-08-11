@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum GameItemEnum { smallBall, megaBall, heart, gold, randomColor, bomb,
-    transport,ballSlowDown, ballSpeedup, screenSlowDown, screenSpeedup, random,};
+    teleport, ballSlowDown, ballSpeedup, screenSlowDown, screenSpeedup, random,};
 
 public class GameItemManager : MonoBehaviour {
     public GameItemEnum itemEnum;

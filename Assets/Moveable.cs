@@ -65,6 +65,10 @@ public class Moveable : MonoBehaviour {
                 //CSUtil.LOG("Arrive target" + target);
                 isMoving = false;
                 transform.position = target;
+                if (Player.Instance.willTeleportThis)
+                {
+                    Player.Instance.TeleportArrived();
+                }
                 //achivement: keep jumping
             }
         }
