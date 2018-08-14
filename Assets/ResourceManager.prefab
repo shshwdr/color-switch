@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1809802158569626}
+  m_IsPrefabParent: 1
+--- !u!1 &1809802158569626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4282128095234962}
+  - component: {fileID: 114921876181422268}
+  m_Layer: 0
+  m_Name: ResourceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4282128095234962
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1809802158569626}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 50, z: 18.404282}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114921876181422268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1809802158569626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13702dec663348f479b7b6c58bb3dd5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  circleSprite:
+  - {fileID: 21300000, guid: 16459f1651cf5c344b9eff3afeba2371, type: 3}
+  - {fileID: 21300002, guid: 16459f1651cf5c344b9eff3afeba2371, type: 3}
+  - {fileID: 21300006, guid: 16459f1651cf5c344b9eff3afeba2371, type: 3}
+  - {fileID: 21300004, guid: 16459f1651cf5c344b9eff3afeba2371, type: 3}
+  itemSprite:
+  - {fileID: 21300000, guid: 6625f0044138514489284252d07628ee, type: 3}
+  - {fileID: 21300000, guid: b6e0607bc5630c84897e52bc24cbde38, type: 3}
+  - {fileID: 21300010, guid: 47e79a6e4aca02247a196c7b0bf0a857, type: 3}
+  - {fileID: 21300012, guid: 47e79a6e4aca02247a196c7b0bf0a857, type: 3}
+  - {fileID: 21300000, guid: 6dbf91fdae6846d4388f91d18ad894d4, type: 3}
+  - {fileID: 21300014, guid: 47e79a6e4aca02247a196c7b0bf0a857, type: 3}
+  - {fileID: 21300000, guid: 653cd0f99dbd121418a01a46470e578a, type: 3}
+  - {fileID: 21300000, guid: f67a3467b34f46e49afa187e79db13b5, type: 3}
+  - {fileID: 21300000, guid: 241d0daf3f94f124d894e7dcd670da10, type: 3}
+  - {fileID: 21300000, guid: 0ff6ec38b5064604d82d151dec3d4a81, type: 3}
+  - {fileID: 21300000, guid: 87de140228aa99347b032f4747ee594b, type: 3}
+  - {fileID: 21300000, guid: 2c0368dc483fc2247a8115429175eb98, type: 3}
+  ItemTextsPool:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ItemPrefab: {fileID: 1628348565296856, guid: 9e972bd1d908a6245a42e2fb4959f1b5, type: 2}
+  circlePool:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

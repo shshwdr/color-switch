@@ -74,7 +74,7 @@ public class MainMenu : MonoBehaviour {
     public void PlayGame()
     {
         //CSUtil.LOG("play button clicked");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Game");
     }
 
     public void SignIn()
