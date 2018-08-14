@@ -114,7 +114,8 @@ public class GenerateMap : MonoBehaviour {
                         continue;
                     }
 
-                    GameObject go = Instantiate(circlePrefab, willGeneratePosition, Quaternion.identity);
+                    GameObject go = ResourceManager.Instance.getCircle();
+                    go.transform.position = willGeneratePosition;
                     WholeCircle wc = go.GetComponentInChildren<WholeCircle>();
                     Rotator rt = go.GetComponentInChildren<Rotator>();
                     generatedList.Add(go);
@@ -158,6 +159,7 @@ public class GenerateMap : MonoBehaviour {
                         }
                     }
 
+                    wc.Init();
                     //decide the ratate speed of the circle,randge is (-100,-50)and(50,100)
                     rand = Random.Range(-50, 50);
                     rand += (rand > 0 ? 50 : -50);

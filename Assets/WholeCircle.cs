@@ -8,14 +8,19 @@ public class WholeCircle : MonoBehaviour {
     public GameObject bombPrefab;
 	// Use this for initialization
 	void Start () {
-		if(shouldChangeChildren)
+        Init();
+	}
+
+    public void Init()
+    {
+        if (shouldChangeChildren)
         {
             foreach (CirclePart cp in GetComponentsInChildren<CirclePart>())
             {
                 cp.SetWillChange(willChange);
             }
         }
-	}
+    }
 
     public bool isActive()
     {
