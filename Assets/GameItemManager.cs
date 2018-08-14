@@ -15,6 +15,8 @@ public class GameItemManager : MonoBehaviour {
         sr.sprite = ResourceManager.Instance.itemSprite[(int)itemEnum];
     }
 
+
+
     // Update is called once per frame
     void Update () {
 		

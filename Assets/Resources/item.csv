@@ -1,0 +1,13 @@
+identifier,description
+smallBall,make ball smaller
+megaBall,make ball bigger
+heart,gain 1 heart(Max 9)
+gold,randomly gain 1 to 4 gold
+randomColor,change to a random color
+bomb,destroy all parts of the circle
+teleport,"teleport to next circle, won't collide with parts"
+ballSlowDown,slow down ball
+ballSpeedup,speed up ball
+screenSlowDown,slow down screen scroll
+screenSpeedup,speed up screen scroll
+random,trigger a random item

@@ -1,10 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sinbad;
 
-public class GameItem : MonoBehaviour {
+public class GameItem : Singleton<GameItem> {
 
-	static public string GetItem(GameItemEnum itemEnum)
+    public List<ItemInfo> itemInfoList;
+
+    private void Start()
+    {
+        ReadCSV();
+    }
+    void ReadCSV()
+    {
+        itemInfoList = CsvUtil.LoadObjects<ItemInfo>("Assets/Resources/item.csv");
+
+    }
+
+    static public string GetItem(GameItemEnum itemEnum)
     {
         int rand;
         FollowTarget ft = Camera.main.GetComponent<FollowTarget>();
