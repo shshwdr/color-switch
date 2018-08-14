@@ -63,9 +63,16 @@ public class WholeCircle : MonoBehaviour {
             gm.gameColor = colors[i];
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update () {
+		if (Camera.main.transform.position.y - 7 > transform.position.y)
+        {
+            transform.parent.gameObject.SetActive(false);
+        }
+        if (Camera.main.transform.position.y + 7 > transform.position.y)
+        {
+            transform.parent.gameObject.SetActive(true);
+        }
+    }
 }
