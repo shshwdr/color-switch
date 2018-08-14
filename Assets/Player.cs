@@ -146,7 +146,7 @@ public class Player : Singleton<Player>
             }
 
             //get item if exist
-            GameItemManager item = col.transform.parent.GetComponentInChildren<GameItemManager>();
+            GameItemManager item = col.transform.parent.parent.GetComponentInChildren<GameItemManager>();
             UseItem(item);
         }
         else

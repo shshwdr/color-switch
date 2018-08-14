@@ -22,19 +22,20 @@ public class GameColorManager : MonoBehaviour {
             case GameColor.none:
                 gameObject.SetActive(false);
                 break;
-            //case GameColor.cyan:
-                
-            //    break;
-            //case GameColor.yellow:
-            //    sr.sprite = ResourceManager.Instance.circleSprite[1];
-            //    break;
-            //case GameColor.pink:
-            //    sr.sprite = ResourceManager.Instance.circleSprite[2];
-            //    break;
-            //case GameColor.meganta:
-            //    sr.sprite = ResourceManager.Instance.circleSprite[3];
-            //    break;
+                //case GameColor.cyan:
+
+                //    break;
+                //case GameColor.yellow:
+                //    sr.sprite = ResourceManager.Instance.circleSprite[1];
+                //    break;
+                //case GameColor.pink:
+                //    sr.sprite = ResourceManager.Instance.circleSprite[2];
+                //    break;
+                //case GameColor.meganta:
+                //    sr.sprite = ResourceManager.Instance.circleSprite[3];
+                //    break;
             default:
+                Debug.Log("index " + index);
                 sr.sprite = ResourceManager.Instance.circleSprite[(int)gameColor];
                 transform.Rotate(new Vector3(0, 0, ( - index) * 90));
                 //CSUtil.ERROR("game color is an invalid value");

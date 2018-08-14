@@ -110,6 +110,11 @@ public IEnumerable<PersistentCurrency> GetPersistentCurrencys(){
         _connection.Update(currency);
     }
 
+    //public IEnumerable<Person> GetPersonsNamedRoberto()
+    //{
+    //    return _connection.Table<Person>().Where(x => x.Name == "Roberto");
+    //}
+
     //public Person GetJohnny(){
     //	return _connection.Table<Person>().Where(x => x.Name == "Johnny").FirstOrDefault();
     //}

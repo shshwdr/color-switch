@@ -115,8 +115,8 @@ public class GenerateMap : MonoBehaviour {
                     }
 
                     GameObject go = Instantiate(circlePrefab, willGeneratePosition, Quaternion.identity);
-                    WholeCircle wc = go.GetComponent<WholeCircle>();
-                    Rotator rt = go.GetComponent<Rotator>();
+                    WholeCircle wc = go.GetComponentInChildren<WholeCircle>();
+                    Rotator rt = go.GetComponentInChildren<Rotator>();
                     generatedList.Add(go);
                     thisGeneratedList.Add(go);
                     //decide if this circle is a change circle or block circle
