@@ -8,10 +8,13 @@ public class GameColorManager : MonoBehaviour {
     public GameColor gameColor;
     public int index;
     SpriteRenderer sr;
+    bool hasFinishedStart;
     // Use this for initialization
-    void Start () {
-        sr = GetComponent<SpriteRenderer>();
-        GameColorManager parent = transform.parent. GetComponent<GameColorManager>();
+
+    public void Init()
+    {
+
+        GameColorManager parent = transform.parent.GetComponent<GameColorManager>();
         //if parent is a color part, follow it's color
         if (parent)
         {
@@ -22,27 +25,22 @@ public class GameColorManager : MonoBehaviour {
             case GameColor.none:
                 gameObject.SetActive(false);
                 break;
-                //case GameColor.cyan:
-
-                //    break;
-                //case GameColor.yellow:
-                //    sr.sprite = ResourceManager.Instance.circleSprite[1];
-                //    break;
-                //case GameColor.pink:
-                //    sr.sprite = ResourceManager.Instance.circleSprite[2];
-                //    break;
-                //case GameColor.meganta:
-                //    sr.sprite = ResourceManager.Instance.circleSprite[3];
-                //    break;
             default:
                 Debug.Log("index " + index);
                 sr.sprite = ResourceManager.Instance.circleSprite[(int)gameColor];
-                transform.Rotate(new Vector3(0, 0, ( - index) * 90));
+                if (!hasFinishedStart)
+                {
+                    transform.Rotate(new Vector3(0, 0, (-index) * 90));
+                }
+                hasFinishedStart = true;
                 //CSUtil.ERROR("game color is an invalid value");
                 break;
-
-            
         }
+    }
+
+    void Start () {
+        sr = GetComponent<SpriteRenderer>();
+        Init();
 	}
 	
 	// Update is called once per frame

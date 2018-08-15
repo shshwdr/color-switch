@@ -6,6 +6,7 @@ public class WholeCircle : MonoBehaviour {
     public bool shouldChangeChildren;
     public bool willChange;
     public GameObject bombPrefab;
+    public GameObject itemObject;
 	// Use this for initialization
 	void Start () {
         Init();
@@ -45,6 +46,14 @@ public class WholeCircle : MonoBehaviour {
         Destroy(bomb, clipLength);
     }
 
+    public void ReactiveChildren()
+    {
+        foreach (Transform trans in transform)
+        {
+            trans.gameObject.SetActive(true);
+        }
+    }
+
     public void DeactiveChildren()
     {
         foreach (Transform trans in transform)
@@ -55,12 +64,19 @@ public class WholeCircle : MonoBehaviour {
 
     public void SetColor(GameColor[] colors)
     {
+        Init();
         CirclePart[] parts = GetComponentsInChildren<CirclePart>();
         
         for(int i = 0;i<4;i++)
         {
             GameColorManager gm = parts[i].GetComponent<GameColorManager>();
             gm.gameColor = colors[i];
+        }
+        GameColorManager[] colorManagers = GetComponentsInChildren<GameColorManager>();
+
+        for (int i = 0; i < colorManagers.Length; i++)
+        {
+            colorManagers[i].Init();
         }
     }
 
@@ -70,9 +86,9 @@ public class WholeCircle : MonoBehaviour {
         {
             transform.parent.gameObject.SetActive(false);
         }
-        if (Camera.main.transform.position.y + 7 > transform.position.y)
-        {
-            transform.parent.gameObject.SetActive(true);
-        }
+        //else if (Camera.main.transform.position.y + 7 > transform.position.y)
+        //{
+        //    transform.parent.gameObject.SetActive(true);
+        //}
     }
 }

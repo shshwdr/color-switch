@@ -12,10 +12,14 @@ public class GameItemManager : MonoBehaviour {
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-        sr.sprite = ResourceManager.Instance.itemSprite[(int)itemEnum];
+        Init();
+        gameObject.SetActive(false);
     }
 
-
+    public void Init()
+    {
+        sr.sprite = ResourceManager.Instance.itemSprite[(int)itemEnum];
+    }
 
     // Update is called once per frame
     void Update () {

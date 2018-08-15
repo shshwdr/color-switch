@@ -115,8 +115,12 @@ public class GenerateMap : MonoBehaviour {
                     }
 
                     GameObject go = ResourceManager.Instance.getCircle();
+                    go.SetActive(true);
                     go.transform.position = willGeneratePosition;
                     WholeCircle wc = go.GetComponentInChildren<WholeCircle>();
+                    wc.itemObject.SetActive(false);
+                    wc.ReactiveChildren();
+                    wc.willChange = false;
                     Rotator rt = go.GetComponentInChildren<Rotator>();
                     generatedList.Add(go);
                     thisGeneratedList.Add(go);
@@ -127,6 +131,11 @@ public class GenerateMap : MonoBehaviour {
                     {
                         noChangeCircleNumber = 0;
                         wc.willChange = true;
+                        rand = Random.Range(0, 4);
+                        GameColor c1 = (GameColor)((rand + 1) % 4);
+                        GameColor c2 = (GameColor)((rand + 2) % 4);
+                        GameColor c3 = (GameColor)((rand + 3) % 4);
+                        wc.SetColor(new GameColor[] { c1, c2, c3, (GameColor)rand });
                     }
                     else
                     {
@@ -156,10 +165,15 @@ public class GenerateMap : MonoBehaviour {
                             GameColor c2 = (GameColor)((rand + 2) % 4);
                             GameColor c3 = (GameColor)((rand + 3) % 4);
                             wc.SetColor(new GameColor[] { c1,c2,c3,c3 });
+                        } else
+                        {
+                            rand = Random.Range(0, 4);
+                            GameColor c1 = (GameColor)((rand + 1) % 4);
+                            GameColor c2 = (GameColor)((rand + 2) % 4);
+                            GameColor c3 = (GameColor)((rand + 3) % 4);
+                            wc.SetColor(new GameColor[] { c1, c2, c3, (GameColor)rand });
                         }
                     }
-
-                    wc.Init();
                     //decide the ratate speed of the circle,randge is (-100,-50)and(50,100)
                     rand = Random.Range(-50, 50);
                     rand += (rand > 0 ? 50 : -50);
@@ -172,10 +186,11 @@ public class GenerateMap : MonoBehaviour {
         }
         int rand3 = Random.Range(0, thisGeneratedList.Count);
         GameObject go2 = thisGeneratedList[rand3];
-        GameObject item = Instantiate(ResourceManager.Instance.ItemPrefab, Vector3.zero, Quaternion.identity, go2.transform);
-        item.transform.localPosition = Vector3.zero;
-        GameItemManager itemManager = item.GetComponent<GameItemManager>();
+        WholeCircle wc2 = go2.GetComponentInChildren<WholeCircle>();
+        wc2.itemObject.SetActive(true);
+        GameItemManager itemManager = wc2.itemObject.GetComponent<GameItemManager>();
         itemManager.itemEnum = (GameItemEnum)Random.Range(0, (int)GameItemEnum.random+1);
+        itemManager.Init();
 
     }
     

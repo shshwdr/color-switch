@@ -235,11 +235,14 @@ public class Player : Singleton<Player>
         {
             foreach (GameObject go in hittedPart)
             {
-                Destroy(go);
+                //Destroy(go);
             }
             hittedPart.Clear();
         }
-        Destroy(gottenItem);
+        if (gottenItem)
+        {
+            gottenItem.gameObject.SetActive(false);
+        }
         if (decideByTheFirstHit)
         {
                 hittedCircle.Clear();
@@ -284,7 +287,7 @@ public class Player : Singleton<Player>
         Player.Instance.willTeleportThis = false;
         //ParticleEffectManager.Instance.playParticleEffect(transform.position, ParticleEffectEnum.teleport);
         sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1);
-        GameItemManager item = targetObject.GetComponentInChildren<GameItemManager>();
+        GameItemManager item = targetObject.GetComponentInChildren<WholeCircle>().itemObject.GetComponent<GameItemManager>();
         UseItem(item);
     }
 
