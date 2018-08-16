@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemInfo {
+public class AbilityInfo {
     public string identifier;
     public string description;
+    public string ability;
+    public string name;
     public Sprite icon {
         get
         {
@@ -13,5 +15,4 @@ public class ItemInfo {
         }
 
     }
-
 }

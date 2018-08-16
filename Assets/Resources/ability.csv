@@ -1,0 +1,9 @@
+identifier,ability,name,description
+fireBall,"""move faster. destroy every parts it touches """,Fire Ball,"""BURN THEM ALL"""
+lightningBall,"""move to the destination immediately, destroy all parts on the line""",Lightning Ball,"""Focus like a laser, not a flashlight"""
+waterBall,"""move slower. won't loss heart when pass blue part no matter what color it is""",Water Ball,"""The highest good is like water"""
+thiefBall,"""gain 1 gold when hit a yellow part. loss +0.5 health when get hit.""",Thief Ball,"""A thief believes everybody steals"""
+lifeBall,"""highly increase the chance to see heart item, screen moves much faster""",Life Ball,"""Waste your time and waste of your life, or master your time and master your life"""
+goldBall,"""highly increase the chance to see gold item. higher chance to see ad.""",GoldBall,"""This is gold which is worth gold"""
+strongBall,"""bigger than normal one. +1 initial hp and +2 max hp""",Strong Ball,"""Sometimes you don't realize your own strength until you come face to face with your greatest weakness."""
+loveBall,"""won't loss heart when hit on a pink part. will stick on it and wont get item when hit one. """,Love Ball,"""Love is a weakness"""

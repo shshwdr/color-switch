@@ -29,6 +29,13 @@ namespace Sinbad {
         // @param strict If true, log errors if a line doesn't have enough
         //   fields as per the header. If false, ignores and just fills what it can
         public static List<T> LoadObjects<T>(string filename, bool strict = true) where T: new()  {
+#if UNITY_EDITOR
+            filename = "Assets/Resources/" + filename;
+#else
+#if UNITY_ANDROID
+            filename = string.Format("{0}/{1}", Application.persistentDataPath, filename);
+#endif
+#endif
             using (var stream = File.Open(filename, FileMode.Open)) {
 				using (var rdr = new StreamReader(stream,System.Text.Encoding.UTF8)) {
                     return LoadObjects<T>(rdr, strict);

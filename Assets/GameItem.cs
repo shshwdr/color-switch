@@ -13,7 +13,7 @@ public class GameItem : Singleton<GameItem> {
     }
     void ReadCSV()
     {
-        itemInfoList = CsvUtil.LoadObjects<ItemInfo>("Assets/Resources/item.csv");
+        itemInfoList = CsvUtil.LoadObjects<ItemInfo>("item.csv");
 
     }
 
