@@ -110,6 +110,26 @@ public IEnumerable<PersistentCurrency> GetPersistentCurrencys(){
         _connection.Update(currency);
     }
 
+    public IEnumerable<PersistentBall> GetBallsOwned()
+    {
+        return _connection.Table<PersistentBall>();
+    }
+
+    public PersistentBall GetBall(string identifier)
+    {
+        return _connection.Table<PersistentBall>().Where(x => x.identifier == identifier).FirstOrDefault();
+    }
+
+    public void InsertBall(PersistentBall ball)
+    {
+        _connection.Insert(ball);
+    }
+
+    public void UpdateBall(PersistentBall ball)
+    {
+        _connection.Update(ball);
+    }
+
     //public IEnumerable<Person> GetPersonsNamedRoberto()
     //{
     //    return _connection.Table<Person>().Where(x => x.Name == "Roberto");

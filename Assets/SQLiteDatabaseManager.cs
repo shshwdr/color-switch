@@ -9,7 +9,7 @@ public class SQLiteDatabaseManager : Singleton<SQLiteDatabaseManager> {
     private string conn, sqlQuery;
     IDbConnection dbconn;
     IDbCommand dbcmd;
-    DataService ds;
+    public DataService ds;
     // Use this for initialization
     void Start()
     {
