@@ -11,6 +11,8 @@ public class ResourceManager : Singleton<ResourceManager> {
     public GameObject ItemPrefab;
     public GameObject[] circlePool;
     int currentCircleIndex = 3;
+
+    public Sprite[] abilitySprite;
     public GameObject ItemText()
     {
         GameObject go = ItemTextsPool[currentItemTextIndex];

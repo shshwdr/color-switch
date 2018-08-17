@@ -3,6 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sinbad;
 
+public enum AbilityEnum {
+    normal,
+fireBall,
+lightningBall,
+waterBall,
+thiefBall,
+lifeBall,
+goldBall,
+strongBall,
+loveBall,
+}
+
 public class AbilityManager : Singleton<AbilityManager>
 {
     public List<AbilityInfo> abilityInfoList;

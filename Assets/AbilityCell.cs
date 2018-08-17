@@ -31,8 +31,8 @@ public class AbilityCell : MonoBehaviour
         abilityName.text = info.name;
         abilityText.text = info.ability;
         description.text = info.description;
-        //icon.sprite = info.icon;
-        //price
+        icon.sprite = info.icon;
+        price.text = info.cost.ToString();
 
         SetupState(info.identifier);
 
