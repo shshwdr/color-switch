@@ -15,6 +15,8 @@ public class Player : Singleton<Player>
     public bool cheatDontDie;
     public bool decideByTheFirstHit;
 
+    public AbilityBehavior abilityBehavior;
+
     float originScale;
     int currentScaleLevel= 2;
     float[] scaleLevels = { 0.3f, 0.7f, 1f, 1.2f, 1.5f };
@@ -46,6 +48,8 @@ public class Player : Singleton<Player>
     // Use this for initialization
     void Start()
     {
+        string currentAbilityString = "fireBall";//AbilityManager.Instance.currentlyUsingBall;
+        abilityBehavior = AbilityBehavior.CreateAbilityBehavior(currentAbilityString);
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         ChangeColor(GameColor.yellow);
@@ -55,6 +59,7 @@ public class Player : Singleton<Player>
         hittedCircle = new HashSet<GameObject>();
         hittedPart = new List<GameObject>();
         originScale = transform.localScale.x;
+        abilityBehavior.InitPlayer();
     }
 
     // Update is called once per frame
@@ -326,5 +331,10 @@ public class Player : Singleton<Player>
     public bool isDead()
     {
         return hp <= 0.1f;
+    }
+
+    public void ScaleMoveTimeBase(float scale)
+    {
+        moveable.ScaleMoveTimeBase(scale);
     }
 }

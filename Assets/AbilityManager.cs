@@ -21,7 +21,7 @@ public class AbilityManager : Singleton<AbilityManager>
     public Dictionary<string, PersistentBall> ballsOwned;
 
 
-    string currentlyUsingBall;
+    public string currentlyUsingBall;
 
     private void Start()
     {

@@ -9,9 +9,9 @@ public class Moveable : MonoBehaviour {
     float speed;
     public float originMoveTime = 0.5f;
 
-    float currentMoveTime;
+    public float currentMoveTime;
     int currentMoveTimeIndex = 2;
-
+    public float moveTimeBase = 1.0f;
     public float[] moveTimeArray = { 0.3f, 0.4f, 0.5f, 0.6f, 0.7f };
 
     bool isMoving;
@@ -42,18 +42,24 @@ public class Moveable : MonoBehaviour {
     public void Slowdown()
     {
         currentMoveTimeIndex = Mathf.Min(4, currentMoveTimeIndex + 1);
-        currentMoveTime = moveTimeArray[currentMoveTimeIndex];
+        currentMoveTime = moveTimeArray[currentMoveTimeIndex]* moveTimeBase;
     }
 
     public void Speedup() {
         currentMoveTimeIndex = Mathf.Max(0, currentMoveTimeIndex - 1);
-        currentMoveTime = moveTimeArray[currentMoveTimeIndex];
+        currentMoveTime = moveTimeArray[currentMoveTimeIndex]* moveTimeBase;
+    }
+
+    public void ScaleMoveTimeBase(float scale)
+    {
+        moveTimeBase *= scale;
+        currentMoveTime = moveTimeArray[currentMoveTimeIndex] * moveTimeBase;
     }
 
 	// Use this for initialization
 	void Start () {
-        currentMoveTime = originMoveTime;
-	}
+        currentMoveTime = moveTimeArray[currentMoveTimeIndex] * moveTimeBase;
+    }
 	
 	// Update is called once per frame
 	void Update () {
