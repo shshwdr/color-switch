@@ -7,4 +7,4 @@ thiefBall,gain 1 gold when hit a yellow part. loss +0.5 health when get hit.,Thi
 lifeBall,"highly increase the chance to see heart item, screen moves much faster",Life Ball,"Waste your time and waste of your life, or master your time and master your life",5
 goldBall,highly increase the chance to see gold item. higher chance to see ad.,GoldBall,This is gold which is worth gold,6
 strongBall,bigger than normal one. +1 initial hp and +2 max hp,Strong Ball,Sometimes you don't realize your own strength until you come face to face with your greatest weakness.,7
-loveBall,won't loss heart when hit on a pink part. will stick on it and wont get item when hit one. ,Love Ball,Love is a weakness,8
+loveBall,won't loss heart when hit on a pink part. will stick on it and wont get item when hit one. ,Love Ball,Love is a weakness,1000

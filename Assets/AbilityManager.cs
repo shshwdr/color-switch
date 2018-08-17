@@ -68,9 +68,8 @@ public class AbilityManager : Singleton<AbilityManager>
         ballsOwned[identifier] = ball;
     }
 
-    public string useBall(string identifier, bool use = true)
+    public void useBall(string identifier, bool use = true)
     {
-        string res = currentlyUsingBall;
         if (currentlyUsingBall!=null)
         {
             p_useBall(currentlyUsingBall,false);
@@ -82,7 +81,6 @@ public class AbilityManager : Singleton<AbilityManager>
 
         p_useBall(identifier);
         currentlyUsingBall = identifier;
-        return res;
     }
 
     void p_useBall(string identifier, bool use = true)

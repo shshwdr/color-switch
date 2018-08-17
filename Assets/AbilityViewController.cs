@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class AbilityViewController : MonoBehaviour {
     public GameObject abilityCellPrefab;
     public GameObject abilityPanel;
+    public TextMeshProUGUI currentGoldText;
 
     public Dictionary<string,AbilityCell> cellDictionary;
 	// Use this for initialization
@@ -19,11 +21,23 @@ public class AbilityViewController : MonoBehaviour {
             cellDictionary[info.identifier] = script;
             script.viewController = this;
         }
+        UpdateView();
 	}
-    public void UpdateCellWithIdentifier(string identifier)
+
+    public void UpdateView()
     {
-        cellDictionary[identifier].SetupState(identifier);
+        currentGoldText.text = CurrencyManager.Instance.GetCurrencyAount("gold").ToString();
+        UpdateCells();
     }
+
+    void UpdateCells()
+    {
+        foreach(AbilityCell cell in cellDictionary.Values)
+        {
+            cell.UpdateState();
+        }
+    }
+    
 
 	
 	// Update is called once per frame
