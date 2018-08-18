@@ -170,7 +170,7 @@ public class Player : Singleton<Player>
             string itemName = GameItem.GetItem(item.itemEnum);
 
             //put this into itemTextClass
-            GameObject go = ResourceManager.Instance.ItemText();
+            GameObject go = CachePoolManager.Instance.ItemText();
             ItemText itemText = go.GetComponent<ItemText>();
             itemText.Initialize(itemName, item.transform.position);
 

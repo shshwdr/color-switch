@@ -114,7 +114,7 @@ public class GenerateMap : MonoBehaviour {
                         continue;
                     }
 
-                    GameObject go = ResourceManager.Instance.getCircle();
+                    GameObject go = CachePoolManager.Instance.getCircle();
                     go.SetActive(true);
                     go.transform.position = willGeneratePosition;
                     WholeCircle wc = go.GetComponentInChildren<WholeCircle>();

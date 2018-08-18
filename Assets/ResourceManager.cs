@@ -6,35 +6,8 @@ public class ResourceManager : Singleton<ResourceManager> {
 
     public Sprite[] circleSprite = new Sprite[4];
     public Sprite[] itemSprite;
-    public GameObject[] ItemTextsPool;
-    int currentItemTextIndex;
-    public GameObject ItemPrefab;
-    public GameObject[] circlePool;
-    int currentCircleIndex = 3;
-
+    
     public Sprite[] abilitySprite;
-    public GameObject ItemText()
-    {
-        GameObject go = ItemTextsPool[currentItemTextIndex];
-        currentItemTextIndex = (currentItemTextIndex+1)% ItemTextsPool.Length;
-        return go;
-    }
-    public GameObject getCircle()
-    {
-        GameObject go = circlePool[currentCircleIndex];
-        currentCircleIndex = (currentCircleIndex + 1) % circlePool.Length;
-        return go;
-    }
-    // Use this for initialization
-    void Start () {
-		foreach (GameObject go in ItemTextsPool)
-        {
-            go.SetActive(false);
-        }
-	}
+    
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
