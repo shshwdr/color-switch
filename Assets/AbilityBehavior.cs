@@ -2,9 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract  class AbilityBehavior {
+
+public abstract class AbilityBehavior {
 
     public virtual void InitPlayer() { }
+
+    public bool WouldDestroyMultiplePartsOnOneCircle
+    {
+        get
+        { return true; }
+    }
 
     static public AbilityBehavior CreateAbilityBehavior(string abilityString)
     {
@@ -47,5 +54,12 @@ public class FireBallAbility : AbilityBehavior
     {
         base.InitPlayer();
         Player.Instance.ScaleMoveTimeBase(0.5f);
+        Player.Instance.backgroundSprite.sprite = ResourceManager.Instance.abilityEffect[0];
+    }
+
+    public new bool WouldDestroyMultiplePartsOnOneCircle
+    {
+        get
+        { return false; }
     }
 }

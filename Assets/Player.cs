@@ -14,6 +14,7 @@ public class Player : Singleton<Player>
     public bool shouldDestroyPart;
     public bool cheatDontDie;
     public bool decideByTheFirstHit;
+    public SpriteRenderer backgroundSprite;
 
     public AbilityBehavior abilityBehavior;
 
@@ -145,7 +146,7 @@ public class Player : Singleton<Player>
                 col.gameObject.SetActive(false);
                 hittedPart.Add(col.gameObject);
             }
-            if (decideByTheFirstHit)
+            if (!abilityBehavior.WouldDestroyMultiplePartsOnOneCircle)
             {
                 hittedCircle.Add(col.transform.parent.gameObject);
             }

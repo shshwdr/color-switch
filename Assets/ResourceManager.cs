@@ -13,6 +13,7 @@ public class ResourceManager : Singleton<ResourceManager> {
     int currentCircleIndex = 3;
 
     public Sprite[] abilitySprite;
+    public Sprite[] abilityEffect;
     public GameObject ItemText()
     {
         GameObject go = ItemTextsPool[currentItemTextIndex];
