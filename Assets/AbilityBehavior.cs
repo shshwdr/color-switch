@@ -54,7 +54,7 @@ public class FireBallAbility : AbilityBehavior
     {
         base.InitPlayer();
         Player.Instance.ScaleMoveTimeBase(0.5f);
-        Player.Instance.backgroundSprite.sprite = ResourceManager.Instance.abilityEffect[0];
+        Player.Instance.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[1];
     }
 
     public new bool WouldDestroyMultiplePartsOnOneCircle

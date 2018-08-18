@@ -99,3 +99,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  abilitySprite:
+  - {fileID: 21300000, guid: b6e0607bc5630c84897e52bc24cbde38, type: 3}
+  - {fileID: 21300000, guid: 2843ad416982d114f83fb8fd31e9521e, type: 3}
+  - {fileID: 21300000, guid: 1d12d18e4aa21e943bdd15902716b526, type: 3}
+  - {fileID: 21300000, guid: b668cf514d38a994cae9285572049230, type: 3}
+  - {fileID: 21300000, guid: 93c993d31d34979439aba946e7a3a20d, type: 3}
+  - {fileID: 21300000, guid: 75322899fcf36e1479585d7c3f3f42f4, type: 3}
+  - {fileID: 21300000, guid: 72c47e16d9951c9478c033b24d9a71f1, type: 3}
+  - {fileID: 21300000, guid: bfdcffb9389dc684ab63bd0bc2b63187, type: 3}
+  - {fileID: 21300000, guid: eec5c88c9cfb48e439db00438dcb1218, type: 3}

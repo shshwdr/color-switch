@@ -8177,6 +8177,23 @@ GameObject:
   m_PrefabParentObject: {fileID: 1478432218996598, guid: ca404d71ac1978a40808cfd3d5f440f6,
     type: 2}
   m_PrefabInternal: {fileID: 68661863}
+--- !u!1 &1984478375 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1943033475187314, guid: c56864b3501a90f47a80dd729eda24fd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1849955773}
+--- !u!114 &1984478381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1984478375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01e27f60d4ce32e4493844cdbfc8aa35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentlyUsingBall: 
 --- !u!1 &1986474863
 GameObject:
   m_ObjectHideFlags: 0
