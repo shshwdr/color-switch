@@ -23,19 +23,19 @@ public abstract class AbilityBehavior {
             case AbilityEnum.fireBall:
                 return new FireBallAbility();
             case AbilityEnum.lightningBall:
-                break;
+                return new LightningBallAbility();
             case AbilityEnum.waterBall:
-                break;
+                return new WaterBallAbility();
             case AbilityEnum.thiefBall:
-                break;
+                return new ThiefBallAbility();
             case AbilityEnum.lifeBall:
-                break;
+                return new LifeBallAbility();
             case AbilityEnum.goldBall:
-                break;
+                return new GoldBallAbility();
             case AbilityEnum.strongBall:
-                break;
+                return new StrongBallAbility();
             case AbilityEnum.loveBall:
-                break;
+                return new LoveBallAbility();
         }
         return new NormalBallAbility();
     }
@@ -65,3 +65,66 @@ public class FireBallAbility : AbilityBehavior
 }
 
 
+public class LightningBallAbility : AbilityBehavior
+{
+    public override void InitPlayer()
+    {
+        base.InitPlayer();
+        Player.Instance.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[2];
+    }
+    
+}
+
+public class WaterBallAbility : AbilityBehavior
+{
+    public override void InitPlayer()
+    {
+        base.InitPlayer();
+        Player.Instance.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[3];
+    }
+}
+
+public class ThiefBallAbility : AbilityBehavior
+{
+    public override void InitPlayer()
+    {
+        base.InitPlayer();
+        Player.Instance.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[4];
+    }
+}
+
+public class LifeBallAbility : AbilityBehavior
+{
+    public override void InitPlayer()
+    {
+        base.InitPlayer();
+        Player.Instance.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[5];
+    }
+}
+
+public class GoldBallAbility : AbilityBehavior
+{
+    public override void InitPlayer()
+    {
+        base.InitPlayer();
+        Player.Instance.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[6];
+    }
+}
+
+public class StrongBallAbility : AbilityBehavior
+{
+    public override void InitPlayer()
+    {
+        base.InitPlayer();
+        Player.Instance.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[7];
+    }
+}
+
+public class LoveBallAbility : AbilityBehavior
+{
+    public override void InitPlayer()
+    {
+        base.InitPlayer();
+        Player.Instance.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[8];
+    }
+}

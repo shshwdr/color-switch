@@ -36,6 +36,7 @@ public class GameItem : Singleton<GameItem> {
             case GameItemEnum.gold:
                 rand = Random.Range(1, 5);
                 CurrencyManager.Instance.AddCurrencyAmount(CSConstant.GOLD, rand);
+                SFXController.Instance.PlaySFX(SFXEnum.coin);
                 break;
             case GameItemEnum.randomColor:
                 SFXController.Instance.PlaySFX(SFXEnum.possitive);

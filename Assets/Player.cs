@@ -49,7 +49,7 @@ public class Player : Singleton<Player>
     // Use this for initialization
     void Start()
     {
-        string currentAbilityString = "fireBall";//AbilityManager.Instance.currentlyUsingBall;
+        string currentAbilityString = AbilityManager.Instance.currentlyUsingBall;
         abilityBehavior = AbilityBehavior.CreateAbilityBehavior(currentAbilityString);
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
