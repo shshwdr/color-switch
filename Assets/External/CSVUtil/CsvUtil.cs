@@ -30,13 +30,24 @@ namespace Sinbad {
         //   fields as per the header. If false, ignores and just fills what it can
         public static List<T> LoadObjects<T>(string filename, bool strict = true) where T: new()  {
 #if UNITY_EDITOR
-            filename = "Assets/Resources/" + filename;
+            var dbPath = "Assets/StreamingAssets/" + filename;
 #else
+            var filepath = string.Format("{0}/{1}", Application.persistentDataPath, filename);
+            if (!File.Exists(filepath))
+        {
+            Debug.Log("Database not in Persistent path");
 #if UNITY_ANDROID
-            filename = string.Format("{0}/{1}", Application.persistentDataPath, filename);
+        var loadDb = new WWW("jar:file://" + Application.dataPath + "!/assets/" + filename);  // this is the path to your StreamingAssets in android
+            while (!loadDb.isDone) { }  // CAREFUL here, for safety reasons you shouldn't let this while loop unattended, place a timer and error check
+            // then save to Application.persistentDataPath
+            File.WriteAllBytes(filepath, loadDb.bytes);
 #endif
+            Debug.Log("Database written");
+        }
+            var dbPath = filepath;
 #endif
-            using (var stream = File.Open(filename, FileMode.Open)) {
+            Debug.Log("Final PATH: " + dbPath);
+            using (var stream = File.Open(dbPath, FileMode.Open)) {
 				using (var rdr = new StreamReader(stream,System.Text.Encoding.UTF8)) {
                     return LoadObjects<T>(rdr, strict);
                 }

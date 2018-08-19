@@ -12,7 +12,10 @@ public class MainGameView : MonoBehaviour {
 	
     public void GameOver()
     {
-        gameOverView.SetActive(true);
+        if (gameOverView)
+        {
+            gameOverView.SetActive(true);
+        }
     }
 
     public void Restart()

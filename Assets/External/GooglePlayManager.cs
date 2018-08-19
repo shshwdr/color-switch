@@ -6,7 +6,7 @@ using System;
 using GooglePlayGames.BasicApi;
 using GooglePlayGames.BasicApi.SavedGame;
 
-public class GooglePlayManager : MonoBehaviour {
+public class GooglePlayManager : Singleton<GooglePlayManager> {
 
     private static GooglePlayManager THE_INSTANCE;
 

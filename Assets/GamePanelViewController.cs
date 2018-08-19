@@ -22,4 +22,9 @@ public class GamePanelViewController : MonoBehaviour {
         heartAmountText.text = ((int)Player.Instance.hp).ToString();
         levelAmountText.text = (((int)Player.Instance.maxY) / 10 + 1).ToString();
 	}
+
+    public void LossHP()
+    {
+
+    }
 }

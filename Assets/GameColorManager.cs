@@ -26,7 +26,7 @@ public class GameColorManager : MonoBehaviour {
                 gameObject.SetActive(false);
                 break;
             default:
-                Debug.Log("index " + index);
+               // Debug.Log("index " + index);
                 sr.sprite = ResourceManager.Instance.circleSprite[(int)gameColor];
                 if (!hasFinishedStart)
                 {

@@ -20,11 +20,12 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                 {
                     GameObject go = new GameObject();
                     THE_INSTANCE = go.AddComponent<T>();
-                    DontDestroyOnLoad(go);
+                    //DontDestroyOnLoad(go);
                     //CSUtil.LOG("singleton " + typeof(T) + " create");
                 }
                 else
                 {
+
                     //CSUtil.LOG("singleton " + typeof(T) + " has been created");
                 }
             }

@@ -11,7 +11,6 @@ public enum SFXEnum
     teleport,
     negative,
     possitive,
-    gold,
     coin,
     purchase,
     bubble,
@@ -37,9 +36,18 @@ public class SFXController : Singleton<SFXController>
         audioSource.Play();
     }
 
-    public void PlaySFX(SFXEnum sfxEnum){
-        audioSource.clip = clips[(int)sfxEnum];
+    public void Purchase()
+    {
+        audioSource.clip = clips[(int)SFXEnum.purchase];
         audioSource.Play();
+    }
+
+    public void PlaySFX(SFXEnum sfxEnum){
+        if (audioSource)
+        {
+            audioSource.clip = clips[(int)sfxEnum];
+            audioSource.Play();
+        }
     }
 
     // Update is called once per frame
