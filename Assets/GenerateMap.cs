@@ -39,7 +39,7 @@ public class GenerateMap : MonoBehaviour {
         screenHeight = Screen.height;
 
         heightScale = 9f;
-        widthScale = 3f;
+        widthScale = 2.5f;
 
 
         currentGeneratedY = startY /heightScale;
