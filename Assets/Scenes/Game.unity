@@ -2159,10 +2159,10 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 84
+  m_fontSize: 72
   m_fontSizeBase: 84
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
@@ -2314,10 +2314,10 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 84
+  m_fontSize: 72
   m_fontSizeBase: 84
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
@@ -2631,8 +2631,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400, y: -543.8351}
-  m_SizeDelta: {x: 800, y: 300.00336}
+  m_AnchoredPosition: {x: 300, y: -437.75104}
+  m_SizeDelta: {x: 600, y: 238.21402}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &503674833
 MonoBehaviour:
@@ -2793,8 +2793,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400, y: -843.8384}
-  m_SizeDelta: {x: 800, y: 300.00336}
+  m_AnchoredPosition: {x: 300, y: -675.965}
+  m_SizeDelta: {x: 600, y: 238.21402}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &514438015
 MonoBehaviour:
@@ -5752,8 +5752,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400, y: -196.91669}
-  m_SizeDelta: {x: 800, y: 393.83337}
+  m_AnchoredPosition: {x: 300, y: -159.322}
+  m_SizeDelta: {x: 600, y: 318.644}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1216395255
 MonoBehaviour:
@@ -5802,10 +5802,10 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 84
+  m_fontSize: 72
   m_fontSizeBase: 84
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
@@ -5957,7 +5957,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 72
+  m_fontSize: 66.7
   m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -8120,7 +8120,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 72
+  m_fontSize: 65.4
   m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 1
