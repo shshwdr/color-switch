@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OptionsMenu : MonoBehaviour {
+public class OptionsMenu : DefaultViewController {
 
     Slider bgSlider;
     Slider sfxSlider;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
+        InitOptionView();
+    }
+
+    void InitOptionView()
+    {
         bgSlider = GameObject.Find("BGSlider").GetComponent<Slider>();
         sfxSlider = GameObject.Find("SFXSlider").GetComponent<Slider>();
         bgSlider.value = PlayerPrefs.GetFloat(CSConstant.BGVolumePref, 1);
         sfxSlider.value = PlayerPrefs.GetFloat(CSConstant.SFXVolumePref, 1);
         BGSliderValueChanged();
         SFXSliderDrop();
-
     }
 
     public void BGSliderValueChanged()
@@ -29,9 +34,4 @@ public class OptionsMenu : MonoBehaviour {
         SFXController.Instance.ChangeVolume(sfxSlider.value);
         PlayerPrefs.SetFloat(CSConstant.SFXVolumePref, sfxSlider.value);
     }
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
 }

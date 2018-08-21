@@ -422,7 +422,6 @@ GameObject:
   - component: {fileID: 28923594}
   - component: {fileID: 28923596}
   - component: {fileID: 28923595}
-  - component: {fileID: 28923597}
   m_Layer: 5
   m_Name: background
   m_TagString: Untagged
@@ -486,19 +485,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 28923593}
---- !u!114 &28923597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 28923593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71963ee7d52e26b478ead5c2394a17fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pausePanel: {fileID: 1330456569}
-  helpPanel: {fileID: 0}
 --- !u!1 &48778066
 GameObject:
   m_ObjectHideFlags: 0
@@ -2387,20 +2373,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 28923597}
+      - m_Target: {fileID: 1330456573}
         m_MethodName: Resume
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1330456569}
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2582,20 +2557,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 58888520}
+      - m_Target: {fileID: 2077709549}
         m_MethodName: Restart
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2077709545}
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2755,19 +2719,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 28923597}
+      - m_Target: {fileID: 2077709549}
         m_MethodName: BackToMainMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: ButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3199,8 +3152,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 28923597}
-        m_MethodName: Pause
+      - m_Target: {fileID: 616618983}
+        m_MethodName: Back
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3326,6 +3279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd4d6545978a3cb4fa28decd26fec392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentViewController: {fileID: 0}
+  pausePanel: {fileID: 1330456569}
 --- !u!1001 &625693987
 Prefab:
   m_ObjectHideFlags: 0
@@ -3979,20 +3934,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 28923597}
+      - m_Target: {fileID: 1330456573}
         m_MethodName: BackToMainMenu
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1330456569}
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4723,6 +4667,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 361890527}
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &865517461
@@ -5033,6 +4988,17 @@ MonoBehaviour:
       - m_Target: {fileID: 1330456569}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 361890527}
+        m_MethodName: ButtonClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5497,69 +5463,30 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114185817770951192, guid: 2e595cbd51ddfe84d911ffb9241508e8,
+    - target: {fileID: 114727414516029652, guid: 2e595cbd51ddfe84d911ffb9241508e8,
+        type: 2}
+      propertyPath: parentViewController
+      value: 
+      objectReference: {fileID: 1330456569}
+    - target: {fileID: 114141538248045120, guid: 2e595cbd51ddfe84d911ffb9241508e8,
         type: 2}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 224461352986293914, guid: 2e595cbd51ddfe84d911ffb9241508e8,
+    - target: {fileID: 114141538248045120, guid: 2e595cbd51ddfe84d911ffb9241508e8,
         type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 92
-      objectReference: {fileID: 0}
-    - target: {fileID: 224629315162623930, guid: 2e595cbd51ddfe84d911ffb9241508e8,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: -694
-      objectReference: {fileID: 0}
-    - target: {fileID: 114042462863272576, guid: 2e595cbd51ddfe84d911ffb9241508e8,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1330456569}
-    - target: {fileID: 114042462863272576, guid: 2e595cbd51ddfe84d911ffb9241508e8,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 114042462863272576, guid: 2e595cbd51ddfe84d911ffb9241508e8,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114042462863272576, guid: 2e595cbd51ddfe84d911ffb9241508e8,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114042462863272576, guid: 2e595cbd51ddfe84d911ffb9241508e8,
+    - target: {fileID: 114393948035480416, guid: 2e595cbd51ddfe84d911ffb9241508e8,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 361890527}
-    - target: {fileID: 114042462863272576, guid: 2e595cbd51ddfe84d911ffb9241508e8,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ButtonClick
-      objectReference: {fileID: 0}
-    - target: {fileID: 114042462863272576, guid: 2e595cbd51ddfe84d911ffb9241508e8,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 224881895112097574, guid: 2e595cbd51ddfe84d911ffb9241508e8,
+    - target: {fileID: 114393948035480416, guid: 2e595cbd51ddfe84d911ffb9241508e8,
         type: 2}
-      propertyPath: m_SizeDelta.y
-      value: -330
-      objectReference: {fileID: 0}
-    - target: {fileID: 224629315162623930, guid: 2e595cbd51ddfe84d911ffb9241508e8,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1914225525549546, guid: 2e595cbd51ddfe84d911ffb9241508e8, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_isInputParsingRequired
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e595cbd51ddfe84d911ffb9241508e8, type: 2}
@@ -6129,6 +6056,7 @@ GameObject:
   - component: {fileID: 1330456570}
   - component: {fileID: 1330456572}
   - component: {fileID: 1330456571}
+  - component: {fileID: 1330456573}
   m_Layer: 5
   m_Name: PausePanel
   m_TagString: Untagged
@@ -6192,6 +6120,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1330456569}
+--- !u!114 &1330456573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1330456569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71963ee7d52e26b478ead5c2394a17fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentViewController: {fileID: 616618979}
 --- !u!1 &1409112353
 GameObject:
   m_ObjectHideFlags: 0
@@ -6560,20 +6500,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 28923597}
+      - m_Target: {fileID: 1330456573}
         m_MethodName: Restart
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1330456569}
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7339,7 +7268,7 @@ Prefab:
     - target: {fileID: 224454151469512546, guid: 0872d0c10cd69bc4b9edb93a4bc5a923,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 85
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1594901766503128, guid: 0872d0c10cd69bc4b9edb93a4bc5a923, type: 2}
       propertyPath: m_IsActive
@@ -7411,6 +7340,11 @@ Prefab:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114681302073553850, guid: 0872d0c10cd69bc4b9edb93a4bc5a923,
+        type: 2}
+      propertyPath: parentViewController
+      value: 
+      objectReference: {fileID: 1330456569}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0872d0c10cd69bc4b9edb93a4bc5a923, type: 2}
   m_IsPrefabParent: 0
@@ -8173,6 +8107,7 @@ GameObject:
   - component: {fileID: 2077709546}
   - component: {fileID: 2077709548}
   - component: {fileID: 2077709547}
+  - component: {fileID: 2077709549}
   m_Layer: 5
   m_Name: GameOver
   m_TagString: Untagged
@@ -8234,6 +8169,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2077709545}
+--- !u!114 &2077709549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2077709545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51bfa46bad1b955429747ac92356e96e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentViewController: {fileID: 0}
 --- !u!1 &2125505604
 GameObject:
   m_ObjectHideFlags: 0

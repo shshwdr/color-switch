@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 //help and setting
 
-public class SharedViewController : MonoBehaviour {
+public class HelpPanelViewController : DefaultViewController {
     public GameObject itemHelpCell;
     public GameObject itemHelpPanel;
     // Use this for initialization
@@ -13,12 +13,7 @@ public class SharedViewController : MonoBehaviour {
     {
         InitHelpView();
     }
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
-
+    
     public void InitHelpView()
     {
         foreach (ItemInfo info in GameItem.Instance.itemInfoList)
