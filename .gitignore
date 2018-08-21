@@ -33,7 +33,7 @@ ProjectSettings/
 .consulo/
 /*.tmp
 /*.svd
- 
+Assets/PreloadSigningAlias.cs
 # ============ #
 # OS generated #
 # ============ #
