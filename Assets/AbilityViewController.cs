@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class AbilityViewController : MonoBehaviour {
+public class AbilityViewController : DefaultViewController
+{
     public GameObject abilityCellPrefab;
     public GameObject abilityPanel;
     public TextMeshProUGUI currentGoldText;
@@ -38,11 +39,5 @@ public class AbilityViewController : MonoBehaviour {
         }
     }
     
-
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 }
