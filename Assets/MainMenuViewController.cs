@@ -5,15 +5,17 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
-public class MainMenu : MonoBehaviour {
+public class MainMenuViewController : DefaultViewController
+{
 
     TextMeshProUGUI signInButtonText;
     TextMeshProUGUI authStatus;
     GameObject leaderboardButton;
     GameObject achievementButton;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         signInButtonText = GameObject.Find("SignInButton").GetComponentInChildren<TextMeshProUGUI>();
         leaderboardButton = GameObject.Find("LeaderBoardButton");
         achievementButton = GameObject.Find("AchievementButton");
@@ -66,11 +68,6 @@ public class MainMenu : MonoBehaviour {
         }
     }
 
-    // Update is called once per frame
-    void Update () {
-		
-	}
-
     public void PlayGame()
     {
         //CSUtil.LOG("play button clicked");
@@ -88,5 +85,25 @@ public class MainMenu : MonoBehaviour {
         {
             GooglePlayManager.Instance.SignIn(SignOutCallback);
         }
+    }
+
+    public override void Back()
+    {
+        base.Back();
+        DialogDelegate yesDelegate = QuitGame;
+        DialogDelegate noDelegate = delegate { gameObject.SetActive(true); };
+        PopupDialogManager.Instance.CreatePopupDialog("QUIT GAME", "Are you sure you want to quit this game? Q-Q", true, yesDelegate, noDelegate);
+    }
+
+    void QuitGame()
+    {
+        //Debug.LogError("quit game");
+#if UNITY_EDITOR
+        // Application.Quit() does not work in the editor so
+        // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+         Application.Quit();
+#endif
     }
 }
