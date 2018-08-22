@@ -10,7 +10,7 @@ public abstract class AbilityBehavior {
     public bool WouldDestroyMultiplePartsOnOneCircle
     {
         get
-        { return true; }
+        { return false; }
     }
 
     static public AbilityBehavior CreateAbilityBehavior(string abilityString)
@@ -60,7 +60,7 @@ public class FireBallAbility : AbilityBehavior
     public new bool WouldDestroyMultiplePartsOnOneCircle
     {
         get
-        { return false; }
+        { return true; }
     }
 }
 
