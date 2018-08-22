@@ -103,7 +103,7 @@ public class GenerateMap : MonoBehaviour {
                     for (int cn = 1;cn<= checkNum; cn++)
                     {
                         GameObject checkObject = generatedList[generatedList.Count - cn];
-                        if(Vector3.Distance(checkObject.transform.position, willGeneratePosition) <= 1.2f)
+                        if(Vector3.Distance(checkObject.transform.position, willGeneratePosition) <= 1.5f)
                         {
                             shouldSkip = true;
                             break;
