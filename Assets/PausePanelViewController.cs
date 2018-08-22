@@ -10,6 +10,7 @@ public class PausePanelViewController : DefaultViewController
     public void BackToMainMenu()
     {
         Time.timeScale = 1;
+        Player.Instance.isPaused = false;
         SFXController.Instance.ButtonClick();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
 
@@ -17,14 +18,13 @@ public class PausePanelViewController : DefaultViewController
     
     public void Resume()
     {
-        Time.timeScale = 1;
-        SFXController.Instance.ButtonClick();
-        gameObject.SetActive(false);
+        Back();
     }
 
     public void Restart()
     {
         Time.timeScale = 1;
+        Player.Instance.isPaused = false;
         SFXController.Instance.ButtonClick();
         gameObject.SetActive(false);
         Player.Instance.Restart();
@@ -33,7 +33,10 @@ public class PausePanelViewController : DefaultViewController
     public override void Back()
     {
         base.Back();
-        Resume();
+        Player.Instance.isPaused = false;
+        Time.timeScale = 1;
+        SFXController.Instance.ButtonClick();
+        gameObject.SetActive(false);
     }
 
 }

@@ -15,11 +15,20 @@ public class TouchController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Player.Instance.isPaused)
+        {
+            return;
+        }
         //#if !UNITY_EDITOR
         if (Input.touchCount == 1)
         {
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase != TouchPhase.Began)
+            {
+                return;
+            }
             //Your raycast handling
-            Vector3 mousePosition = Input.GetTouch(0).position;
+            Vector3 mousePosition = touch.position;
             //CSUtil.LOG("screen touched " + mousePosition);
             mousePosition = new Vector3(mousePosition.x, mousePosition.y, 10);
             RaycastHit2D[] vHits = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(mousePosition), Vector2.zero);

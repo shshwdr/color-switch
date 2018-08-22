@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : Singleton<Player>
 {
+    public bool isPaused;
     public List<Color> colorList;
     public float jumpForce = 10f;
     public Rigidbody2D rb;
