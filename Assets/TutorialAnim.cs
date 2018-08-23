@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TutorialAnim : MonoBehaviour {
     public GameObject circleObject;
+    public TutorialPlayer tutorialPlayer;
 	// Use this for initialization
 	void Start () {
 		
@@ -16,10 +17,11 @@ public class TutorialAnim : MonoBehaviour {
 
     public void PlayerMoveToCircle()
     {
-        //(TutorialGameLogicManager.Instance.player).MoveToTarget(circleObject);
+        tutorialPlayer.MoveToTarget(circleObject);
     }
     public void ResetAnim()
     {
-        //TutorialGameLogicManager.Instance.player.resetAnim
+        tutorialPlayer.ResetAnim();
+        circleObject.GetComponent<WholeCircle>().ReactiveChildren();
     }
 }

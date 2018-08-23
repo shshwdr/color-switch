@@ -48,10 +48,15 @@ public class Player : MonoBehaviour
 
 
     // Use this for initialization
-    void Start()
+    protected void Start()
     {
-        string currentAbilityString = AbilityManager.Instance.currentlyUsingBall;
-        abilityBehavior = AbilityBehavior.CreateAbilityBehavior(currentAbilityString);
+        InitAbility();
+        initPlayer();
+        abilityBehavior.InitPlayer();
+    }
+
+    protected void initPlayer()
+    {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         ChangeColor(GameColor.yellow);
@@ -61,7 +66,12 @@ public class Player : MonoBehaviour
         hittedCircle = new HashSet<GameObject>();
         hittedPart = new List<GameObject>();
         originScale = transform.localScale.x;
-        abilityBehavior.InitPlayer();
+    }
+
+    virtual protected void InitAbility()
+    {
+        string currentAbilityString = AbilityManager.Instance.currentlyUsingBall;
+        abilityBehavior = AbilityBehavior.CreateAbilityBehavior(currentAbilityString);
     }
 
     // Update is called once per frame
@@ -185,7 +195,7 @@ public class Player : MonoBehaviour
         //instantiate a text on circle
     }
 
-    void GameOver()
+    virtual protected void GameOver()
     {
         if (isGameOver)
         {

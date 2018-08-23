@@ -7,6 +7,7 @@ public class Moveable : MonoBehaviour {
     Vector3 direction;
     Vector3 target;
     float speed;
+    Player player;
     public float originMoveTime = 0.5f;
 
     public float currentMoveTime;
@@ -59,6 +60,7 @@ public class Moveable : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         currentMoveTime = moveTimeArray[currentMoveTimeIndex] * moveTimeBase;
+        player = GetComponent<Player>();
     }
 	
 	// Update is called once per frame
@@ -71,9 +73,9 @@ public class Moveable : MonoBehaviour {
                 //CSUtil.LOG("Arrive target" + target);
                 isMoving = false;
                 transform.position = target;
-                if (GameLogicManager.Instance.player.willTeleportThis)
+                if (player.willTeleportThis)
                 {
-                    GameLogicManager.Instance.player.TeleportArrived();
+                    player.TeleportArrived();
                 }
                 //achivement: keep jumping
             }
