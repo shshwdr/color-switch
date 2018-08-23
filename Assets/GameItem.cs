@@ -22,16 +22,17 @@ public class GameItem : Singleton<GameItem> {
         int rand;
         FollowTarget ft = Camera.main.GetComponent<FollowTarget>();
         //CSUtil.LOG("get item " + itemEnum);
+        Player player = GameLogicManager.Instance.player;
         switch (itemEnum)
         {
             case GameItemEnum.smallBall:
-                Player.Instance.MinishBall();
+                player.MinishBall();
                 break;
             case GameItemEnum.megaBall:
-                Player.Instance.EnlargeBall();
+                player.EnlargeBall();
                 break;
             case GameItemEnum.heart:
-                Player.Instance.gainHP();
+                player.gainHP();
                 break;
             case GameItemEnum.gold:
                 rand = Random.Range(1, 5);
@@ -41,19 +42,19 @@ public class GameItem : Singleton<GameItem> {
             case GameItemEnum.randomColor:
                 SFXController.Instance.PlaySFX(SFXEnum.possitive);
                 GameColor c = (GameColor)Random.Range(0, 4);
-                Player.Instance.ChangeColor(c);
+                player.ChangeColor(c);
                 break;
             case GameItemEnum.bomb:
-                Player.Instance.Bomb();
+                player.Bomb();
                 break;
             case GameItemEnum.teleport:
-                Player.Instance.Teleport();
+                player.Teleport();
                 break;
             case GameItemEnum.ballSlowDown:
-                Player.Instance.SlowDown();
+                player.SlowDown();
                 break;
             case GameItemEnum.ballSpeedup:
-                Player.Instance.Speedup();
+                player.Speedup();
                 break;
             case GameItemEnum.screenSlowDown:
                 SFXController.Instance.PlaySFX(SFXEnum.possitive);

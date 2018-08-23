@@ -53,8 +53,8 @@ public class FireBallAbility : AbilityBehavior
     public override void InitPlayer()
     {
         base.InitPlayer();
-        Player.Instance.ScaleMoveTimeBase(0.5f);
-        Player.Instance.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[1];
+        GameLogicManager.Instance.player.ScaleMoveTimeBase(0.5f);
+        GameLogicManager.Instance.player.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[1];
     }
 
     public new bool WouldDestroyMultiplePartsOnOneCircle
@@ -70,7 +70,7 @@ public class LightningBallAbility : AbilityBehavior
     public override void InitPlayer()
     {
         base.InitPlayer();
-        Player.Instance.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[2];
+        GameLogicManager.Instance.player.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[2];
     }
     
 }
@@ -80,7 +80,7 @@ public class WaterBallAbility : AbilityBehavior
     public override void InitPlayer()
     {
         base.InitPlayer();
-        Player.Instance.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[3];
+        GameLogicManager.Instance.player.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[3];
     }
 }
 
@@ -89,7 +89,7 @@ public class ThiefBallAbility : AbilityBehavior
     public override void InitPlayer()
     {
         base.InitPlayer();
-        Player.Instance.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[4];
+        GameLogicManager.Instance.player.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[4];
     }
 }
 
@@ -98,7 +98,7 @@ public class LifeBallAbility : AbilityBehavior
     public override void InitPlayer()
     {
         base.InitPlayer();
-        Player.Instance.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[5];
+        GameLogicManager.Instance.player.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[5];
     }
 }
 
@@ -107,7 +107,7 @@ public class GoldBallAbility : AbilityBehavior
     public override void InitPlayer()
     {
         base.InitPlayer();
-        Player.Instance.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[6];
+        GameLogicManager.Instance.player.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[6];
     }
 }
 
@@ -116,7 +116,7 @@ public class StrongBallAbility : AbilityBehavior
     public override void InitPlayer()
     {
         base.InitPlayer();
-        Player.Instance.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[7];
+        GameLogicManager.Instance.player.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[7];
     }
 }
 
@@ -125,6 +125,6 @@ public class LoveBallAbility : AbilityBehavior
     public override void InitPlayer()
     {
         base.InitPlayer();
-        Player.Instance.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[8];
+        GameLogicManager.Instance.player.backgroundSprite.sprite = ResourceManager.Instance.abilitySprite[8];
     }
 }

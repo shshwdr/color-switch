@@ -16,10 +16,10 @@ public class TutorialAnim : MonoBehaviour {
 
     public void PlayerMoveToCircle()
     {
-        (TutorialPlayer.Instance).MoveToTarget(circleObject);
+        //(TutorialGameLogicManager.Instance.player).MoveToTarget(circleObject);
     }
     public void ResetAnim()
     {
-        //TutorialPlayer.Instance.resetAnim
+        //TutorialGameLogicManager.Instance.player.resetAnim
     }
 }

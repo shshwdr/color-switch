@@ -27,8 +27,8 @@ public class GamePanelViewController : DefaultViewController {
         base.Update();
         //temp!
         goldAmountText.text = CurrencyManager.Instance.GetCurrencyAount(CSConstant.GOLD).ToString();
-        heartAmountText.text = "X"+((int)Player.Instance.hp).ToString();
-        levelAmountText.text = "Lev "+(((int)Player.Instance.maxY) / 10 + 1).ToString();
+        heartAmountText.text = "X"+((int)GameLogicManager.Instance.player.hp).ToString();
+        levelAmountText.text = "Lev "+(((int)GameLogicManager.Instance.player.maxY) / 10 + 1).ToString();
 	}
 
     public void Pause()
@@ -36,7 +36,7 @@ public class GamePanelViewController : DefaultViewController {
         SFXController.Instance.ButtonClick();
         pausePanel.SetActive(true);
         Time.timeScale = 0;
-        Player.Instance.isPaused = true;
+        GameLogicManager.Instance.player.isPaused = true;
     }
 
     public override void Back()

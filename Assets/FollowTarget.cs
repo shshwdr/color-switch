@@ -39,14 +39,14 @@ public class FollowTarget : MonoBehaviour {
             shakePos = Random.insideUnitCircle * shakePower;
 
         }
-        Vector3 playerPosition = Player.Instance.transform.position;
-        if (Player.Instance.isGameOver)
+        Vector3 playerPosition = GameLogicManager.Instance.player.transform.position;
+        if (GameLogicManager.Instance.player.isGameOver)
         {
             transform.position = new Vector3(originPosition.x, playerPosition.y, originPosition.z);
         }
         else
         {
-            if (Player.Instance.gameStarted)
+            if (GameLogicManager.Instance.player.gameStarted)
             {
                 originPosition = new Vector3(originPosition.x, originPosition.y + scrollSpeed * Time.deltaTime, originPosition.z);
             }

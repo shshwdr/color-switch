@@ -57,7 +57,7 @@ public class GenerateMap : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Player.Instance.transform.position.y > (currentGeneratedY-1)* heightScale)
+		if(GameLogicManager.Instance.player.transform.position.y > (currentGeneratedY-1)* heightScale)
         {
             GenerateScreen(0);
         }

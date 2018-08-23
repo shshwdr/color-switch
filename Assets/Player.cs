@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Player : Singleton<Player>
+public class Player : MonoBehaviour
 {
     public bool isPaused;
     public List<Color> colorList;
@@ -291,7 +291,7 @@ public class Player : Singleton<Player>
     }
     public void TeleportArrived()
     {
-        Player.Instance.willTeleportThis = false;
+        GameLogicManager.Instance.player.willTeleportThis = false;
         //ParticleEffectManager.Instance.playParticleEffect(transform.position, ParticleEffectEnum.teleport);
         sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1);
         GameItemManager item = targetObject.GetComponentInChildren<WholeCircle>().itemObject.GetComponent<GameItemManager>();

@@ -15,7 +15,7 @@ public class TouchController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Player.Instance.isPaused)
+        if (GameLogicManager.Instance.player.isPaused)
         {
             return;
         }
@@ -36,7 +36,7 @@ public class TouchController : MonoBehaviour
             {
                 if (vhit.transform.tag == "wholeCircle")
                 {
-                    (Player.Instance).MoveToTarget(vhit.collider.gameObject);
+                    (GameLogicManager.Instance.player).MoveToTarget(vhit.collider.gameObject);
                 }
             }
         }
@@ -56,9 +56,9 @@ public class TouchController : MonoBehaviour
                 {
                     if (wc.isActive())
                     {
-                        if (Player.Instance.MoveToTarget(vhit.collider.gameObject))
+                        if (GameLogicManager.Instance.player.MoveToTarget(vhit.collider.gameObject))
                         {
-                            lastPosition = Player.Instance.transform.position;
+                            lastPosition = GameLogicManager.Instance.player.transform.position;
                         }
                     }
                     else
@@ -73,10 +73,10 @@ public class TouchController : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             //TODO: add a cheat class for this
-            if(Player.Instance.cheatDontDie)
+            if(GameLogicManager.Instance.player.cheatDontDie)
             {
-                Player.Instance.transform.position = lastPosition;
-                Player.Instance.resetHittedPart();
+                GameLogicManager.Instance.player.transform.position = lastPosition;
+                GameLogicManager.Instance.player.resetHittedPart();
             }
         }
     }
