@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public bool isPaused;
     public List<Color> colorList;
     public float jumpForce = 10f;
     public Rigidbody2D rb;
@@ -110,6 +109,10 @@ public class Player : MonoBehaviour
             return;
         }
         Debug.Log(col);
+        if (col.GetComponent<SpriteRenderer>()!=null && col.GetComponent<SpriteRenderer>().sortingLayerID!= GetComponent<SpriteRenderer>().sortingLayerID)
+        {
+            return;
+        }
         if (decideByTheFirstHit&& col.transform.parent&&hittedCircle.Contains(col.transform.parent.gameObject))
         {
             return;

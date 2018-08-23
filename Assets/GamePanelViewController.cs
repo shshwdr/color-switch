@@ -35,8 +35,7 @@ public class GamePanelViewController : DefaultViewController {
     {
         SFXController.Instance.ButtonClick();
         pausePanel.SetActive(true);
-        Time.timeScale = 0;
-        GameLogicManager.Instance.player.isPaused = true;
+        GameLogicManager.Instance.Pause();
     }
 
     public override void Back()

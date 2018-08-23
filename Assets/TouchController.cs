@@ -15,7 +15,7 @@ public class TouchController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameLogicManager.Instance.player.isPaused)
+        if (GameLogicManager.Instance.isPaused)
         {
             return;
         }
