@@ -134,7 +134,11 @@ public IEnumerable<PersistentCurrency> GetPersistentCurrencys(){
     {
         return _connection.Table<PersistentAchievement>();
     }
-    
+
+    public PersistentAchievement GetPersistentAchievement(string identifier)
+    {
+        return _connection.Table<PersistentAchievement>().Where(x => x.identifier == identifier).FirstOrDefault();
+    }
 
     public void InsertAchievement(PersistentAchievement achieve)
     {

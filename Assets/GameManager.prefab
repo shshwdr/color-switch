@@ -24,6 +24,10 @@ GameObject:
   - component: {fileID: 114347838399841046}
   - component: {fileID: 114870559776634876}
   - component: {fileID: 114073878810656298}
+  - component: {fileID: 114487017394595652}
+  - component: {fileID: 114601664932079174}
+  - component: {fileID: 114793045580165478}
+  - component: {fileID: 114953925001420946}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -55,7 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a60e45a211815489f89ba50213fdd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemInfoList: []
 --- !u!114 &114347838399841046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -67,6 +70,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0582ccc30322b144e9b6d28c53200909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114487017394595652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1943033475187314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3313925dba65cd4c934c03ff0e1e435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  isPaused: 0
+--- !u!114 &114601664932079174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1943033475187314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b6ded4d90f725479a8107b50546993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogPrefab: {fileID: 1381539152491826, guid: 6c1b245a1b6e9c94eafa14484c0bad96,
+    type: 2}
+  canvasTransform: {fileID: 0}
 --- !u!114 &114727113074428748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -106,6 +136,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverView: {fileID: 0}
+--- !u!114 &114793045580165478
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1943033475187314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01e27f60d4ce32e4493844cdbfc8aa35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentlyUsingBall: 
 --- !u!114 &114870559776634876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -119,3 +161,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleEffects:
   - {fileID: 1960357365834416, guid: 52b5625ea1cb21b45813253651d31312, type: 2}
+--- !u!114 &114953925001420946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1943033475187314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c4c1143a912cd4b8db7085b424523e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
