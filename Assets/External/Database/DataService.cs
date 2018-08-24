@@ -130,6 +130,24 @@ public IEnumerable<PersistentCurrency> GetPersistentCurrencys(){
         _connection.Update(ball);
     }
 
+    public IEnumerable<PersistentAchievement> GetAllAchievements()
+    {
+        return _connection.Table<PersistentAchievement>();
+    }
+    
+
+    public void InsertAchievement(PersistentAchievement achieve)
+    {
+        _connection.Insert(achieve);
+    }
+
+    public void UpdateAchievement(PersistentAchievement achieve)
+    {
+        _connection.Update(achieve);
+    }
+
+
+
     //public IEnumerable<Person> GetPersonsNamedRoberto()
     //{
     //    return _connection.Table<Person>().Where(x => x.Name == "Roberto");

@@ -1,0 +1,3 @@
+identifier,achievement,narrativeAction,param
+showChangeColorAnim,changeColor,showTutorialAnim,0
+showPassCorrectColorAnim,passCorrectColor,showTutorialAnim,1

@@ -1,0 +1,3 @@
+identifier,prerequisite,achievementStep,fallThrough,description,isTutorial,reward,comment
+changeColor,Change Color,changeColorStep,,,1,,tutorial1
+passCorrectColor,Pass With Correct Color,passCorrectColorStep,,,1,,tutorial2
