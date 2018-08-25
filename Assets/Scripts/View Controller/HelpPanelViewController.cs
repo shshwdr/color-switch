@@ -16,7 +16,7 @@ public class HelpPanelViewController : DefaultViewController {
     
     public void InitHelpView()
     {
-        foreach (ItemInfo info in GameItem.Instance.itemInfoList)
+        foreach (ItemInfo info in GameItemManager.Instance.itemInfoList)
         {
             GameObject go = Instantiate(itemHelpCell);
             go.transform.parent = itemHelpPanel.transform;

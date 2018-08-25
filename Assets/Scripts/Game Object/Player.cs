@@ -166,7 +166,7 @@ public class Player : MonoBehaviour
             }
 
             //get item if exist
-            GameItemManager item = col.transform.parent.parent.GetComponentInChildren<GameItemManager>();
+            GameItem item = col.transform.parent.parent.GetComponentInChildren<GameItem>();
             UseItem(item);
         }
         else
@@ -177,11 +177,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    void UseItem(GameItemManager item)
+    void UseItem(GameItem item)
     {
         if (item && item.gameObject.activeSelf)
         {
-            string itemName = GameItem.GetItem(item.itemEnum);
+            string itemName = GameItemManager.GetItem(item.itemEnum);
 
             //put this into itemTextClass
             GameObject go = CachePoolManager.Instance.ItemText();
@@ -307,7 +307,7 @@ public class Player : MonoBehaviour
         GameLogicManager.Instance.player.willTeleportThis = false;
         //ParticleEffectManager.Instance.playParticleEffect(transform.position, ParticleEffectEnum.teleport);
         sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1);
-        GameItemManager item = targetObject.GetComponentInChildren<WholeCircle>().itemObject.GetComponent<GameItemManager>();
+        GameItem item = targetObject.GetComponentInChildren<WholeCircle>().itemObject.GetComponent<GameItem>();
         UseItem(item);
     }
 

@@ -188,7 +188,7 @@ public class GenerateMap : MonoBehaviour {
         GameObject go2 = thisGeneratedList[rand3];
         WholeCircle wc2 = go2.GetComponentInChildren<WholeCircle>();
         wc2.itemObject.SetActive(true);
-        GameItemManager itemManager = wc2.itemObject.GetComponent<GameItemManager>();
+        GameItem itemManager = wc2.itemObject.GetComponent<GameItem>();
         itemManager.itemEnum = (GameItemEnum)Random.Range(0, (int)GameItemEnum.random+1);
         itemManager.Init();
 
