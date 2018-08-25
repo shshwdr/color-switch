@@ -10,12 +10,15 @@ public class CSAchievementManager : Singleton<CSAchievementManager> {
 
     public List<AchievementInfo> achievementInfoList;
     
+    public void Init()
+    {
+        ReadCSV();
+        InitAchievements();
+    }
 
     void Start()
     {
 
-        ReadCSV();
-        InitAchievements();
     }
     void ReadCSV()
     {
@@ -31,7 +34,8 @@ public class CSAchievementManager : Singleton<CSAchievementManager> {
         DataService ds = SQLiteDatabaseManager.Instance.ds;
         foreach (AchievementInfo achievementInfo in achievementInfoList)
         {
-            PersistentAchievement achievement = ds.GetPersistentAchievement(achievementInfo.identifier);
+                CSAchievement achievement = new CSAchievement(achievementInfo);
+            
         }
     }
 }

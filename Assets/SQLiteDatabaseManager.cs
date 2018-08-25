@@ -11,10 +11,15 @@ public class SQLiteDatabaseManager : Singleton<SQLiteDatabaseManager> {
     IDbCommand dbcmd;
     public DataService ds;
     // Use this for initialization
-    void Start()
+
+    public void Init()
     {
         ds = new DataService("db.s3db");
         var currency = ds.GetPersistentCurrencys();
+    }
+    void Start()
+    {
+        
     }
 
 

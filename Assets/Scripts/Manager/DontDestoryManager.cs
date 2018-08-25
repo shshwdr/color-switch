@@ -5,11 +5,17 @@ using UnityEngine;
 public class DontDestoryManager : MonoBehaviour {
     public GameObject prefab;
 	// Use this for initialization
-	void Start () {
-		if(FindObjectsOfType(typeof(GooglePlayManager)).Length == 0)
+
+    public void Init()
+    {
+
+        if (FindObjectsOfType(typeof(GooglePlayManager)).Length == 0)
         {
             Instantiate(prefab);
         }
+    }
+	void Start () {
+        Init();
 	}
 	
 	// Update is called once per frame

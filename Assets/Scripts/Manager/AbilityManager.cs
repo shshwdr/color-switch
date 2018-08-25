@@ -23,6 +23,12 @@ public class AbilityManager : Singleton<AbilityManager>
 
     public string currentlyUsingBall;
 
+    public void Init()
+    {
+        ReadCSV();
+        ReadDatabase();
+    }
+
     private void Start()
     {
         ReadCSV();

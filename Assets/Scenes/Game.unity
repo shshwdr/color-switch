@@ -8467,6 +8467,16 @@ Prefab:
       propertyPath: gameOverView
       value: 
       objectReference: {fileID: 2077709545}
+    - target: {fileID: 114487017394595652, guid: c56864b3501a90f47a80dd729eda24fd,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 58888520}
+    - target: {fileID: 114601664932079174, guid: c56864b3501a90f47a80dd729eda24fd,
+        type: 2}
+      propertyPath: canvasTransform
+      value: 
+      objectReference: {fileID: 1732001830}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c56864b3501a90f47a80dd729eda24fd, type: 2}
   m_IsPrefabParent: 0
@@ -8633,6 +8643,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentlyUsingBall: 
+--- !u!114 &1984478388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1984478375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a55574f320d61743ab2bfac4b29e39c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1986474863
 GameObject:
   m_ObjectHideFlags: 0

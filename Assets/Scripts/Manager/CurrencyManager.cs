@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class CurrencyManager : Singleton<CurrencyManager> {
     int goldValue = 0;
-    public void Start()
+
+    public void Init()
     {
         goldValue = SQLiteDatabaseManager.Instance.AmountOfCurrency(CSConstant.GOLD);
+    }
+    public void Start()
+    {
+        
     }
 
     public void AddCurrencyAmount(string currencyIdentifier, int addValue)

@@ -9,6 +9,7 @@ public class GameItemManager : MonoBehaviour {
     public GameItemEnum itemEnum;
     SpriteRenderer sr;
     // Use this for initialization
+    
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
