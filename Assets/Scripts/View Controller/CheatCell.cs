@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
-public class AchievementCell : MonoBehaviour {
+public delegate void CheatActionDelegate();
+public class CheatCell : MonoBehaviour {
     public Image icon;
     public TextMeshProUGUI description;
     public Button cheatButton;
@@ -13,10 +13,12 @@ public class AchievementCell : MonoBehaviour {
 		
 	}
 
-    public void InitCell(CSAchievement achievement)
+    public void InitCell(string desc, CheatActionDelegate actionDelegate)
     {
-        description.text = achievement.achievementInfo.description+" "+achievement.persistentAchievement.state.ToString();
-        cheatButton.onClick.AddListener(delegate {
+        description.text = desc;
+        cheatButton.onClick.AddListener(delegate
+        {
+            actionDelegate();
         });
     }
 	

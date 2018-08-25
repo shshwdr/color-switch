@@ -5,18 +5,22 @@ using UnityEngine;
 public class AchievementPanelViewController : DefaultViewController
 {
     public GameObject achievementCell;
-    public Transform achievementListTransform;
+    public GameObject achievementListPanel;
 	// Use this for initialization
-	void Start () {
+	void OnEnable () {
         InitAchievementView();
 
     }
     void InitAchievementView()
     {
+        foreach(Transform child in achievementListPanel.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
         foreach (CSAchievement achievement in CSAchievementManager.Instance.achievementList)
         {
 
-            GameObject go = Instantiate(achievementCell,achievementListTransform);
+            GameObject go = Instantiate(achievementCell, achievementListPanel.transform);
             AchievementCell script = go.GetComponent<AchievementCell>();
             script.InitCell(achievement);
         }

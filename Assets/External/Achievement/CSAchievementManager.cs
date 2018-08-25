@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sinbad;
 
-enum AchievementState { locked, active, complete };
+public enum AchievementState { locked, active, complete };
 
 
 public class CSAchievementManager : Singleton<CSAchievementManager> {
@@ -35,6 +35,22 @@ public class CSAchievementManager : Singleton<CSAchievementManager> {
         {
                 CSAchievement achievement = new CSAchievement(achievementInfo);
             achievementList.Add(achievement);
+        }
+    }
+
+    public void FinishAchievements()
+    {
+        foreach(CSAchievement achievement in achievementList)
+        {
+            achievement.SetState(AchievementState.complete);
+        }
+    }
+
+    public void CleanAchievements()
+    {
+        foreach (CSAchievement achievement in achievementList)
+        {
+            achievement.SetState(AchievementState.locked);
         }
     }
 }

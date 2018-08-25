@@ -5,7 +5,7 @@ using UnityEngine;
 public class CSAchievement{
     string identifier;
     public AchievementInfo achievementInfo;
-    PersistentAchievement persistentAchievement;
+    public PersistentAchievement persistentAchievement;
     public CSAchievement(AchievementInfo info)
     {
         achievementInfo = info;
@@ -21,6 +21,14 @@ public class CSAchievement{
             ds.InsertAchievement(persistentAchievement);
         }
     }
+
+    public void SetState(AchievementState s)
+    {
+        DataService ds = SQLiteDatabaseManager.Instance.ds;
+        persistentAchievement.state = (int)s;
+        ds.UpdateAchievement(persistentAchievement);
+    }
+
     // Update is called once per frame
     void Update () {
 		
