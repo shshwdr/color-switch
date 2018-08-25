@@ -61,7 +61,7 @@ public class AbilityCell : MonoBehaviour
         }
         AbilityManager.Instance.unlockBallOwned(info.identifier);
         CurrencyManager.Instance.AddCurrencyAmount("gold", -info.cost);
-        SFXController.Instance.Purchase();
+        SFXManager.Instance.Purchase();
         return true;
 
     }

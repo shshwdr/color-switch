@@ -28,7 +28,7 @@ public class DefaultViewController : MonoBehaviour {
     }
 
     public virtual void Back() {
-        SFXController.Instance.ButtonClick();
+        SFXManager.Instance.ButtonClick();
         gameObject.SetActive(false);
         if (ShouldUnhideParent())
         {

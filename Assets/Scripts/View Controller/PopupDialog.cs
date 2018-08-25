@@ -33,9 +33,9 @@ public class PopupDialog : MonoBehaviour {
         {
             OneButtonPanel.SetActive(false);
             TwoButtonPanel.SetActive(true);
-            yesButton.onClick.AddListener(delegate { if (yesDelegate != null) { yesDelegate(); } Destroy(gameObject); SFXController.Instance.ButtonClick(); });
-            noButton.onClick.AddListener(delegate { if (noDelegate != null) { noDelegate(); } Destroy(gameObject); SFXController.Instance.ButtonClick(); });
-            closeButton.onClick.AddListener(delegate { if (noDelegate != null) { noDelegate(); } Destroy(gameObject); SFXController.Instance.ButtonClick(); });
+            yesButton.onClick.AddListener(delegate { if (yesDelegate != null) { yesDelegate(); } Destroy(gameObject); SFXManager.Instance.ButtonClick(); });
+            noButton.onClick.AddListener(delegate { if (noDelegate != null) { noDelegate(); } Destroy(gameObject); SFXManager.Instance.ButtonClick(); });
+            closeButton.onClick.AddListener(delegate { if (noDelegate != null) { noDelegate(); } Destroy(gameObject); SFXManager.Instance.ButtonClick(); });
         }
         else
         {
@@ -44,9 +44,9 @@ public class PopupDialog : MonoBehaviour {
             okButton.onClick.AddListener(delegate {
                 if (okDelegate != null) { okDelegate(); }
                 Destroy(gameObject);
-                SFXController.Instance.ButtonClick();
+                SFXManager.Instance.ButtonClick();
             });
-            closeButton.onClick.AddListener(delegate { if (okDelegate != null) { okDelegate(); } Destroy(gameObject); SFXController.Instance.ButtonClick(); });
+            closeButton.onClick.AddListener(delegate { if (okDelegate != null) { okDelegate(); } Destroy(gameObject); SFXManager.Instance.ButtonClick(); });
         }
     }
 

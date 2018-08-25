@@ -1132,6 +1132,7 @@ GameObject:
   - component: {fileID: 310155481}
   - component: {fileID: 310155476}
   - component: {fileID: 310155482}
+  - component: {fileID: 310155483}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1237,6 +1238,17 @@ MonoBehaviour:
   dialogPrefab: {fileID: 1381539152491826, guid: 6c1b245a1b6e9c94eafa14484c0bad96,
     type: 2}
   canvasTransform: {fileID: 1628915289}
+--- !u!114 &310155483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 310155474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a55574f320d61743ab2bfac4b29e39c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &330598700
 RectTransform:
   m_ObjectHideFlags: 0

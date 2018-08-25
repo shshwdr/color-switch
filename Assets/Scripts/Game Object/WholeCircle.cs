@@ -62,17 +62,17 @@ public class WholeCircle : MonoBehaviour {
         }
     }
 
-    public void SetColor(GameColor[] colors)
+    public void SetColor(GameColorEnum[] colors)
     {
         Init();
         CirclePart[] parts = GetComponentsInChildren<CirclePart>();
         
         for(int i = 0;i<4;i++)
         {
-            GameColorManager gm = parts[i].GetComponent<GameColorManager>();
+            GameColor gm = parts[i].GetComponent<GameColor>();
             gm.gameColor = colors[i];
         }
-        GameColorManager[] colorManagers = GetComponentsInChildren<GameColorManager>();
+        GameColor[] colorManagers = GetComponentsInChildren<GameColor>();
 
         for (int i = 0; i < colorManagers.Length; i++)
         {

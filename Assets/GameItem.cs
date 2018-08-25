@@ -37,11 +37,11 @@ public class GameItem : Singleton<GameItem> {
             case GameItemEnum.gold:
                 rand = Random.Range(1, 5);
                 CurrencyManager.Instance.AddCurrencyAmount(CSConstant.GOLD, rand);
-                SFXController.Instance.PlaySFX(SFXEnum.coin);
+                SFXManager.Instance.PlaySFX(SFXEnum.coin);
                 break;
             case GameItemEnum.randomColor:
-                SFXController.Instance.PlaySFX(SFXEnum.possitive);
-                GameColor c = (GameColor)Random.Range(0, 4);
+                SFXManager.Instance.PlaySFX(SFXEnum.possitive);
+                GameColorEnum c = (GameColorEnum)Random.Range(0, 4);
                 player.ChangeColor(c);
                 break;
             case GameItemEnum.bomb:
@@ -57,11 +57,11 @@ public class GameItem : Singleton<GameItem> {
                 player.Speedup();
                 break;
             case GameItemEnum.screenSlowDown:
-                SFXController.Instance.PlaySFX(SFXEnum.possitive);
+                SFXManager.Instance.PlaySFX(SFXEnum.possitive);
                 ft.Slowdown();
                 break;
             case GameItemEnum.screenSpeedup:
-                SFXController.Instance.PlaySFX(SFXEnum.negative);
+                SFXManager.Instance.PlaySFX(SFXEnum.negative);
                 ft.Speedup();
                 break;
             case GameItemEnum.random:

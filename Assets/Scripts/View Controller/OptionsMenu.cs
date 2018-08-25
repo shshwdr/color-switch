@@ -31,7 +31,7 @@ public class OptionsMenu : DefaultViewController {
 
     public void SFXSliderDrop()
     {
-        SFXController.Instance.ChangeVolume(sfxSlider.value);
+        SFXManager.Instance.ChangeVolume(sfxSlider.value);
         PlayerPrefs.SetFloat(CSConstant.SFXVolumePref, sfxSlider.value);
     }
 }

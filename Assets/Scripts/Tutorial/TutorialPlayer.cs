@@ -10,7 +10,7 @@ public class TutorialPlayer : Player
     public void ResetAnim()
     {
         transform.position = originPosition;
-        ChangeColor(GameColor.yellow);
+        ChangeColor(GameColorEnum.yellow);
     }
 
 

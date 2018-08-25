@@ -132,10 +132,10 @@ public class GenerateMap : MonoBehaviour {
                         noChangeCircleNumber = 0;
                         wc.willChange = true;
                         rand = Random.Range(0, 4);
-                        GameColor c1 = (GameColor)((rand + 1) % 4);
-                        GameColor c2 = (GameColor)((rand + 2) % 4);
-                        GameColor c3 = (GameColor)((rand + 3) % 4);
-                        wc.SetColor(new GameColor[] { c1, c2, c3, (GameColor)rand });
+                        GameColorEnum c1 = (GameColorEnum)((rand + 1) % 4);
+                        GameColorEnum c2 = (GameColorEnum)((rand + 2) % 4);
+                        GameColorEnum c3 = (GameColorEnum)((rand + 3) % 4);
+                        wc.SetColor(new GameColorEnum[] { c1, c2, c3, (GameColorEnum)rand });
                     }
                     else
                     {
@@ -147,31 +147,31 @@ public class GenerateMap : MonoBehaviour {
                         if(rand <= rateOfNumberOfColorOfBlockCircle[0])//1 color
                         {
                             rand = Random.Range(0, 4);
-                            GameColor c = (GameColor)rand;
-                            wc.SetColor(new GameColor[]{ c,c,c,c});
+                            GameColorEnum c = (GameColorEnum)rand;
+                            wc.SetColor(new GameColorEnum[]{ c,c,c,c});
                         }
                         else if (rand <= rateOfNumberOfColorOfBlockCircle[0]+ rateOfNumberOfColorOfBlockCircle[1])//2 color
                         {
                             rand = Random.Range(0, 4);
-                            GameColor c = (GameColor)rand;
+                            GameColorEnum c = (GameColorEnum)rand;
                             int rand2 = Random.Range(0, 3);
-                            GameColor c2 = (GameColor)((rand+rand2)%4);
-                            wc.SetColor(new GameColor[] { c, c, c2,c2 });
+                            GameColorEnum c2 = (GameColorEnum)((rand+rand2)%4);
+                            wc.SetColor(new GameColorEnum[] { c, c, c2,c2 });
                         }
                         else if (rand <= rateOfNumberOfColorOfBlockCircle[0] + rateOfNumberOfColorOfBlockCircle[1]+rateOfNumberOfColorOfBlockCircle[2])//1 color
                         {
                             rand = Random.Range(0, 4);
-                            GameColor c1 = (GameColor)((rand + 1) % 4);
-                            GameColor c2 = (GameColor)((rand + 2) % 4);
-                            GameColor c3 = (GameColor)((rand + 3) % 4);
-                            wc.SetColor(new GameColor[] { c1,c2,c3,c3 });
+                            GameColorEnum c1 = (GameColorEnum)((rand + 1) % 4);
+                            GameColorEnum c2 = (GameColorEnum)((rand + 2) % 4);
+                            GameColorEnum c3 = (GameColorEnum)((rand + 3) % 4);
+                            wc.SetColor(new GameColorEnum[] { c1,c2,c3,c3 });
                         } else
                         {
                             rand = Random.Range(0, 4);
-                            GameColor c1 = (GameColor)((rand + 1) % 4);
-                            GameColor c2 = (GameColor)((rand + 2) % 4);
-                            GameColor c3 = (GameColor)((rand + 3) % 4);
-                            wc.SetColor(new GameColor[] { c1, c2, c3, (GameColor)rand });
+                            GameColorEnum c1 = (GameColorEnum)((rand + 1) % 4);
+                            GameColorEnum c2 = (GameColorEnum)((rand + 2) % 4);
+                            GameColorEnum c3 = (GameColorEnum)((rand + 3) % 4);
+                            wc.SetColor(new GameColorEnum[] { c1, c2, c3, (GameColorEnum)rand });
                         }
                     }
                     //decide the ratate speed of the circle,randge is (-100,-50)and(50,100)

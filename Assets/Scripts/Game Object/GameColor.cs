@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameColor { cyan, yellow, meganta, pink, none };
+public enum GameColorEnum { cyan, yellow, meganta, pink, none };
 
-public class GameColorManager : MonoBehaviour {
-    public GameColor gameColor;
+public class GameColor : MonoBehaviour {
+    public GameColorEnum gameColor;
     public int index;
     SpriteRenderer sr;
     bool hasFinishedStart;
@@ -14,7 +14,7 @@ public class GameColorManager : MonoBehaviour {
     public void Init()
     {
 
-        GameColorManager parent = transform.parent.GetComponent<GameColorManager>();
+        GameColor parent = transform.parent.GetComponent<GameColor>();
         //if parent is a color part, follow it's color
         if (parent)
         {
@@ -22,7 +22,7 @@ public class GameColorManager : MonoBehaviour {
         }
         switch (gameColor)
         {
-            case GameColor.none:
+            case GameColorEnum.none:
                 gameObject.SetActive(false);
                 break;
             default:

@@ -33,7 +33,7 @@ public class GamePanelViewController : DefaultViewController {
 
     public void Pause()
     {
-        SFXController.Instance.ButtonClick();
+        SFXManager.Instance.ButtonClick();
         pausePanel.SetActive(true);
         GameLogicManager.Instance.Pause();
     }

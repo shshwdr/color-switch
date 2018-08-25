@@ -10,7 +10,7 @@ public class PausePanelViewController : DefaultViewController
     public void BackToMainMenu()
     {
         GameLogicManager.Instance.Resume();
-        SFXController.Instance.ButtonClick();
+        SFXManager.Instance.ButtonClick();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
 
     }
@@ -23,7 +23,7 @@ public class PausePanelViewController : DefaultViewController
     public void Restart()
     {
         GameLogicManager.Instance.Resume();
-        SFXController.Instance.ButtonClick();
+        SFXManager.Instance.ButtonClick();
         gameObject.SetActive(false);
         GameLogicManager.Instance.player.Restart();
     }
@@ -32,7 +32,7 @@ public class PausePanelViewController : DefaultViewController
     {
         base.Back();
         GameLogicManager.Instance.Resume();
-        SFXController.Instance.ButtonClick();
+        SFXManager.Instance.ButtonClick();
         gameObject.SetActive(false);
     }
 

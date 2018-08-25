@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     float[] scaleLevels = { 0.3f, 0.7f, 1f, 1.2f, 1.5f };
 
     public bool isGameOver;
-    public GameColor gameColor;
+    public GameColorEnum gameColor;
     Moveable moveable;
 
     HashSet<GameObject> hittedCircle;
@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        ChangeColor(GameColor.yellow);
+        ChangeColor(GameColorEnum.yellow);
         originPosition = transform.position;
         CSUtil.LOG(originPosition);
         moveable = GetComponent<Moveable>();
@@ -91,11 +91,11 @@ public class Player : MonoBehaviour
 
     void SetRandomColor()
     {
-        GameColor c = (GameColor)Random.Range(0, 4);
+        GameColorEnum c = (GameColorEnum)Random.Range(0, 4);
         ChangeColor(c);
     }
 
-    public void ChangeColor(GameColor c)
+    public void ChangeColor(GameColorEnum c)
     {
         gameColor = c;
         CSUtil.LOG("changed color to "+(int)c);
@@ -121,11 +121,11 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        GameColorManager script = col.gameObject.GetComponent<GameColorManager>();
+        GameColor script = col.gameObject.GetComponent<GameColor>();
         CirclePart cp = col.gameObject.GetComponent<CirclePart>();
         if (script && cp)
         {
-            GameColor c = script.gameColor;
+            GameColorEnum c = script.gameColor;
             
             if (cp.willChange)
             {
@@ -146,7 +146,7 @@ public class Player : MonoBehaviour
                         }
                         else
                         {
-                            SFXController.Instance.PlaySFX(SFXEnum.hitOnPart);
+                            SFXManager.Instance.PlaySFX(SFXEnum.hitOnPart);
                         }
                     }
                 }
@@ -204,7 +204,7 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        SFXController.Instance.PlaySFX(SFXEnum.gameover);
+        SFXManager.Instance.PlaySFX(SFXEnum.gameover);
         if (cheatDontDie)
         {
             moveable.StopMoving();
@@ -243,13 +243,13 @@ public class Player : MonoBehaviour
             Vector3 teleportTarget = new Vector3(target.x, target.y, transform.position.z);
             sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0);
 
-            SFXController.Instance.PlaySFX(SFXEnum.teleport);
+            SFXManager.Instance.PlaySFX(SFXEnum.teleport);
             ParticleEffectManager.Instance.playParticleEffect(teleportTarget, ParticleEffectEnum.teleport);
             //transform.position = teleportTarget;
             //achievement
         } else
         {
-            SFXController.Instance.PlaySFX(SFXEnum.swoosh);
+            SFXManager.Instance.PlaySFX(SFXEnum.swoosh);
         }
         if (shouldDestroyPart)
         {
@@ -285,14 +285,14 @@ public class Player : MonoBehaviour
 
     public void MinishBall()
     {
-        SFXController.Instance.PlaySFX(SFXEnum.possitive);
+        SFXManager.Instance.PlaySFX(SFXEnum.possitive);
         currentScaleLevel = Mathf.Max(0, currentScaleLevel - 1);
         float scale = scaleLevels[currentScaleLevel]*originScale;
         gameObject.transform.localScale = new Vector3(scale, scale, scale);
     }
     public void EnlargeBall()
     {
-        SFXController.Instance.PlaySFX(SFXEnum.negative);
+        SFXManager.Instance.PlaySFX(SFXEnum.negative);
         currentScaleLevel = Mathf.Min(4, currentScaleLevel + 1);
         float scale = scaleLevels[currentScaleLevel] * originScale;
         gameObject.transform.localScale = new Vector3(scale, scale, scale);
@@ -313,13 +313,13 @@ public class Player : MonoBehaviour
 
     public void SlowDown()
     {
-        SFXController.Instance.PlaySFX(SFXEnum.negative);
+        SFXManager.Instance.PlaySFX(SFXEnum.negative);
         moveable.Slowdown();
     }
 
     public void Speedup()
     {
-        SFXController.Instance.PlaySFX(SFXEnum.possitive);
+        SFXManager.Instance.PlaySFX(SFXEnum.possitive);
         moveable.Speedup();
     }
 
@@ -328,13 +328,13 @@ public class Player : MonoBehaviour
         GameObject go = hittedPart[hittedPart.Count - 1].transform.parent.gameObject;
         WholeCircle wc = go.GetComponent<WholeCircle>();
         wc.Bomb();
-        SFXController.Instance.PlaySFX(SFXEnum.bomb);
+        SFXManager.Instance.PlaySFX(SFXEnum.bomb);
         Camera.main.GetComponent<FollowTarget>().ShakeCamera();
     }
 
     public void gainHP(float gainedHP = 1)
     {
-        SFXController.Instance.PlaySFX(SFXEnum.possitive);
+        SFXManager.Instance.PlaySFX(SFXEnum.possitive);
         hp = Mathf.Min(hp + gainedHP, maxHP);
     }
 

@@ -16,7 +16,7 @@ public enum SFXEnum
     bubble,
 };
 
-public class SFXController : Singleton<SFXController>
+public class SFXManager : Singleton<SFXManager>
 {
     AudioSource audioSource;
 
