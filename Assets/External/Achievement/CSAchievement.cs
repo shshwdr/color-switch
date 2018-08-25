@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CSAchievement{
     string identifier;
-    AchievementInfo achievementInfo;
+    public AchievementInfo achievementInfo;
     PersistentAchievement persistentAchievement;
     public CSAchievement(AchievementInfo info)
     {
@@ -15,10 +15,10 @@ public class CSAchievement{
         persistentAchievement = ds.GetPersistentAchievement(identifier);
         if (persistentAchievement == null)
         {
-            PersistentAchievement newAchievement = new PersistentAchievement();
-            newAchievement.identifier = identifier;
-            newAchievement.state = (int)AchievementState.locked;
-            ds.InsertAchievement(newAchievement);
+            persistentAchievement = new PersistentAchievement();
+            persistentAchievement.identifier = identifier;
+            persistentAchievement.state = (int)AchievementState.locked;
+            ds.InsertAchievement(persistentAchievement);
         }
     }
     // Update is called once per frame

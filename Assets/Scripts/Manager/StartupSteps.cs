@@ -7,7 +7,7 @@ public class StartupSteps : MonoBehaviour {
     private void OnEnable()
     {
         SQLiteDatabaseManager.Instance.Init();
-
+        CheatManager.Instance.Init();
         CurrencyManager.Instance.Init();
         AbilityManager.Instance.Init();
         CSAchievementManager.Instance.Init();
