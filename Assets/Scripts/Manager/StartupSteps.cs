@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StartupSteps : MonoBehaviour {
 
-    private void OnEnable()
+    private void Awake()
     {
         SQLiteDatabaseManager.Instance.Init();
         CheatManager.Instance.Init();

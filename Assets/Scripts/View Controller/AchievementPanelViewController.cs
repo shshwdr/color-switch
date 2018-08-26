@@ -11,6 +11,7 @@ public class AchievementPanelViewController : DefaultViewController
         InitAchievementView();
 
     }
+
     void InitAchievementView()
     {
         foreach(Transform child in achievementListPanel.transform)

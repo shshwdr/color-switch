@@ -8,7 +8,9 @@ public enum AchievementState { locked, active, complete };
 
 public class CSAchievementManager : Singleton<CSAchievementManager> {
 
-    public List<CSAchievement> achievementList;
+    public Dictionary<string,CSAchievement> achievementDictionary;
+
+    public Dictionary<string, CSAchievement>.ValueCollection achievementList { get { return achievementDictionary.Values; } }
 
     public void Init()
     {
@@ -28,13 +30,13 @@ public class CSAchievementManager : Singleton<CSAchievementManager> {
     void InitAchievements()
     {
 
-        achievementList = new List<CSAchievement>();
+        achievementDictionary = new Dictionary<string, CSAchievement>();
     List<AchievementInfo> achievementInfoList = CsvUtil.LoadObjects<AchievementInfo>("achievement.csv");
     DataService ds = SQLiteDatabaseManager.Instance.ds;
         foreach (AchievementInfo achievementInfo in achievementInfoList)
         {
                 CSAchievement achievement = new CSAchievement(achievementInfo);
-            achievementList.Add(achievement);
+            achievementDictionary[achievementInfo.identifier] = achievement;
         }
     }
 
