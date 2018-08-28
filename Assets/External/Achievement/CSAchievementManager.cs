@@ -9,6 +9,8 @@ public enum AchievementState { locked, active, complete };
 public class CSAchievementManager : Singleton<CSAchievementManager> {
 
     public Dictionary<string,CSAchievement> achievementDictionary;
+    public Dictionary<string, CSAchievementStep> achievementStepDictionary;
+    public Dictionary<string, AchievementStepInfo> achievementStepInfoDictionary;
 
     public Dictionary<string, CSAchievement>.ValueCollection achievementList { get { return achievementDictionary.Values; } }
 
@@ -38,6 +40,30 @@ public class CSAchievementManager : Singleton<CSAchievementManager> {
                 CSAchievement achievement = new CSAchievement(achievementInfo);
             achievementDictionary[achievementInfo.identifier] = achievement;
         }
+    }
+
+    void InitAchievementStep()
+    {
+        List<AchievementStepInfo> achievementStepInfoList = CsvUtil.LoadObjects<AchievementStepInfo>("achievementStep.csv");
+        foreach(AchievementStepInfo info in achievementStepInfoList)
+        {
+            achievementStepInfoDictionary[info.identifier] = info;
+        }
+    }
+
+    CSAchievementStep GetAchievementStep(string identifier)
+    {
+        CSAchievementStep achievementStep = achievementStepDictionary[identifier];
+        if(achievementStep == null)
+        {
+            AchievementStepInfo info = achievementStepInfoDictionary[identifier];
+            if(info == null)
+            {
+                Debug.LogError(identifier + " does not exist in achievement steps");
+            }
+            //create achievement step info
+        }
+        return achievementStep;
     }
 
     public void FinishAchievements()

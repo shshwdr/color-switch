@@ -9,6 +9,7 @@ public class CSAchievement{
     public AchievementInfo achievementInfo;
     public PersistentAchievement persistentAchievement;
 
+    List<CSAchievementStep> achievementSteps;
     List<AchievementCompleteDelegate> delegates;
 
     CSAchievement prerequisite;
@@ -27,28 +28,24 @@ public class CSAchievement{
             ds.InsertAchievement(persistentAchievement);
         }
         delegates = new List<AchievementCompleteDelegate>();
-        SetupPrerequisite();
-        //load steps
+        LoadPrerequisite();
+        LoadAchievementSteps();
         CheckForActivation();
         CheckToActivateAchievementStep();
         CheckForCompletion();
-        //load fallthrough
+        LoadFallthrough();
         CheckForFallThroughtCompletion();
     }
 
-    void registerCompletionDelegate(AchievementCompleteDelegate dele)
-    {
-        delegates.Add(dele);
-    }
-
-    public void SetupPrerequisite()
+    public void LoadPrerequisite()
     {
         string prerequisiteName = achievementInfo.prerequisite;
-        if (prerequisiteName != null&&prerequisiteName.Length !=0)
+        if (prerequisiteName != null && prerequisiteName.Length != 0)
         {
-            if (CSAchievementManager.Instance.achievementDictionary.ContainsKey(prerequisiteName)) { 
+            if (CSAchievementManager.Instance.achievementDictionary.ContainsKey(prerequisiteName))
+            {
                 prerequisite = CSAchievementManager.Instance.achievementDictionary[prerequisiteName];
-                prerequisite.registerCompletionDelegate(delegate { CompleteMethod(); });
+                prerequisite.RegisterCompletionDelegate(delegate { CompleteMethod(); });
             }
             else
             {
@@ -57,7 +54,25 @@ public class CSAchievement{
         }
     }
 
-    void CHeckToChangeState()
+    void LoadAchievementSteps()
+    {
+        //only support one step now
+
+    }
+
+    void LoadFallthrough()
+    {
+
+    }
+
+    void RegisterCompletionDelegate(AchievementCompleteDelegate dele)
+    {
+        delegates.Add(dele);
+    }
+
+    
+
+    void CheckToChangeState()
     {
         CheckForActivation();
         CheckForCompletion();
@@ -84,7 +99,10 @@ public class CSAchievement{
 
     void CheckToActivateAchievementStep()
     {
+        if(persistentAchievement.state == (int)AchievementState.active)
+        {
 
+        }
     }
 
     void CheckForCompletion()
@@ -104,7 +122,7 @@ public class CSAchievement{
 
     void CompleteMethod()
     {
-        CHeckToChangeState();
+        CheckToChangeState();
     }
     
 
@@ -113,7 +131,7 @@ public class CSAchievement{
         DataService ds = SQLiteDatabaseManager.Instance.ds;
         persistentAchievement.state = (int)s;
         ds.UpdateAchievement(persistentAchievement);
-        CHeckToChangeState();
+        CheckToChangeState();
     }
 
     // Update is called once per frame
