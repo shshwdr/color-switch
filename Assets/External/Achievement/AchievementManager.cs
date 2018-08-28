@@ -8,11 +8,11 @@ public enum AchievementState { locked, active, complete };
 
 public class CSAchievementManager : Singleton<CSAchievementManager> {
 
-    public Dictionary<string,CSAchievement> achievementDictionary;
-    public Dictionary<string, CSAchievementStep> achievementStepDictionary;
+    public Dictionary<string,Achievement> achievementDictionary;
+    public Dictionary<string, AchievementStep> achievementStepDictionary;
     public Dictionary<string, AchievementStepInfo> achievementStepInfoDictionary;
 
-    public Dictionary<string, CSAchievement>.ValueCollection achievementList { get { return achievementDictionary.Values; } }
+    public Dictionary<string, Achievement>.ValueCollection achievementList { get { return achievementDictionary.Values; } }
 
     public void Init()
     {
@@ -32,12 +32,12 @@ public class CSAchievementManager : Singleton<CSAchievementManager> {
     void InitAchievements()
     {
 
-        achievementDictionary = new Dictionary<string, CSAchievement>();
+        achievementDictionary = new Dictionary<string, Achievement>();
     List<AchievementInfo> achievementInfoList = CsvUtil.LoadObjects<AchievementInfo>("achievement.csv");
     DataService ds = SQLiteDatabaseManager.Instance.ds;
         foreach (AchievementInfo achievementInfo in achievementInfoList)
         {
-                CSAchievement achievement = new CSAchievement(achievementInfo);
+                Achievement achievement = new Achievement(achievementInfo);
             achievementDictionary[achievementInfo.identifier] = achievement;
         }
     }
@@ -51,9 +51,9 @@ public class CSAchievementManager : Singleton<CSAchievementManager> {
         }
     }
 
-    CSAchievementStep GetAchievementStep(string identifier)
+    AchievementStep GetAchievementStep(string identifier)
     {
-        CSAchievementStep achievementStep = achievementStepDictionary[identifier];
+        AchievementStep achievementStep = achievementStepDictionary[identifier];
         if(achievementStep == null)
         {
             AchievementStepInfo info = achievementStepInfoDictionary[identifier];
@@ -68,7 +68,7 @@ public class CSAchievementManager : Singleton<CSAchievementManager> {
 
     public void FinishAchievements()
     {
-        foreach(CSAchievement achievement in achievementList)
+        foreach(Achievement achievement in achievementList)
         {
             achievement.SetState(AchievementState.complete);
         }
@@ -76,7 +76,7 @@ public class CSAchievementManager : Singleton<CSAchievementManager> {
 
     public void CleanAchievements()
     {
-        foreach (CSAchievement achievement in achievementList)
+        foreach (Achievement achievement in achievementList)
         {
             achievement.SetState(AchievementState.locked);
         }

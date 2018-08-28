@@ -18,7 +18,7 @@ public class AchievementPanelViewController : DefaultViewController
         {
             GameObject.Destroy(child.gameObject);
         }
-        foreach (CSAchievement achievement in CSAchievementManager.Instance.achievementList)
+        foreach (Achievement achievement in CSAchievementManager.Instance.achievementList)
         {
 
             GameObject go = Instantiate(achievementCell, achievementListPanel.transform);

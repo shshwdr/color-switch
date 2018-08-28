@@ -4,16 +4,16 @@ using UnityEngine;
 
 public delegate void AchievementCompleteDelegate();
 
-public class CSAchievement{
+public class Achievement{
     string identifier;
     public AchievementInfo achievementInfo;
     public PersistentAchievement persistentAchievement;
 
-    List<CSAchievementStep> achievementSteps;
+    List<AchievementStep> achievementSteps;
     List<AchievementCompleteDelegate> delegates;
 
-    CSAchievement prerequisite;
-    public CSAchievement(AchievementInfo info)
+    Achievement prerequisite;
+    public Achievement(AchievementInfo info)
     {
         achievementInfo = info;
         identifier = info.identifier;
@@ -57,7 +57,7 @@ public class CSAchievement{
     void LoadAchievementSteps()
     {
         //only support one step now
-
+       // AchievementStep achievementStep = 
     }
 
     void LoadFallthrough()

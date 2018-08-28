@@ -13,7 +13,7 @@ public class AchievementCell : MonoBehaviour {
 		
 	}
 
-    public void InitCell(CSAchievement achievement)
+    public void InitCell(Achievement achievement)
     {
         description.text = achievement.achievementInfo.description+" "+achievement.persistentAchievement.state.ToString();
         cheatButton.onClick.AddListener(delegate {

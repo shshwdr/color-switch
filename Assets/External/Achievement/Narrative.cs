@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CSAchievementStep : MonoBehaviour {
+public class Narrative : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
