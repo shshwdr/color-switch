@@ -150,6 +150,21 @@ public IEnumerable<PersistentCurrency> GetPersistentCurrencys(){
         _connection.Update(achieve);
     }
 
+    public PersistentAchievementAmountStep GetPersistentAchievementAmountStep(string identifier)
+    {
+        return _connection.Table<PersistentAchievementAmountStep>().Where(x => x.identifier == identifier).FirstOrDefault();
+    }
+
+    public void InsertAchievementAmountStep(PersistentAchievementAmountStep achieve)
+    {
+        _connection.Insert(achieve);
+    }
+
+    public void UpdateAchievementAmountStep(PersistentAchievementAmountStep achieve)
+    {
+        _connection.Update(achieve);
+    }
+
 
 
     //public IEnumerable<Person> GetPersonsNamedRoberto()

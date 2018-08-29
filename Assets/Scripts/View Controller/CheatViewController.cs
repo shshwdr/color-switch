@@ -15,11 +15,11 @@ public class CheatViewController : DefaultViewController
     {
         CreateCheatButton("clean achievements", delegate
         {
-            CSAchievementManager.Instance.CleanAchievements();
+            AchievementManager.Instance.CleanAchievements();
         });
         CreateCheatButton("finish achievements", delegate
         {
-            CSAchievementManager.Instance.FinishAchievements();
+            AchievementManager.Instance.FinishAchievements();
         });
     }
 

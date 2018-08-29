@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AchievementStepFactory : MonoBehaviour {
+public class AchievementStepFactory {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	public static AchievementStep CreateAchievementStep(AchievementStepInfo info)
+    {
+        //use reflection later
+        if (info.requirementClassString == "PlayerReachedLocationRequirement")
+        {
+            AchievementAmountStep step = new AchievementAmountStep(info);
+            return step;
+        }
+        return null;
+    }
 }

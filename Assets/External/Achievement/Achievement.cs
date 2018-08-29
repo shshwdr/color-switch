@@ -9,10 +9,15 @@ public class Achievement{
     public AchievementInfo achievementInfo;
     public PersistentAchievement persistentAchievement;
 
-    List<AchievementStep> achievementSteps;
+    AchievementStep achievementStep;
     List<AchievementCompleteDelegate> delegates;
 
-    Achievement prerequisite;
+    public AchievementState state
+    {
+        get { return (AchievementState)persistentAchievement.state; }
+    }
+
+        Achievement prerequisite;
     public Achievement(AchievementInfo info)
     {
         achievementInfo = info;
@@ -42,9 +47,9 @@ public class Achievement{
         string prerequisiteName = achievementInfo.prerequisite;
         if (prerequisiteName != null && prerequisiteName.Length != 0)
         {
-            if (CSAchievementManager.Instance.achievementDictionary.ContainsKey(prerequisiteName))
+            if (AchievementManager.Instance.achievementDictionary.ContainsKey(prerequisiteName))
             {
-                prerequisite = CSAchievementManager.Instance.achievementDictionary[prerequisiteName];
+                prerequisite = AchievementManager.Instance.achievementDictionary[prerequisiteName];
                 prerequisite.RegisterCompletionDelegate(delegate { CompleteMethod(); });
             }
             else
@@ -57,7 +62,27 @@ public class Achievement{
     void LoadAchievementSteps()
     {
         //only support one step now
-       // AchievementStep achievementStep = 
+        if(achievementInfo.achievementStep == null || achievementInfo.achievementStep.Length == 0)
+        {
+            Debug.LogError("achievement does not have step: " + identifier);
+        }
+        achievementStep = AchievementManager.Instance.GetAchievementStep(achievementInfo.achievementStep);
+        if (achievementStep != null)
+        {
+            achievementStep.AddAchievementDelegate(ChangeStateForAchievementStep);
+        }else
+        {
+            Debug.LogError("achievement step didn't find: " + achievementStep.ToString());
+        }
+    }
+
+    void ChangeStateForAchievementStep(AchievementStep step,AchievementState oldState, AchievementState newState)
+    {
+        if (step.IsComplete())
+        {
+
+        }
+        CheckToChangeState();
     }
 
     void LoadFallthrough()
@@ -99,9 +124,9 @@ public class Achievement{
 
     void CheckToActivateAchievementStep()
     {
-        if(persistentAchievement.state == (int)AchievementState.active)
+        if(state == AchievementState.active)
         {
-
+            achievementStep.Activate();
         }
     }
 
@@ -138,4 +163,9 @@ public class Achievement{
     void Update () {
 		
 	}
+
+    public override string ToString()
+    {
+        return identifier + " " + state+" steps: "+achievementStep.ToString();
+    }
 }

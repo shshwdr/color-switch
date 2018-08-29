@@ -10,7 +10,7 @@ public class StartupSteps : MonoBehaviour {
         CheatManager.Instance.Init();
         CurrencyManager.Instance.Init();
         AbilityManager.Instance.Init();
-        CSAchievementManager.Instance.Init();
+        AchievementManager.Instance.Init();
     }
     // Use this for initialization
     void Start () {

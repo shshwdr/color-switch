@@ -2,15 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AchievementStep : MonoBehaviour {
+public delegate void AchievementStepDelegate(AchievementStep step, AchievementState oldState, AchievementState newState);
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class AchievementStep {
+
+    protected AchievementStepInfo stepInfo;
+    protected string identifier;
+
+    protected AchievementStepDelegate achievementStepDelegate;
+
+    public virtual AchievementState state { get { return AchievementState.locked; }
+        set {  }
+    }
+
+    public void AddAchievementDelegate(AchievementStepDelegate dele)
+    {
+        achievementStepDelegate = dele;
+    }
+
+
+
+    public virtual void Activate()
+    {
+        if(state == AchievementState.locked)
+        {
+            state = AchievementState.active;
+        }
+    }
+
+    public virtual bool IsComplete()
+    {
+        return state == AchievementState.complete;
+    }
+
+    protected void LockIfNotComplete()
+    {
+        if (!IsComplete())
+        {
+            state = AchievementState.locked;
+        }
+    }
+
 }

@@ -6,7 +6,7 @@ using Sinbad;
 public enum AchievementState { locked, active, complete };
 
 
-public class CSAchievementManager : Singleton<CSAchievementManager> {
+public class AchievementManager : Singleton<AchievementManager> {
 
     public Dictionary<string,Achievement> achievementDictionary;
     public Dictionary<string, AchievementStep> achievementStepDictionary;
@@ -16,6 +16,7 @@ public class CSAchievementManager : Singleton<CSAchievementManager> {
 
     public void Init()
     {
+        InitAchievementStep();
         InitAchievements();
     }
 
@@ -33,8 +34,8 @@ public class CSAchievementManager : Singleton<CSAchievementManager> {
     {
 
         achievementDictionary = new Dictionary<string, Achievement>();
-    List<AchievementInfo> achievementInfoList = CsvUtil.LoadObjects<AchievementInfo>("achievement.csv");
-    DataService ds = SQLiteDatabaseManager.Instance.ds;
+        achievementStepDictionary = new Dictionary<string, AchievementStep>();
+        List<AchievementInfo> achievementInfoList = CsvUtil.LoadObjects<AchievementInfo>("achievement.csv");
         foreach (AchievementInfo achievementInfo in achievementInfoList)
         {
                 Achievement achievement = new Achievement(achievementInfo);
@@ -44,6 +45,7 @@ public class CSAchievementManager : Singleton<CSAchievementManager> {
 
     void InitAchievementStep()
     {
+        achievementStepInfoDictionary = new Dictionary<string, AchievementStepInfo>();
         List<AchievementStepInfo> achievementStepInfoList = CsvUtil.LoadObjects<AchievementStepInfo>("achievementStep.csv");
         foreach(AchievementStepInfo info in achievementStepInfoList)
         {
@@ -51,17 +53,21 @@ public class CSAchievementManager : Singleton<CSAchievementManager> {
         }
     }
 
-    AchievementStep GetAchievementStep(string identifier)
+    public AchievementStep GetAchievementStep(string identifier)
     {
-        AchievementStep achievementStep = achievementStepDictionary[identifier];
-        if(achievementStep == null)
+        AchievementStep achievementStep = null;
+        if(achievementStepDictionary.ContainsKey(identifier))
+        {
+            achievementStep = achievementStepDictionary[identifier];
+        } else
         {
             AchievementStepInfo info = achievementStepInfoDictionary[identifier];
-            if(info == null)
+            if (info == null)
             {
                 Debug.LogError(identifier + " does not exist in achievement steps");
             }
-            //create achievement step info
+            achievementStep = AchievementStepFactory.CreateAchievementStep(info);
+            achievementStepDictionary[identifier] = achievementStep;
         }
         return achievementStep;
     }
