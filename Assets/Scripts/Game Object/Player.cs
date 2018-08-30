@@ -45,6 +45,9 @@ public class Player : MonoBehaviour
 
     public float maxY = 0;
 
+    public delegate void OnPositionChangeDelegate(Vector3 pos);
+    public event OnPositionChangeDelegate OnPositionChange;
+
 
     // Use this for initialization
     protected void Start()
@@ -81,6 +84,10 @@ public class Player : MonoBehaviour
             return;
         }
         maxY = Mathf.Max(maxY, transform.position.y);
+        if (OnPositionChange != null)
+        {
+            OnPositionChange(transform.position);
+        }
     }
 
     private bool canBeSeenByCamera()

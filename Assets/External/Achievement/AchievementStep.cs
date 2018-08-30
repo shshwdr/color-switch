@@ -8,6 +8,7 @@ public class AchievementStep {
 
     protected AchievementStepInfo stepInfo;
     protected string identifier;
+    protected Requirement requirement;
 
     protected AchievementStepDelegate achievementStepDelegate;
 
@@ -27,6 +28,22 @@ public class AchievementStep {
         if(state == AchievementState.locked)
         {
             state = AchievementState.active;
+        }
+        requirement = RequirementFromAchievementStepInfo(stepInfo);
+        requirement.RequirementCompleteCallback += CheckComplete;
+    }
+
+    protected virtual Requirement RequirementFromAchievementStepInfo(AchievementStepInfo achievementStepInfo)
+    {
+        Debug.LogError("subclass should override this");
+        return null;
+    }
+
+    void CheckComplete()
+    {
+        if (!IsComplete() && requirement.IsCompleted)
+        {
+            state = AchievementState.complete;
         }
     }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 
 
 public class AchievementAmountStep : AchievementStep {
+    int currentAmount;
     PersistentAchievementAmountStep persistentAchievementAmountStep;
     public override AchievementState state { get { return (AchievementState)persistentAchievementAmountStep.state; }
     set { AchievementState oldState = (AchievementState)persistentAchievementAmountStep.state;
@@ -14,10 +15,6 @@ public class AchievementAmountStep : AchievementStep {
             if (achievementStepDelegate != null)
             {
                 achievementStepDelegate(this, oldState, value);
-            }
-            else
-            {
-                Debug.LogError("achievementStepDelegate does not have value" + identifier);
             }
         } }
     public AchievementAmountStep(AchievementStepInfo info)
@@ -35,6 +32,20 @@ public class AchievementAmountStep : AchievementStep {
             ds.InsertAchievementAmountStep(persistentAchievementAmountStep);
         }
         LockIfNotComplete();
+    }
+
+    protected override Requirement RequirementFromAchievementStepInfo(AchievementStepInfo achievementStepInfo)
+    {
+        System.Type requirementType = System.Type.GetType(achievementStepInfo.requirementClassString);
+
+        return (Requirement)System.Activator.CreateInstance(requirementType, achievementStepInfo, currentAmount);
+    }
+
+    public override void Activate()
+    {
+        base.Activate();
+        //we only have 1 amount now
+        //((AmountRequirement)requirement).ProgressChangedCallback+=
     }
 
     public override string ToString()
