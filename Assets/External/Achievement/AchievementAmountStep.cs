@@ -5,7 +5,6 @@ using UnityEngine;
 
 
 public class AchievementAmountStep : AchievementStep {
-    int currentAmount;
     PersistentAchievementAmountStep persistentAchievementAmountStep;
     public override AchievementState state { get { return (AchievementState)persistentAchievementAmountStep.state; }
     set { AchievementState oldState = (AchievementState)persistentAchievementAmountStep.state;
@@ -38,7 +37,7 @@ public class AchievementAmountStep : AchievementStep {
     {
         System.Type requirementType = System.Type.GetType(achievementStepInfo.requirementClassString);
 
-        return (Requirement)System.Activator.CreateInstance(requirementType, achievementStepInfo, currentAmount);
+        return (Requirement)System.Activator.CreateInstance(requirementType, achievementStepInfo, persistentAchievementAmountStep.currentAmount);
     }
 
     public override void Activate()

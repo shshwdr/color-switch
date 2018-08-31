@@ -78,6 +78,7 @@ public class Achievement{
 
     void ChangeStateForAchievementStep(AchievementStep step,AchievementState oldState, AchievementState newState)
     {
+        Debug.Log("ChangeStateForAchievementStep " + identifier);
         if (step.IsComplete())
         {
 

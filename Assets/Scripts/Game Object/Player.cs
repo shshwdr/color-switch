@@ -86,6 +86,7 @@ public class Player : MonoBehaviour
         maxY = Mathf.Max(maxY, transform.position.y);
         if (OnPositionChange != null)
         {
+            //only send when position changes?
             OnPositionChange(transform.position);
         }
     }

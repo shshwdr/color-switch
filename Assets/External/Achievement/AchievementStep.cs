@@ -41,8 +41,10 @@ public class AchievementStep {
 
     void CheckComplete()
     {
+        Debug.Log("check complete for step " + identifier);
         if (!IsComplete() && requirement.IsCompleted)
         {
+            Debug.Log("complete step " + identifier);
             state = AchievementState.complete;
         }
     }

@@ -8,14 +8,23 @@ public class PlayerReachedLocationRequirement : AmountRequirement
 
     public PlayerReachedLocationRequirement(AchievementStepInfo stepInfo, int initial):base(stepInfo,initial)
     {
-        Debug.Log("init PlayerReachedLocationRequirement");
         targetYPosition = float.Parse(stepInfo.category);
-        GameLogicManager.Instance.player.OnPositionChange += UpdatePlayerPosition;
+        if(GameLogicManager.Instance.player) {
+            GameLogicManager.Instance.player.OnPositionChange += UpdatePlayerPosition;
+        }
     }
 
     void UpdatePlayerPosition(Vector3 pos)
     {
-        Debug.Log("update position " + pos);
+        if(pos.y >= targetYPosition)
+        {
+            UpdateProgressByAmount(1);
+            if (GameLogicManager.Instance.player)
+            {
+                Debug.Log("finish requirement "+ "PlayerReachedLocationRequirement");
+                GameLogicManager.Instance.player.OnPositionChange -= UpdatePlayerPosition;
+            }
+        }
     }
 
 

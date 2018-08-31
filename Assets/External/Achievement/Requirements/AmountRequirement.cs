@@ -30,6 +30,8 @@ public class AmountRequirement : Requirement {
         {
             ProgressChangedCallback(amount);
         }
+
+        UpdateRequirementCompletion();
     }
 
     
