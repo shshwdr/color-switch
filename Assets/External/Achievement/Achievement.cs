@@ -17,10 +17,20 @@ public class Achievement{
         get { return (AchievementState)persistentAchievement.state; }
         set
         {
+            AchievementState oldState = (AchievementState)persistentAchievement.state;
             persistentAchievement.state = (int)value;
             DataService ds = SQLiteDatabaseManager.Instance.ds;
             ds.UpdateAchievement(persistentAchievement);
             CheckToChangeState();
+            //Debug.LogError("oldstate " + oldState + " new state " + persistentAchievement.state);
+            if (oldState != AchievementState.complete && persistentAchievement.state == (int)AchievementState.complete)
+            {
+                //Debug.LogError("deles " + delegates);
+                foreach (AchievementCompleteDelegate dele in delegates)
+                {
+                    dele();
+                }
+            }
         }
     }
 
@@ -57,7 +67,7 @@ public class Achievement{
             if (AchievementManager.Instance.achievementDictionary.ContainsKey(prerequisiteName))
             {
                 prerequisite = AchievementManager.Instance.achievementDictionary[prerequisiteName];
-                prerequisite.RegisterCompletionDelegate(delegate { CompleteMethod(); });
+                prerequisite.RegisterCompletionDelegate(delegate { Debug.LogError("delegate triggers"); CompleteMethod(); });
             }
             else
             {
@@ -100,6 +110,7 @@ public class Achievement{
 
     void RegisterCompletionDelegate(AchievementCompleteDelegate dele)
     {
+        //Debug.LogError("register " + identifier);
         delegates.Add(dele);
     }
 
@@ -114,6 +125,7 @@ public class Achievement{
 
     void CheckForActivation()
     {
+        //Debug.LogError("prerequisite " + prerequisite + (prerequisite==null ? "none" : prerequisite.state.ToString()));
         if (state != AchievementState.locked)
         {
             return;
