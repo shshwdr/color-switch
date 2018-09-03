@@ -165,10 +165,15 @@ public class Achievement{
         CheckToChangeState();
     }
 
-    // Update is called once per frame
-    void Update () {
-		
-	}
+    public void CleanStep()
+    {
+        achievementStep.state = AchievementState.locked;
+    }
+
+    public void FinishStep()
+    {
+        achievementStep.state = AchievementState.complete;
+    }
 
     public override string ToString()
     {

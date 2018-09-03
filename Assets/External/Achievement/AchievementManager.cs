@@ -76,6 +76,7 @@ public class AchievementManager : Singleton<AchievementManager> {
     {
         foreach(Achievement achievement in achievementList)
         {
+            achievement.FinishStep();
             achievement.state = AchievementState.complete;
         }
     }
@@ -84,6 +85,7 @@ public class AchievementManager : Singleton<AchievementManager> {
     {
         foreach (Achievement achievement in achievementList)
         {
+            achievement.CleanStep();
             achievement.state = AchievementState.locked;
         }
     }
