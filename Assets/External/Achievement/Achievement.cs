@@ -15,6 +15,13 @@ public class Achievement{
     public AchievementState state
     {
         get { return (AchievementState)persistentAchievement.state; }
+        set
+        {
+            persistentAchievement.state = (int)value;
+            DataService ds = SQLiteDatabaseManager.Instance.ds;
+            ds.UpdateAchievement(persistentAchievement);
+            CheckToChangeState();
+        }
     }
 
         Achievement prerequisite;
@@ -29,7 +36,7 @@ public class Achievement{
         {
             persistentAchievement = new PersistentAchievement();
             persistentAchievement.identifier = identifier;
-            persistentAchievement.state = (int)AchievementState.locked;
+            state = AchievementState.locked;
             ds.InsertAchievement(persistentAchievement);
         }
         delegates = new List<AchievementCompleteDelegate>();
@@ -107,7 +114,7 @@ public class Achievement{
 
     void CheckForActivation()
     {
-        if (persistentAchievement.state != (int)AchievementState.locked)
+        if (state != AchievementState.locked)
         {
             return;
         }
@@ -118,7 +125,7 @@ public class Achievement{
         }
         if (shouldActivate)
         {
-            SetState(AchievementState.active);
+            state = AchievementState.active;
             CheckToActivateAchievementStep();
         }
     }
@@ -133,7 +140,14 @@ public class Achievement{
 
     void CheckForCompletion()
     {
-
+        if(state != AchievementState.active)
+        {
+            return;
+        }
+        if (achievementStep.IsComplete())
+        {
+            state = AchievementState.complete;
+        }
     }
 
     void CheckForFallThroughtCompletion()
@@ -143,20 +157,11 @@ public class Achievement{
 
     public bool IsComplete()
     {
-        return persistentAchievement.state == (int)AchievementState.complete;
+        return state == AchievementState.complete;
     }
 
     void CompleteMethod()
     {
-        CheckToChangeState();
-    }
-    
-
-    public void SetState(AchievementState s)
-    {
-        DataService ds = SQLiteDatabaseManager.Instance.ds;
-        persistentAchievement.state = (int)s;
-        ds.UpdateAchievement(persistentAchievement);
         CheckToChangeState();
     }
 
