@@ -6,6 +6,6 @@ public class NarrativeInfo{
     public string identifier;
     public string achievement;
     public string narrativeAction;
-    public string param;
+    public Dictionary<string,string> param;
 
 }

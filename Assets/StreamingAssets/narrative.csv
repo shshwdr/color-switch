@@ -1,3 +1,3 @@
 identifier,achievement,narrativeAction,param
-showChangeColorAnim,changeColor,showTutorialAnim,0
-showPassCorrectColorAnim,passCorrectColor,showTutorialAnim,1
+showChangeColorAnim,changeColor,showTutorialAnim,index:0|title:Change Color|message:Ball will Change color when hit shiny circle
+showPassCorrectColorAnim,passCorrectColor,showTutorialAnim,index:1|title:Pass With Correct Color|message:Ball will pass normal circle when they have the same color

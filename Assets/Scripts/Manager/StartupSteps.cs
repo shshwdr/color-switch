@@ -11,6 +11,7 @@ public class StartupSteps : MonoBehaviour {
         CurrencyManager.Instance.Init();
         AbilityManager.Instance.Init();
         AchievementManager.Instance.Init();
+        NarrativeManager.Instance.Init();
     }
     // Use this for initialization
     void Start () {
