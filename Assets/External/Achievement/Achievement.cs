@@ -23,7 +23,7 @@ public class Achievement{
             ds.UpdateAchievement(persistentAchievement);
             CheckToChangeState();
             //Debug.LogError("oldstate " + oldState + " new state " + persistentAchievement.state);
-            if (oldState != AchievementState.complete && persistentAchievement.state == (int)AchievementState.complete)
+            if (oldState != AchievementState.complete && value == AchievementState.complete)
             {
                 //Debug.LogError("deles " + delegates);
                 foreach (AchievementCompleteDelegate dele in delegates)
@@ -31,6 +31,7 @@ public class Achievement{
                     dele();
                 }
             }
+            NarrativeManager.Instance.UpdateAchievement(identifier, oldState, value);
         }
     }
 
