@@ -272,6 +272,26 @@ namespace Sinbad {
         }
 
         private static object ParseString(string strValue, Type t) {
+            if (t == typeof(Dictionary<string, string>))
+            {
+                Dictionary<string, string> res = new Dictionary<string, string>();
+                string[] pairs = strValue.Split('|');
+                foreach(string pair in pairs)
+                {
+                    string[] p = pair.Split(':');
+                    if (p.Length != 2)
+                    {
+                        Debug.LogError("error when parse pair" + pair+ " in string: "+strValue);
+                        return res;
+                    }
+                    if (res.ContainsKey(p[0]))
+                    {
+                        Debug.LogError("key " + p[0] + " has been defined multiple times in string: " + strValue);
+                    }
+                    res[p[0]] = p[1];
+                }
+                return res;
+            }
             var cv = TypeDescriptor.GetConverter(t);
             return cv.ConvertFromInvariantString(strValue);
         }
