@@ -1,3 +1,4 @@
 identifier,requirementClassString,requirementAmount,category
+firstStartPlayingStep,PlayerReachedLocationRequirement,1,0
 changeColorStep,PlayerReachedLocationRequirement,1,1.48
-passCorrectColorStep,PlayerReachedLocationRequirement,1,3.56
+passCorrectColorStep,PlayerReachedLocationRequirement,1,3.57

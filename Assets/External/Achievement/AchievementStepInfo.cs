@@ -7,5 +7,8 @@ public class AchievementStepInfo{
     public string requirementClassString;
     public int requirementAmount;
     public string category;
-
+    public override string ToString()
+    {
+        return "AchievementStepInfo: "+identifier;
+    }
 }

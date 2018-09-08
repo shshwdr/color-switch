@@ -16,22 +16,27 @@ public class TutorialManager : Singleton<TutorialManager> {
 
     public void Init()
     {
-        ReadCSV();
-        ShowTutorial(0,"a","b");
+        //ShowTutorial(0,"a","b");
     }
 
     // Update is called once per frame
     void Update () {
 		
 	}
-    void ReadCSV()
-    {
-       // tutorialNarrationInfoList = CsvUtil.LoadObjects<TutorialNarrationInfo>("tutorialNarration.csv");
-    }
+
+    static readonly string INDEX = "index";
+    static readonly string TITLE = "title";
+    static readonly string MESSAGE = "message";
 
     public void ShowTutorial(Dictionary<string,string> dict)
     {
-
+        if (dict.ContainsKey(INDEX) && dict.ContainsKey(TITLE) && dict.ContainsKey(MESSAGE))
+        {
+            ShowTutorial(int.Parse(dict[INDEX]), dict[TITLE], dict[MESSAGE]);
+        }else
+        {
+            Debug.LogError("some keys are missing in tutorial params: " + dict);
+        }
     }
 
     public void ShowTutorial(int index,string title, string message)

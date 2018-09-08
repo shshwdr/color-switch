@@ -43,8 +43,10 @@ public class Achievement{
 
         DataService ds = SQLiteDatabaseManager.Instance.ds;
         persistentAchievement = ds.GetPersistentAchievement(identifier);
+        
         if (persistentAchievement == null)
         {
+            
             persistentAchievement = new PersistentAchievement();
             persistentAchievement.identifier = identifier;
             state = AchievementState.locked;
@@ -68,7 +70,7 @@ public class Achievement{
             if (AchievementManager.Instance.achievementDictionary.ContainsKey(prerequisiteName))
             {
                 prerequisite = AchievementManager.Instance.achievementDictionary[prerequisiteName];
-                prerequisite.RegisterCompletionDelegate(delegate { Debug.LogError("delegate triggers"); CompleteMethod(); });
+                prerequisite.RegisterCompletionDelegate(delegate { Debug.Log("delegate triggers"); CompleteMethod(); });
             }
             else
             {
@@ -79,8 +81,9 @@ public class Achievement{
 
     void LoadAchievementSteps()
     {
+        Debug.Log("LoadAchievementSteps");
         //only support one step now
-        if(achievementInfo.achievementStep == null || achievementInfo.achievementStep.Length == 0)
+        if (achievementInfo.achievementStep == null || achievementInfo.achievementStep.Length == 0)
         {
             Debug.LogError("achievement does not have step: " + identifier);
         }
@@ -156,6 +159,10 @@ public class Achievement{
         if(state != AchievementState.active)
         {
             return;
+        }
+        if (achievementStep == null)
+        {
+            LoadAchievementSteps();
         }
         if (achievementStep.IsComplete())
         {

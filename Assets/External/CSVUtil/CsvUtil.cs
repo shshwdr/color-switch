@@ -46,7 +46,7 @@ namespace Sinbad {
         }
             var dbPath = filepath;
 #endif
-            Debug.Log("Final PATH: " + dbPath);
+            //Debug.Log("Final PATH: " + dbPath);
             using (var stream = File.Open(dbPath, FileMode.Open)) {
 				using (var rdr = new StreamReader(stream,System.Text.Encoding.UTF8)) {
                     return LoadObjects<T>(rdr, strict);

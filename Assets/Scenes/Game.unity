@@ -9240,6 +9240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialAnimPrefabs:
   - {fileID: 1509171595347228, guid: 6b00db40574ff0a4689913f8af7ce4a1, type: 2}
+  - {fileID: 1509171595347228, guid: cd9d8c2f1434ac54d853f9140b6b46df, type: 2}
 --- !u!1 &1855757952
 GameObject:
   m_ObjectHideFlags: 0

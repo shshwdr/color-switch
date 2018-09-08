@@ -62,4 +62,8 @@ public class AchievementStep {
         }
     }
 
+    public override string ToString()
+    {
+        return identifier + " " + state;
+    }
 }

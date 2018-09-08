@@ -22,8 +22,10 @@ public class AchievementAmountStep : AchievementStep {
         identifier = info.identifier;
         DataService ds = SQLiteDatabaseManager.Instance.ds;
         persistentAchievementAmountStep = ds.GetPersistentAchievementAmountStep(identifier);
+        Debug.Log("start achievement " + info);
         if (persistentAchievementAmountStep == null)
         {
+            Debug.Log("init new persistent achievement " + info);
             persistentAchievementAmountStep = new PersistentAchievementAmountStep();
             persistentAchievementAmountStep.identifier = identifier;
             persistentAchievementAmountStep.state = (int)AchievementState.locked;

@@ -26,18 +26,28 @@ public class NarrativeManager : Singleton<NarrativeManager> {
 
     public void UpdateAchievement(string achievement, AchievementState oldState,AchievementState newState)
     {
+        if (narrativeActionDictionary == null)
+        {
+            return;
+        }
         if(oldState == AchievementState.locked && newState == AchievementState.active)
         {
 
-            Debug.LogError("update " + achievement + " " + oldState + " " + newState);
-            activeNarrativeActions.AddRange(narrativeActionDictionary[achievement]);
+            Debug.Log("update " + achievement + " " + oldState + " " + newState);
+            if (narrativeActionDictionary.ContainsKey(achievement)) { 
+                activeNarrativeActions.AddRange(narrativeActionDictionary[achievement]);
+            }
         }
         //sort
     }
 
     private void Update()
     {
-        foreach(NarrativeAction action in activeNarrativeActions)
+        if (narrativeActionDictionary == null)
+        {
+            return;
+        }
+        foreach (NarrativeAction action in activeNarrativeActions)
         {
             if (!enabledNarrativeActions.Contains(action.identifier))
             {

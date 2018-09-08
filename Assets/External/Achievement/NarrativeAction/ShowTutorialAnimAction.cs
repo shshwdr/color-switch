@@ -10,6 +10,7 @@ public class ShowTutorialAnimAction : NarrativeAction {
 
     protected override void P_Enable()
     {
-
+        Debug.Log("enable tutorial action with info: " + narrativeInfo);
+        TutorialManager.Instance.ShowTutorial(narrativeInfo.param);
     }
 }

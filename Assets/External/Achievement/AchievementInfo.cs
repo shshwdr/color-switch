@@ -13,4 +13,8 @@ public class AchievementInfo {
     public string reward;
     public string comment;
 
+    public override string ToString()
+    {
+        return "AchievementInfo: "+identifier;
+    }
 }
