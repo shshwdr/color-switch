@@ -6,9 +6,11 @@ using Sinbad;
 public class NarrativeManager : Singleton<NarrativeManager> {
     Dictionary<string, HashSet<NarrativeAction>> narrativeActionDictionary;
     List<NarrativeAction> activeNarrativeActions;
+    HashSet<string> enabledNarrativeActions;
     public void Init() {
         List<NarrativeInfo> narrativeInfoList = CsvUtil.LoadObjects<NarrativeInfo>("narrative.csv");
         narrativeActionDictionary = new Dictionary<string, HashSet<NarrativeAction>>();
+        enabledNarrativeActions = new HashSet<string>();
         activeNarrativeActions = new List<NarrativeAction>();
         foreach(NarrativeInfo info in narrativeInfoList)
         {
@@ -30,13 +32,18 @@ public class NarrativeManager : Singleton<NarrativeManager> {
             Debug.LogError("update " + achievement + " " + oldState + " " + newState);
             activeNarrativeActions.AddRange(narrativeActionDictionary[achievement]);
         }
+        //sort
     }
 
     private void Update()
     {
         foreach(NarrativeAction action in activeNarrativeActions)
         {
-            Debug.LogError("action " + action.identifier);
+            if (!enabledNarrativeActions.Contains(action.identifier))
+            {
+                action.Enable();
+                enabledNarrativeActions.Add(action.identifier);
+            }
         }
     }
 }

@@ -7,4 +7,9 @@ public class ShowTutorialAnimAction : NarrativeAction {
     {
 
     }
+
+    protected override void P_Enable()
+    {
+
+    }
 }

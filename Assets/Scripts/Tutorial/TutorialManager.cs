@@ -11,24 +11,34 @@ public class TutorialManager : Singleton<TutorialManager> {
     GameObject currentTutorial;
     // Use this for initialization
     void Start () {
-        ReadCSV();
-        ShowTutorial(0);
+        
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    public void Init()
+    {
+        ReadCSV();
+        ShowTutorial(0,"a","b");
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
     void ReadCSV()
     {
-        tutorialNarrationInfoList = CsvUtil.LoadObjects<TutorialNarrationInfo>("tutorialNarration.csv");
+       // tutorialNarrationInfoList = CsvUtil.LoadObjects<TutorialNarrationInfo>("tutorialNarration.csv");
     }
 
-    public void ShowTutorial(int index)
+    public void ShowTutorial(Dictionary<string,string> dict)
+    {
+
+    }
+
+    public void ShowTutorial(int index,string title, string message)
     {
         GameLogicManager.Instance.isPaused = true;
         DialogDelegate okDialog = delegate { Destroy(currentTutorial); currentTutorial = null; GameLogicManager.Instance.isPaused = false; };
-        PopupDialogManager.Instance.CreatePopupDialog(tutorialNarrationInfoList[index].title, tutorialNarrationInfoList[index].message, okDialog, TextAlignmentOptions.Bottom, true);
+        PopupDialogManager.Instance.CreatePopupDialog(title, message, okDialog, TextAlignmentOptions.Bottom, true);
         currentTutorial = Instantiate(tutorialAnimPrefabs[index], transform);
     }
 }
