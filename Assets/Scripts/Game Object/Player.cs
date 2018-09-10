@@ -110,6 +110,24 @@ public class Player : MonoBehaviour
         sr.color = colorList[(int)c];
     }
 
+    protected virtual void HitWontChangePartWithDifferentColor()
+    {
+        if (!gotHurtInThisJump)
+        {
+            gotHurtInThisJump = true;
+            lossHP();
+            Camera.main.GetComponent<FollowTarget>().ShakeCamera();
+            if (isDead())
+            {
+                GameOver();
+            }
+            else
+            {
+                SFXManager.Instance.PlaySFX(SFXEnum.hitOnPart);
+            }
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (isGameOver)
@@ -143,20 +161,7 @@ public class Player : MonoBehaviour
             {
                 if (c != gameColor)
                 {
-                    if (!gotHurtInThisJump)
-                    {
-                        gotHurtInThisJump = true;
-                        lossHP();
-                        Camera.main.GetComponent<FollowTarget>().ShakeCamera();
-                        if (isDead())
-                        {
-                            GameOver();
-                        }
-                        else
-                        {
-                            SFXManager.Instance.PlaySFX(SFXEnum.hitOnPart);
-                        }
-                    }
+                    HitWontChangePartWithDifferentColor();
                 }
                 else
                 {

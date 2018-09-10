@@ -30,4 +30,15 @@ public class TutorialPlayer : Player
     {
         return;
     }
+
+    protected override void HitWontChangePartWithDifferentColor()
+    {
+        ShowLossHP();
+            SFXManager.Instance.PlaySFX(SFXEnum.hitOnPart);
+    }
+
+    void ShowLossHP()
+    {
+
+    }
 }

@@ -424,7 +424,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1509171595347228}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 37.68}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4810903078968282}
@@ -924,7 +924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb61458bf56140044b8e6e8a9e554e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameColor: 0
+  gameColor: 1
   index: 1
 --- !u!114 &114058743871011270
 MonoBehaviour:
@@ -938,7 +938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shouldChangeChildren: 1
-  willChange: 1
+  willChange: 0
   bombPrefab: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 2}
   itemObject: {fileID: 1746668331281246}
 --- !u!114 &114131469943761906
@@ -965,7 +965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb61458bf56140044b8e6e8a9e554e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameColor: 0
+  gameColor: 2
   index: 2
 --- !u!114 &114203337087106724
 MonoBehaviour:
@@ -1079,7 +1079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb61458bf56140044b8e6e8a9e554e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameColor: 0
+  gameColor: 3
   index: 3
 --- !u!114 &114545990162294714
 MonoBehaviour:
