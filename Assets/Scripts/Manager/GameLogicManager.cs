@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class GameLogicManager : Singleton<GameLogicManager> {
     public Player player;
+    int pauseValue;
+    public bool isPaused { get { return pauseValue > 0; } }
 
-    public bool isPaused;
+    public void BlockTouch()
+    {
+        pauseValue++;
+    }
+    public void UnblockTouch()
+    {
+        pauseValue--;
+    }
     public void Pause()
     {
         Time.timeScale = 0;
-        isPaused = true;
+        pauseValue++;
     }
 
 
@@ -17,7 +26,7 @@ public class GameLogicManager : Singleton<GameLogicManager> {
     public void Resume()
     {
         Time.timeScale = 1;
-        isPaused = false;
+        pauseValue--;
     }
     // Use this for initialization
     void Start () {

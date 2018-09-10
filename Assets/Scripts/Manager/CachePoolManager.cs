@@ -7,6 +7,7 @@ public class CachePoolManager : Singleton<CachePoolManager> {
     int currentItemTextIndex;
     public GameObject[] circlePool;
     int currentCircleIndex = 3;
+    public GameObject tutorialPopupText;
     public GameObject ItemText()
     {
         GameObject go = ItemTextsPool[currentItemTextIndex];
@@ -26,5 +27,6 @@ public class CachePoolManager : Singleton<CachePoolManager> {
         {
             go.SetActive(false);
         }
+        tutorialPopupText.SetActive(false);
     }
 }

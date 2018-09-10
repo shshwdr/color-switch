@@ -128,6 +128,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    protected virtual void HitWontChangePartWithSameColor()
+    {
+
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (isGameOver)
@@ -165,6 +170,7 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
+                    HitWontChangePartWithSameColor();
                     //achievement
                 }
             }
@@ -196,10 +202,7 @@ public class Player : MonoBehaviour
         {
             string itemName = GameItemManager.GetItem(item.itemEnum);
 
-            //put this into itemTextClass
-            GameObject go = CachePoolManager.Instance.ItemText();
-            ItemText itemText = go.GetComponent<ItemText>();
-            itemText.Initialize(itemName, item.transform.position);
+            ItemText.CreateText(itemName, item.transform);
 
             item.gameObject.SetActive(false);
             gottenItem = item.gameObject;

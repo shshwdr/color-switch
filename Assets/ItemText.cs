@@ -31,6 +31,19 @@ public class ItemText : MonoBehaviour
         go.SetActive(false);
     }
 
+    static public void CreateText(GameObject go, string textString, Transform trans)
+    {
+        ItemText itemText = go.GetComponent<ItemText>();
+        itemText.Initialize(textString, trans.position);
+    }
+    
+    static public void CreateText(string textString, Transform trans)
+    {
+        //put this into itemTextClass
+        GameObject go = CachePoolManager.Instance.ItemText();
+        CreateText(go, textString, trans);
+    }
+
     public void Initialize(string t, Vector2 p)
     {
         text.text = t;
@@ -40,7 +53,7 @@ public class ItemText : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
 
     }
 }

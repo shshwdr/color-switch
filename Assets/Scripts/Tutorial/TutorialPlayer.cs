@@ -39,6 +39,11 @@ public class TutorialPlayer : Player
 
     void ShowLossHP()
     {
+        ItemText.CreateText(CachePoolManager.Instance.tutorialPopupText,"-1 HP", transform);
+    }
 
+    protected override void HitWontChangePartWithSameColor()
+    {
+        ItemText.CreateText(CachePoolManager.Instance.tutorialPopupText, "SAFE!", transform);
     }
 }

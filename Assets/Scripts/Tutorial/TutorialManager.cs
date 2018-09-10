@@ -41,8 +41,8 @@ public class TutorialManager : Singleton<TutorialManager> {
 
     public void ShowTutorial(int index,string title, string message)
     {
-        GameLogicManager.Instance.isPaused = true;
-        DialogDelegate okDialog = delegate { Destroy(currentTutorial); currentTutorial = null; GameLogicManager.Instance.isPaused = false; };
+        GameLogicManager.Instance.Pause();
+        DialogDelegate okDialog = delegate { Destroy(currentTutorial); currentTutorial = null; GameLogicManager.Instance.Resume(); };
         PopupDialogManager.Instance.CreatePopupDialog(title, message, okDialog, TextAlignmentOptions.Bottom, true);
         currentTutorial = Instantiate(tutorialAnimPrefabs[index], transform);
     }
