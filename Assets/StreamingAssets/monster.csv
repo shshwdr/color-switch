@@ -1,0 +1,3 @@
+identifier,description,hp,attack
+monster,the basic monster,1|2,1
+assasin,"the first boss, has high attack",2,10

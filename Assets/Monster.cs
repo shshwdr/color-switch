@@ -14,6 +14,14 @@ public class Monster : MonoBehaviour {
     public TextMeshProUGUI hpText;
     public TextMeshProUGUI attackText;
 
+    public void Init(MonsterInfo monsterInfo)
+    {
+        hp = monsterInfo.hpValue;
+        attack = monsterInfo.attackValue;
+        monsterSpriteRender.sprite = monsterInfo.icon;
+        UpdateState();
+    }
+
     public void Init(int initialHp,int initialAttack)
     {
         hp = initialHp;

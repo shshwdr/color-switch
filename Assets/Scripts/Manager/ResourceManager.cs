@@ -8,6 +8,6 @@ public class ResourceManager : Singleton<ResourceManager> {
     public Sprite[] itemSprite;
     
     public Sprite[] abilitySprite;
-    
+    public Sprite[] monsterSprite;
 	
 }

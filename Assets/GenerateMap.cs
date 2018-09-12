@@ -120,7 +120,13 @@ public class GenerateMap : MonoBehaviour {
                     WholeCircle wc = go.GetComponentInChildren<WholeCircle>();
                     //put these inside wholeCircle
                     wc.itemObject.SetActive(false);
-                    wc.monsterObject.SetActive(false);
+                    //test only
+                    //wc.monsterObject.SetActive(false);
+                    wc.monsterObject.SetActive(true);
+                    Monster monster2 = wc.monsterObject.GetComponent<Monster>();
+                    monster2.Init(MonsterManager.Instance.monsterInfoList[Random.Range(0,2)]);
+
+
                     wc.ReactiveChildren();
                     wc.willChange = false;
                     Rotator rt = go.GetComponentInChildren<Rotator>();
@@ -194,12 +200,12 @@ public class GenerateMap : MonoBehaviour {
         //gameItem.itemEnum = (GameItemEnum)Random.Range(0, (int)GameItemEnum.random+1);
         //gameItem.Init();
 
-        int rand3 = Random.Range(0, thisGeneratedList.Count);
-        GameObject go2 = thisGeneratedList[rand3];
-        WholeCircle wc2 = go2.GetComponentInChildren<WholeCircle>();
-        wc2.monsterObject.SetActive(true);
-        Monster monster = wc2.monsterObject.GetComponent<Monster>();
-        monster.Init(2,2);
+        //int rand3 = Random.Range(0, thisGeneratedList.Count);
+        //GameObject go2 = thisGeneratedList[rand3];
+        //WholeCircle wc2 = go2.GetComponentInChildren<WholeCircle>();
+        //wc2.monsterObject.SetActive(true);
+        //Monster monster = wc2.monsterObject.GetComponent<Monster>();
+        //monster.Init(2,2);
 
     }
     
