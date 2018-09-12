@@ -118,7 +118,9 @@ public class GenerateMap : MonoBehaviour {
                     go.SetActive(true);
                     go.transform.position = willGeneratePosition;
                     WholeCircle wc = go.GetComponentInChildren<WholeCircle>();
+                    //put these inside wholeCircle
                     wc.itemObject.SetActive(false);
+                    wc.monsterObject.SetActive(false);
                     wc.ReactiveChildren();
                     wc.willChange = false;
                     Rotator rt = go.GetComponentInChildren<Rotator>();
@@ -184,13 +186,20 @@ public class GenerateMap : MonoBehaviour {
                 emptyLineNumber++;
             }
         }
+        //int rand3 = Random.Range(0, thisGeneratedList.Count);
+        //GameObject go2 = thisGeneratedList[rand3];
+        //WholeCircle wc2 = go2.GetComponentInChildren<WholeCircle>();
+        //wc2.itemObject.SetActive(true);
+        //GameItem gameItem = wc2.itemObject.GetComponent<GameItem>();
+        //gameItem.itemEnum = (GameItemEnum)Random.Range(0, (int)GameItemEnum.random+1);
+        //gameItem.Init();
+
         int rand3 = Random.Range(0, thisGeneratedList.Count);
         GameObject go2 = thisGeneratedList[rand3];
         WholeCircle wc2 = go2.GetComponentInChildren<WholeCircle>();
-        wc2.itemObject.SetActive(true);
-        GameItem itemManager = wc2.itemObject.GetComponent<GameItem>();
-        itemManager.itemEnum = (GameItemEnum)Random.Range(0, (int)GameItemEnum.random+1);
-        itemManager.Init();
+        wc2.monsterObject.SetActive(true);
+        Monster monster = wc2.monsterObject.GetComponent<Monster>();
+        monster.Init(2,2);
 
     }
     

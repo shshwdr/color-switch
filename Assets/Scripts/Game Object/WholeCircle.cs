@@ -7,6 +7,7 @@ public class WholeCircle : MonoBehaviour {
     public bool willChange;
     public GameObject bombPrefab;
     public GameObject itemObject;
+    public GameObject monsterObject;
 	// Use this for initialization
 	void Start () {
         Init();
