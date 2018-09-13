@@ -5,7 +5,7 @@ using Sinbad;
 
 public enum MonsterEnum
 {
-    monster,assasin,
+    monster,guard,assasin,
 };
 
 public class MonsterManager : Singleton<MonsterManager> {
@@ -22,6 +22,12 @@ public class MonsterManager : Singleton<MonsterManager> {
         monsterInfoList = CsvUtil.LoadObjects<MonsterInfo>("monster.csv");
 
     }
+
+    public MonsterInfo GetMonsterInfoByIdentifier(string identifier)
+    {
+        MonsterEnum monsterEnum = (MonsterEnum)System.Enum.Parse(typeof(MonsterEnum), identifier);
+        return monsterInfoList[(int)monsterEnum];
+    } 
 
     
 }

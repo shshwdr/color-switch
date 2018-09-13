@@ -14,6 +14,7 @@ public class StartupSteps : MonoBehaviour {
         NarrativeManager.Instance.Init();
         TutorialManager.Instance.Init();
         MonsterManager.Instance.Init();
+        LevelManager.Instance.Init();
     }
     // Use this for initialization
     void Start () {

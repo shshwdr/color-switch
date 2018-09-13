@@ -124,7 +124,8 @@ public class GenerateMap : MonoBehaviour {
                     //wc.monsterObject.SetActive(false);
                     wc.monsterObject.SetActive(true);
                     Monster monster2 = wc.monsterObject.GetComponent<Monster>();
-                    monster2.Init(MonsterManager.Instance.monsterInfoList[Random.Range(0,2)]);
+                    string monsterIdentifier = LevelManager.Instance.GenerateAMonsterIdentifier();
+                    monster2.Init(MonsterManager.Instance.GetMonsterInfoByIdentifier(monsterIdentifier));
 
 
                     wc.ReactiveChildren();

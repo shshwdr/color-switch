@@ -9,6 +9,7 @@ public class Monster : MonoBehaviour {
     public int attack;
     public bool isDead;
     public float dropingSpeed = 10f;
+    public int currentHP;
 
     public SpriteRenderer monsterSpriteRender;
     public TextMeshProUGUI hpText;
