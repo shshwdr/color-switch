@@ -10428,7 +10428,7 @@ Prefab:
     - target: {fileID: 114921876181422268, guid: e831a02fb0f611b4bb39d341fac44e3d,
         type: 2}
       propertyPath: monsterSprite.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4282128095234962, guid: e831a02fb0f611b4bb39d341fac44e3d, type: 2}
       propertyPath: m_LocalPosition.x
@@ -10475,6 +10475,12 @@ Prefab:
     - target: {fileID: 114921876181422268, guid: e831a02fb0f611b4bb39d341fac44e3d,
         type: 2}
       propertyPath: monsterSprite.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0831d7ba94430c748b47bda31934fd7e,
+        type: 3}
+    - target: {fileID: 114921876181422268, guid: e831a02fb0f611b4bb39d341fac44e3d,
+        type: 2}
+      propertyPath: monsterSprite.Array.data[2]
       value: 
       objectReference: {fileID: 21300000, guid: 44c16e92567032f4f8dd44badf10e099,
         type: 3}

@@ -23,12 +23,29 @@ public class LevelManager : Singleton<LevelManager> {
     public string GenerateAMonsterIdentifier()
     {
         Dictionary<string,string> probability = currentLevelInfo.monstersWithProbability;
+        int sum = 0;
+        List<string> keys = new List<string>();
+        List<int> values = new List<int>();
         foreach(string key in probability.Keys)
         {
-            return key;
+            int value  = int.Parse(probability[key]);
+            keys.Add(key);
+            values.Add(value);
+            sum += value;
         }
-        Debug.LogError("probability does not have keys for level " + currentLevelInfo.identifier);
-        return "";
+        int rand = Random.Range(0, sum);
+        int tempSum = 0;
+        for(int i = 0;i<values.Count;i++)
+        {
+            int value = values[i];
+            tempSum += value;
+            if (rand <= tempSum)
+            {
+                return keys[i];
+            }
+        }
+        Debug.LogError("rand " + rand+" values: "+values+" keys: "+keys);
+        return keys[0];
     }
 
     
