@@ -139,8 +139,9 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        Debug.Log(col);
-        if (col.GetComponent<SpriteRenderer>()!=null && col.GetComponent<SpriteRenderer>().sortingLayerID!= GetComponent<SpriteRenderer>().sortingLayerID)
+        //Debug.LogError(col+" layer "+ col.GetComponent<SpriteRenderer>().sortingLayerID);
+        //1746648709 ???
+        if (col.GetComponent<SpriteRenderer>()!=null && col.GetComponent<SpriteRenderer>().sortingLayerID!= 1746648709)
         {
             return;
         }

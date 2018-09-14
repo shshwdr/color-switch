@@ -697,8 +697,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -761050507
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6683,22 +6683,22 @@ Prefab:
       propertyPath: m_Name
       value: smallCircle 1 (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 114714233016293506, guid: ca404d71ac1978a40808cfd3d5f440f6,
+    - target: {fileID: 114053303561563260, guid: ca404d71ac1978a40808cfd3d5f440f6,
         type: 2}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114714233016293506, guid: ca404d71ac1978a40808cfd3d5f440f6,
+    - target: {fileID: 114053303561563260, guid: ca404d71ac1978a40808cfd3d5f440f6,
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114053303561563260, guid: ca404d71ac1978a40808cfd3d5f440f6,
+    - target: {fileID: 114714233016293506, guid: ca404d71ac1978a40808cfd3d5f440f6,
         type: 2}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114053303561563260, guid: ca404d71ac1978a40808cfd3d5f440f6,
+    - target: {fileID: 114714233016293506, guid: ca404d71ac1978a40808cfd3d5f440f6,
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
@@ -8871,6 +8871,46 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212338693658291342, guid: ca404d71ac1978a40808cfd3d5f440f6,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 1746648709
+      objectReference: {fileID: 0}
+    - target: {fileID: 212338693658291342, guid: ca404d71ac1978a40808cfd3d5f440f6,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 212787838902833572, guid: ca404d71ac1978a40808cfd3d5f440f6,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 1746648709
+      objectReference: {fileID: 0}
+    - target: {fileID: 212787838902833572, guid: ca404d71ac1978a40808cfd3d5f440f6,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 212253717303391796, guid: ca404d71ac1978a40808cfd3d5f440f6,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 1746648709
+      objectReference: {fileID: 0}
+    - target: {fileID: 212253717303391796, guid: ca404d71ac1978a40808cfd3d5f440f6,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 212004464149263370, guid: ca404d71ac1978a40808cfd3d5f440f6,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 1746648709
+      objectReference: {fileID: 0}
+    - target: {fileID: 212004464149263370, guid: ca404d71ac1978a40808cfd3d5f440f6,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca404d71ac1978a40808cfd3d5f440f6, type: 2}
   m_IsPrefabParent: 0
@@ -8942,22 +8982,22 @@ Prefab:
     - target: {fileID: 114053303561563260, guid: ca404d71ac1978a40808cfd3d5f440f6,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114053303561563260, guid: ca404d71ac1978a40808cfd3d5f440f6,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114714233016293506, guid: ca404d71ac1978a40808cfd3d5f440f6,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114714233016293506, guid: ca404d71ac1978a40808cfd3d5f440f6,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114053303561563260, guid: ca404d71ac1978a40808cfd3d5f440f6,
         type: 2}
