@@ -14,6 +14,9 @@ public enum SFXEnum
     coin,
     purchase,
     bubble,
+    monsterHit,
+    weakMaleHit,
+    girlHit,
 };
 
 public class SFXManager : Singleton<SFXManager>

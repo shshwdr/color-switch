@@ -7,6 +7,7 @@ public class MonsterInfo {
     public string description;
     public string hp;
     public string attack;
+    public string hitClipIdentifier;
     public int hpValue { get {
             string[] split = hp.Split('|');
             if (split.Length == 1)

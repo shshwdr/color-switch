@@ -17,23 +17,46 @@ public class Monster : MonoBehaviour {
 
     public void Init(MonsterInfo monsterInfo)
     {
-        hp = monsterInfo.hpValue;
-        attack = monsterInfo.attackValue;
         monsterSpriteRender.sprite = monsterInfo.icon;
-        UpdateState();
+        Init(monsterInfo.hpValue, monsterInfo.attackValue);
     }
 
     public void Init(int initialHp,int initialAttack)
     {
         hp = initialHp;
+        currentHP = hp;
         attack = initialAttack;
         //monsterSpriteRender.sprite = sprite;
         UpdateState();
     }
 
+    public void GetDamage(int damage)
+    {
+        if (isDead)
+        {
+            return;
+        }
+        currentHP -= damage;
+        UpdateState();
+
+        if(currentHP <= 0)
+        {
+            Dead();
+        }
+
+        //SFXEnum sfxEnum = (SFXEnum)System.Enum.Parse(typeof(SFXEnum), "monsterHit");
+       // SFXManager.Instance.PlaySFX(sfxEnum);
+    }
+
+    public void Dead()
+    {
+        isDead = true;
+        gameObject.SetActive(false);
+    }
+
     public void UpdateState()
     {
-        hpText.text = hp.ToString();
+        hpText.text = currentHP.ToString();
         attackText.text = attack.ToString();
     }
 

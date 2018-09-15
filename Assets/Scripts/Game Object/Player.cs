@@ -188,6 +188,12 @@ public class Player : MonoBehaviour
             //get item if exist
             GameItem item = col.transform.parent.parent.GetComponentInChildren<GameItem>();
             UseItem(item);
+
+            Monster monster = col.transform.parent.parent.GetComponentInChildren<Monster>();
+            if (monster && monster.gameObject.activeSelf)
+            {
+                monster.GetDamage(1);
+            }
         }
         else
         {
@@ -326,6 +332,12 @@ public class Player : MonoBehaviour
         sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1);
         GameItem item = targetObject.GetComponentInChildren<WholeCircle>().itemObject.GetComponent<GameItem>();
         UseItem(item);
+
+        Monster monster = targetObject.GetComponentInChildren<WholeCircle>().monsterObject.GetComponent<Monster>();
+        if (monster && monster.gameObject.activeSelf)
+        {
+            monster.GetDamage(1);
+        }
     }
 
     public void SlowDown()

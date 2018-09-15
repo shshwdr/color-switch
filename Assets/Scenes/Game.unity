@@ -2887,6 +2887,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114073784879951972, guid: 8bdb1b95b4008f842b33362ac116956e,
+        type: 2}
+      propertyPath: clips.Array.size
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 4206806267572884, guid: 8bdb1b95b4008f842b33362ac116956e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 442.82187
@@ -2923,6 +2928,21 @@ Prefab:
       propertyPath: m_Name
       value: SFX
       objectReference: {fileID: 0}
+    - target: {fileID: 114073784879951972, guid: 8bdb1b95b4008f842b33362ac116956e,
+        type: 2}
+      propertyPath: clips.Array.data[11]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3a066547ccdfcb741afa95c93d87fd27, type: 3}
+    - target: {fileID: 114073784879951972, guid: 8bdb1b95b4008f842b33362ac116956e,
+        type: 2}
+      propertyPath: clips.Array.data[12]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4b1120ccf13bf844dbb38d3487a7ca86, type: 3}
+    - target: {fileID: 114073784879951972, guid: 8bdb1b95b4008f842b33362ac116956e,
+        type: 2}
+      propertyPath: clips.Array.data[13]
+      value: 
+      objectReference: {fileID: 8300000, guid: 592e8d540adf36846b39dd0635b703bf, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8bdb1b95b4008f842b33362ac116956e, type: 2}
   m_IsPrefabParent: 0
@@ -8835,32 +8855,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 4097239131437952, guid: ca404d71ac1978a40808cfd3d5f440f6, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4097239131437952, guid: ca404d71ac1978a40808cfd3d5f440f6, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4097239131437952, guid: ca404d71ac1978a40808cfd3d5f440f6, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1478432218996598, guid: ca404d71ac1978a40808cfd3d5f440f6, type: 2}
       propertyPath: m_Name
       value: smallCircle 1 (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 114714233016293506, guid: ca404d71ac1978a40808cfd3d5f440f6,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114714233016293506, guid: ca404d71ac1978a40808cfd3d5f440f6,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114053303561563260, guid: ca404d71ac1978a40808cfd3d5f440f6,
         type: 2}
       propertyPath: m_havePropertiesChanged
@@ -8871,45 +8869,15 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 212338693658291342, guid: ca404d71ac1978a40808cfd3d5f440f6,
+    - target: {fileID: 114714233016293506, guid: ca404d71ac1978a40808cfd3d5f440f6,
         type: 2}
-      propertyPath: m_SortingLayerID
-      value: 1746648709
+      propertyPath: m_havePropertiesChanged
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 212338693658291342, guid: ca404d71ac1978a40808cfd3d5f440f6,
+    - target: {fileID: 114714233016293506, guid: ca404d71ac1978a40808cfd3d5f440f6,
         type: 2}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 212787838902833572, guid: ca404d71ac1978a40808cfd3d5f440f6,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: 1746648709
-      objectReference: {fileID: 0}
-    - target: {fileID: 212787838902833572, guid: ca404d71ac1978a40808cfd3d5f440f6,
-        type: 2}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 212253717303391796, guid: ca404d71ac1978a40808cfd3d5f440f6,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: 1746648709
-      objectReference: {fileID: 0}
-    - target: {fileID: 212253717303391796, guid: ca404d71ac1978a40808cfd3d5f440f6,
-        type: 2}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 212004464149263370, guid: ca404d71ac1978a40808cfd3d5f440f6,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: 1746648709
-      objectReference: {fileID: 0}
-    - target: {fileID: 212004464149263370, guid: ca404d71ac1978a40808cfd3d5f440f6,
-        type: 2}
-      propertyPath: m_SortingLayer
-      value: 2
+      propertyPath: m_isInputParsingRequired
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca404d71ac1978a40808cfd3d5f440f6, type: 2}
