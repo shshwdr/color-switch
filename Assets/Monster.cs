@@ -45,7 +45,7 @@ public class Monster : MonoBehaviour {
         }
 
         //SFXEnum sfxEnum = (SFXEnum)System.Enum.Parse(typeof(SFXEnum), "monsterHit");
-       // SFXManager.Instance.PlaySFX(sfxEnum);
+       //  SFXManager.Instance.PlaySFX(sfxEnum);
     }
 
     public void Dead()
