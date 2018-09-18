@@ -44,7 +44,7 @@ public class Monster : MonoBehaviour {
         currentHP -= damage;
         UpdateState();
         //Debug.LogError(info.identifier+ " getDamage");
-        SFXEnum sfxEnum = (SFXEnum)System.Enum.Parse(typeof(SFXEnum), "monsterHit");
+        SFXEnum sfxEnum = (SFXEnum)System.Enum.Parse(typeof(SFXEnum), info.hitSfx);
         audioSource.clip = SFXManager.Instance.SfxClip(sfxEnum);
         //Debug.LogError("audioSource " + audioSource + " clip " + audioSource.clip);
         audioSource.Play();

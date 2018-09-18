@@ -1,13 +1,13 @@
-identifier,description,hp,attack
-monster,the basic monster,1,1|2
-guard,the guard,1|2,1
-assasin,"the first boss, has high attack",2,10
-test,will throw player back,1,1
-test2,will throw player to a random circle,2,2
-ghost,not able to attack for some time,3,3
-boss,can summon circle with monsters,4,4
-bird,fly horizontally,5,5
-insect,jump vertically,6,6
-guardBoss,guard boss,7,7
-princess,princess,8,8
-king,king,9,9
+identifier,description,hp,attack,hitSfx
+monster,the basic monster,1,1|2,monsterHit
+guard,the guard,1|2,1,weakMaleHit
+assasin,"the first boss, has high attack",2,10,girlHit
+test,will throw player back,1,1,
+test2,will throw player to a random circle,2,2,
+ghost,not able to attack for some time,3,3,
+boss,can summon circle with monsters,4,4,
+bird,fly horizontally,5,5,
+insect,jump vertically,6,6,
+guardBoss,guard boss,7,7,
+princess,princess,8,8,
+king,king,9,9,

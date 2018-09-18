@@ -14,8 +14,8 @@ public enum SFXEnum
     coin,
     purchase,
     bubble,
-    monsterHit,
     weakMaleHit,
+    monsterHit,
     girlHit,
 };
 
