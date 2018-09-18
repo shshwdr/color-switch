@@ -11,14 +11,19 @@ public class Monster : MonoBehaviour {
     public float dropingSpeed = 10f;
     public int currentHP;
 
+    AudioSource audioSource;
+
     public SpriteRenderer monsterSpriteRender;
     public TextMeshProUGUI hpText;
     public TextMeshProUGUI attackText;
+    MonsterInfo info;
 
     public void Init(MonsterInfo monsterInfo)
     {
         monsterSpriteRender.sprite = monsterInfo.icon;
+        info = monsterInfo;
         Init(monsterInfo.hpValue, monsterInfo.attackValue);
+        
     }
 
     public void Init(int initialHp,int initialAttack)
@@ -38,20 +43,24 @@ public class Monster : MonoBehaviour {
         }
         currentHP -= damage;
         UpdateState();
+        //Debug.LogError(info.identifier+ " getDamage");
+        SFXEnum sfxEnum = (SFXEnum)System.Enum.Parse(typeof(SFXEnum), "monsterHit");
+        audioSource.clip = SFXManager.Instance.SfxClip(sfxEnum);
+        //Debug.LogError("audioSource " + audioSource + " clip " + audioSource.clip);
+        audioSource.Play();
 
-        if(currentHP <= 0)
+        if (currentHP <= 0)
         {
             Dead();
         }
 
-        //SFXEnum sfxEnum = (SFXEnum)System.Enum.Parse(typeof(SFXEnum), "monsterHit");
-       //  SFXManager.Instance.PlaySFX(sfxEnum);
+            
     }
 
     public void Dead()
     {
         isDead = true;
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 
     public void UpdateState()
@@ -63,6 +72,7 @@ public class Monster : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         gameObject.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame

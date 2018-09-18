@@ -53,6 +53,11 @@ public class SFXManager : Singleton<SFXManager>
         }
     }
 
+    public AudioClip SfxClip(SFXEnum sfxEnum)
+    {
+        return clips[(int)sfxEnum];
+    }
+
     // Update is called once per frame
     void Update()
     {
