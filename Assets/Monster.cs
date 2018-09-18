@@ -10,8 +10,10 @@ public class Monster : MonoBehaviour {
     public bool isDead;
     public float dropingSpeed = 10f;
     public int currentHP;
+    public GameObject MonsterObject;
 
     AudioSource audioSource;
+    Animator anim;
 
     public SpriteRenderer monsterSpriteRender;
     public TextMeshProUGUI hpText;
@@ -31,6 +33,7 @@ public class Monster : MonoBehaviour {
         hp = initialHp;
         currentHP = hp;
         attack = initialAttack;
+        anim.Rebind();
         //monsterSpriteRender.sprite = sprite;
         UpdateState();
     }
@@ -60,6 +63,7 @@ public class Monster : MonoBehaviour {
     public void Dead()
     {
         isDead = true;
+        anim.SetBool("isDead", true);
         //gameObject.SetActive(false);
     }
 
@@ -73,6 +77,7 @@ public class Monster : MonoBehaviour {
 	void Start () {
         gameObject.SetActive(false);
         audioSource = GetComponent<AudioSource>();
+        anim = GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
