@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
 
     //items
     public GameObject targetObject;
+    public GameObject startObject;
     public bool willTeleportNext;
     public bool willTeleportThis;
 
@@ -189,11 +190,14 @@ public class Player : MonoBehaviour
             GameItem item = col.transform.parent.parent.GetComponentInChildren<GameItem>();
             UseItem(item);
 
+            if(col.transform.parent.gameObject!= startObject) { 
             Monster monster = col.transform.parent.parent.GetComponentInChildren<Monster>();
-            if (monster && monster.gameObject.activeSelf)
-            {
-                monster.GetDamage(1);
+                if (monster && monster.gameObject.activeSelf)
+                {
+                    monster.GetDamage(1);
+                }
             }
+
         }
         else
         {
@@ -255,6 +259,7 @@ public class Player : MonoBehaviour
     public bool MoveToTarget(GameObject target_object)
     {
         Vector3 target = target_object.transform.position;
+        startObject = targetObject;
         targetObject = target_object;
         gotHurtInThisJump = false;
         gameStarted = true;
