@@ -13,7 +13,21 @@ public class WholeCircle : MonoBehaviour {
         Init();
 	}
 
-    public void Init()
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.tag == "monsterHitBar")
+        {
+            //Debug.LogError("collide " + col.gameObject + " tag " + col.gameObject.tag);
+            Monster monster = transform.parent.GetComponentInChildren<Monster>();
+            //Debug.LogError("monster " + monster+monster.gameObject.activeSelf);
+            if (monster && monster.gameObject.activeSelf)
+            {
+                monster.DamageOnPlayer();
+            }
+        }
+    }
+
+        public void Init()
     {
         if (shouldChangeChildren)
         {

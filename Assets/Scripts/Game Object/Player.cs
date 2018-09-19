@@ -116,7 +116,7 @@ public class Player : MonoBehaviour
         if (!gotHurtInThisJump)
         {
             gotHurtInThisJump = true;
-            lossHP();
+            GetDamage();
             Camera.main.GetComponent<FollowTarget>().ShakeCamera();
             if (isDead())
             {
@@ -366,13 +366,19 @@ public class Player : MonoBehaviour
         Camera.main.GetComponent<FollowTarget>().ShakeCamera();
     }
 
+    public void GetDamage(float damage = 1)
+    {
+        Debug.LogError("player damage " + damage);
+        lossHP(damage);
+    }
+
     public void gainHP(float gainedHP = 1)
     {
         SFXManager.Instance.PlaySFX(SFXEnum.possitive);
         hp = Mathf.Min(hp + gainedHP, maxHP);
     }
 
-    public void lossHP(float gainedHP = 1)
+    public void lossHP(float gainedHP)
     {
         hp = Mathf.Max(hp - gainedHP, 0);
     }

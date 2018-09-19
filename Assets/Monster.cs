@@ -18,7 +18,10 @@ public class Monster : MonoBehaviour {
     public SpriteRenderer monsterSpriteRender;
     public TextMeshProUGUI hpText;
     public TextMeshProUGUI attackText;
+
+    public GameObject explode;
     MonsterInfo info;
+    bool startDamagePlayer;
 
     public void Init(MonsterInfo monsterInfo)
     {
@@ -34,6 +37,10 @@ public class Monster : MonoBehaviour {
         currentHP = hp;
         attack = initialAttack;
         anim.Rebind();
+
+        isDead = false;
+        startDamagePlayer = false;
+
         //monsterSpriteRender.sprite = sprite;
         UpdateState();
     }
@@ -55,16 +62,44 @@ public class Monster : MonoBehaviour {
         if (currentHP <= 0)
         {
             Dead();
-        }
+        } 
+    }
 
-            
+    public void DamageOnPlayer()
+    {
+        Debug.LogError("damage on player "+isDead);
+        if (isDead|| startDamagePlayer)
+        {
+            return;
+        }
+        startDamagePlayer = true;
+
+        GameLogicManager.Instance.player.GetDamage(attack);
+
+        anim.SetBool("isAttacking", true);
+
+        explode.gameObject.SetActive(true);
+        explode.GetComponent<Animator>().Rebind();
+        SFXManager.Instance.PlaySFX(SFXEnum.bomb);
+        Camera.main.GetComponent<FollowTarget>().ShakeCamera();
     }
 
     public void Dead()
     {
         isDead = true;
         anim.SetBool("isDead", true);
-        //gameObject.SetActive(false);
+    }
+
+    public void FinishDeadAnim()
+    {
+        Debug.LogError("finish dead");
+        gameObject.SetActive(false);
+    }
+
+    public void FinishAttackAnim()
+    {
+        Debug.LogError("finish attack");
+        gameObject.SetActive(false);
     }
 
     public void UpdateState()
