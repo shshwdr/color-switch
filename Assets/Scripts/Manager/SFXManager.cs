@@ -17,6 +17,9 @@ public enum SFXEnum
     weakMaleHit,
     monsterHit,
     girlHit,
+    monsterAttack,
+    maleAttack,
+    swordAttack,
 };
 
 public class SFXManager : Singleton<SFXManager>

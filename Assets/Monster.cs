@@ -54,15 +54,20 @@ public class Monster : MonoBehaviour {
         currentHP -= damage;
         UpdateState();
         //Debug.LogError(info.identifier+ " getDamage");
-        SFXEnum sfxEnum = (SFXEnum)System.Enum.Parse(typeof(SFXEnum), info.hitSfx);
-        audioSource.clip = SFXManager.Instance.SfxClip(sfxEnum);
-        //Debug.LogError("audioSource " + audioSource + " clip " + audioSource.clip);
-        audioSource.Play();
+        PlayAudio(info.hitSfx);
 
         if (currentHP <= 0)
         {
             Dead();
         } 
+    }
+
+    void PlayAudio(string sfxIdentifier)
+    {
+        SFXEnum sfxEnum = (SFXEnum)System.Enum.Parse(typeof(SFXEnum), sfxIdentifier);
+        audioSource.clip = SFXManager.Instance.SfxClip(sfxEnum);
+        //Debug.LogError("audioSource " + audioSource + " clip " + audioSource.clip);
+        audioSource.Play();
     }
 
     public void DamageOnPlayer()
@@ -75,6 +80,8 @@ public class Monster : MonoBehaviour {
         startDamagePlayer = true;
 
         GameLogicManager.Instance.player.GetDamage(attack);
+
+        PlayAudio(info.attackSfx);
 
         anim.SetBool("isAttacking", true);
 
