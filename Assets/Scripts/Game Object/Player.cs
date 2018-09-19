@@ -368,7 +368,7 @@ public class Player : MonoBehaviour
 
     public void GetDamage(float damage = 1)
     {
-        Debug.LogError("player damage " + damage);
+       // Debug.LogError("player damage " + damage);
         lossHP(damage);
     }
 

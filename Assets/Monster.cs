@@ -33,14 +33,15 @@ public class Monster : MonoBehaviour {
 
     public void Init(int initialHp,int initialAttack)
     {
+        gameObject.SetActive(true);
         hp = initialHp;
         currentHP = hp;
         attack = initialAttack;
         anim.Rebind();
-
+        Debug.LogError("rebind"+ anim);
         isDead = false;
         startDamagePlayer = false;
-
+        explode.gameObject.SetActive(false);
         //monsterSpriteRender.sprite = sprite;
         UpdateState();
     }
@@ -72,7 +73,7 @@ public class Monster : MonoBehaviour {
 
     public void DamageOnPlayer()
     {
-        Debug.LogError("damage on player "+isDead);
+        //Debug.LogError("damage on player "+isDead);
         if (isDead|| startDamagePlayer)
         {
             return;
@@ -99,7 +100,7 @@ public class Monster : MonoBehaviour {
 
     public void FinishDeadAnim()
     {
-        Debug.LogError("finish dead");
+        //Debug.LogError("finish dead");
         gameObject.SetActive(false);
     }
 
@@ -107,6 +108,7 @@ public class Monster : MonoBehaviour {
     {
         Debug.LogError("finish attack");
         gameObject.SetActive(false);
+
     }
 
     public void UpdateState()
